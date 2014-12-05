@@ -1,0 +1,177 @@
+body{
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+}
+a{
+	text-decoration: none;
+}
+.center{
+	height: 801px;
+	width: 100%;
+	/*background-size: 100% auto;
+	background: url("../images/bg.png") repeat scroll 0 0 / 100% auto rgba(0, 0, 0, 0);*/
+	background: url("../images/bg.png") no-repeat scroll center top / 100% auto #fefefe;
+}
+.header{
+	height:120px;
+	width: 100%;
+	position: absolute;
+	padding-top: 30px;
+}
+.logo{
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+.logo img{
+	max-height: 100%;
+	width: 70%;
+}
+.logo_img{
+	width: 50%;	
+	float: left;
+	text-align: center;
+}
+.login{
+	width: 50%;
+	float: left;
+	text-align: right;
+	margin-top: 17px;
+}
+.submitBtn{
+	background: #92009F;
+	padding: 5px 15px;
+	color: #fff;
+	border-radius: 3px;
+	border:1px solid #92009F;
+	cursor: pointer;
+}
+.text{
+	border:1px solid #92009F;
+	border-radius: 3px;
+	height: 26px;
+	text-indent: 10px;
+	font-size: 1em;
+	margin-right: 15px;
+	width: 20%;
+}
+.login_text{
+	border:1px solid #A0A0A0;
+	border-radius: 3px;
+	height: 26px;
+	text-indent: 10px;
+	font-size: 15px;
+	margin-right: 15px;
+	width: 70%;
+	background: #DEF5FD;
+}
+.regForm{
+	background:#e4f5fc;
+    height: 372px;
+    left: 50%;
+    opacity: 0.5;
+    position: absolute;
+    text-align: center;
+    top: 35%;
+    width: 40%;
+}
+td {
+    color: #000;
+    font-size: 15px;
+    text-align: left;
+}
+.freeReg{
+	background: #92009f;
+    border: 1px solid #92009f;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 20px;
+    padding: 6px 50px;
+    cursor: pointer;
+}
+@media only screen and (max-width: 720px) {
+	.regForm{
+		top: 10%;
+	}
+}
+
+/****************************/
+
+.list-header{
+	width: 100%;height: 105px;background: url(../images/daohang.png);
+}
+.list-header-logo{
+	width: 1000px;background: url(../images/daohang.png);
+	height: 105px;margin: 0 auto;
+}
+.logo-img-left{
+	width: 470px;
+	height: 105px;
+	float: left;
+}
+.logoImg{
+	float: left;
+	margin-top: 24px;
+}
+.hot-line{
+	color: #fff;
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    height: 105px;
+    line-height: 105px;
+    text-align: center;
+    width: 300px;
+}
+.list-main{
+	height: auto;
+	overflow: hidden;
+	width: 1000px;
+	margin: 0 auto;
+}
+.list-position{
+	text-align: right;padding-right: 10px;font-size: 13px;
+}
+.list-position a{
+	color: #92009F;font-weight: bold;
+}
+.list-main-people{
+	width: 930px;height: auto;border: 5px solid #DED5D8;background: #FFFFFF;padding: 10px 30px;overflow: hidden;
+}
+.list-title{
+	color: #92009F;border-bottom: 1px dashed #DED5D8;margin: 0;line-height: 30px;font-size: 19px;font-weight: bold;;
+}
+.select-conditions{
+	margin-top: 10px;
+}
+.select-conditions select {
+    width: 100px;
+}
+
+.select-conditions span {
+    margin-right: 40px;
+    font-size: 15px;
+}
+.list-content-parent{
+	height: auto;
+    margin-top: 30px;
+    overflow: hidden;
+}
+.list-content{
+	width: 200px;height: 255px;float: left;margin-right: 43px;
+}
+.list-content-img{
+	height: 205px;
+}
+.list-content-name{
+	height: 50px;line-height: 50px;text-align: center;
+}
+
+.list-content-name a {
+    color: #555;
+    font-size: 15px;
+}
+.horse{
+	width:1138px;margin: 0 auto;height: 149px;;
+}
