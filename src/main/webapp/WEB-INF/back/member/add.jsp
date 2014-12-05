@@ -169,7 +169,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<option value="158cm">158cm</option>
 						<option value="159cm">159cm</option>
 						<option value="160cm">160cm</option>
-						<option value="150cm">150cm</option>
 						<option value="161cm">161cm</option>
 						<option value="162cm">162cm</option>
 						<option value="163cm">163cm</option>
@@ -247,14 +246,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 			  <th>
-				出生年月:
-			  </th>
-			  <td>
-				<input name="birthday"/>
-			  </td>
-			</tr>
-			<tr>
-			  <th>
 				常驻地区:
 			  </th>
 			  <td>
@@ -279,12 +270,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </th>
 			  <td>
 				<select name="degree">
-				  <option value="未婚">中专或相关学历</option>
-				  <option value="离异">大专</option>
-				  <option value="丧偶">本科</option>
-				  <option value="未婚">双学士</option>
-				  <option value="离异">硕士</option>
-				  <option value="丧偶">博士</option>
+				  <option value="中专或相关学历">中专或相关学历</option>
+				  <option value="大专">大专</option>
+				  <option value="本科">本科</option>
+				  <option value="双学士">双学士</option>
+				  <option value="硕士">硕士</option>
+				  <option value="博士">博士</option>
 				  <option value="博士后">博士后</option>
 				</select>
 			  </td>

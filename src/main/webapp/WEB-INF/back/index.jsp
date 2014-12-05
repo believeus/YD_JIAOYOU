@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <head id="Head1">
-    <title>OYE后台管理系统</title>
+    <title>后台管理系统</title>
     <meta http-equiv="Content-Type" content="text/html charset=gbk"/>
     <link href="/static/public/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/static/public/js/themes/default/easyui.css" />
@@ -17,9 +17,7 @@
 	 var _menus = {"menus":[
 			{"menuid":"1","icon":"icon-sys","menuname":"内容管理",
 				"menus":[
-						<shiro:hasPermission name="newsDinamic:view">
-				         {"menuname":"会员管理","icon":"icon-users","url":"/admin/member/list.jhtml"}
-				        </shiro:hasPermission>
+				         {"menuname":"会员管理","icon":"icon-users","url":"/admin/member/list.jhtml"},
 					]
 			}
 		/* 	,{"menuid":"2","icon":"icon-sys","menuname":"系统管理",
@@ -125,7 +123,7 @@
         background: url(/static/public/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
         <span style="float:right; padding-right:20px;" class="head">欢迎 admin <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
-        <span style="padding-left:10px; font-size: 16px; "><img src="/static/public/images/blocks.gif" width="20" height="20" align="absmiddle" />朗悦 www.oyemoving.com</span>
+        <span style="padding-left:10px; font-size: 16px; "></span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
         <div class="footer">By 朗悦</div>
@@ -141,7 +139,8 @@
         <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
 			<div title="欢迎使用" style="padding:20px;overflow:hidden;" id="home">
 				
-			<h1 style="font-size: 40px;">欢迎登陆后台</h1>
+			<h1 style="font-size: 40px;">${sessionUser.username }</h1>
+			<h1 style="font-size: 30px;">欢迎您登陆后台</h1>
 			</div>
 		</div>
     </div>

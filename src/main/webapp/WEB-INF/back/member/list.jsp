@@ -1,9 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -45,58 +47,97 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="refreshIcon">&nbsp;</span>刷新
 				</a>
 			</div>
-			<%-- <div class="menuWrap">
-				<div class="search">
-					<span id="searchPropertySelect" class="arrow">&nbsp;</span>
-					<input type="text" id="searchValue" name="searchValue" value="${searchValue}" maxlength="200" />
-					<button type="submit">&nbsp;</button>
-				</div>
-				<div class="popupMenu">
-					<ul id="searchPropertyOption">
-						<li>
-							<a href="javascript:;" class="current" val="title">标题</a>
-						</li>
-					</ul>
-				</div>
-			</div> --%>
 		</div>
 		<table id="listTable" class="list">
 			<tr>
-				<th class="check">
-					<input type="checkbox" id="selectAll" />
+				<th>
+					<a href="javascript:;" class="sort" name="id">姓名/昵称</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="id">排序编号</a>
+					<a href="javascript:;" class="sort" name="title">职业类型</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="title">标题</a>
+					<a href="javascript:;" class="sort" name="title">身份证</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="top">置顶</a>
+					<a href="javascript:;" class="sort" name="title">身高</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="title">婚姻情况</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="title">学历</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="top">手机号</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="top">年薪</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="top">资产</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="top">购车情况</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="top">购房情况</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="top">艺术照</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="top">生活照</a>
 				</th>
 				<th>
 					<a href="#"  class="sort">操作</a>
 				</th>
+				
 			</tr>
-			<c:forEach var="myNew" items="${news}" varStatus="status">
+			<c:forEach var="member" items="${members}" varStatus="status">
 				<tr>
 					<td>
-						<input type="checkbox" name="ids" value="${myNew.id}" />
+						${member.username}/${member.nickName}
 					</td>
 					<td>
-						<span>${status.index+1}</span>
+						${member.career}	
 					</td>
 					<td>
-						${myNew.title}
+						${member.idCard}
 					</td>
 					<td>
-					    <c:choose>
-					       <c:when test="${myNew.top eq 1}"><a href="/admin/news/down.jhtml?myNewId=${myNew.id}"><font color="green">取消置顶</font></a></c:when>
-					       <c:otherwise><a href="/admin/news/top.jhtml?myNewId=${myNew.id}"><font color="red">点击置顶</font></a></c:otherwise>
-					    </c:choose>
+					   ${member.height}
 					</td>
 					<td>
-						<a href="/admin/news/edit.jhtml?myNewId=${myNew.id}">[修改]</a>
+					   ${member.marriageCase}
+					</td>
+					<td>
+					   ${member.degree}
+					</td>
+					<td>
+					   ${member.phoneNum}
+					</td>
+					<td>
+					   ${member.yearSalary}
+					</td>
+					<td>
+					   ${member.asset}
+					</td>
+					<td>
+					   ${member.carCase}
+					</td>
+					<td>
+					   ${member.houseCase}
+					</td>
+					<td>
+					   <img  src="/${member.artImage}?w=100&h=100"/>
+					</td>
+					<td>
+					   <img  src="/${member.lifeImage}?w=100&h=100"/>
+					</td>
+					<td>
+						<a href="/admin/member/edit.jhtml?memberId=${member.id}">[修改]</a>
+						<a href="/admin/member/delete.jhtml?memberId=${member.id}">[刪除]</a>
 					</td>
 				</tr>
 			</c:forEach>
