@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			success: function(data) {
 					// 如果注册成功，则进行跳转
 					if(data.message=="success"){
-						alert("success!"); 
+						window.location.href="/memberList.jhtml";
 					}else{
 						alert(data.message);
 					}
@@ -89,8 +89,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="text" name="phoneNum" id="phoneNum" placeholder="手机号" class="text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"/>
 			<input type="password" name="ppassword" id="ppassword" placeholder="密码" class="text"/>
 			<input type="button" value="登录" class="submitBtn" onClick="submitF();"/>
-		 </form>
 			<a href="/findpassword.jhtml" style="margin-right: 30px;color: #999;text-decoration: underline;">忘记密码？</a>
+		 </form>
 		</div>
 	</div>
 	

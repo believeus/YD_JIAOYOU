@@ -42,7 +42,7 @@ public class ControllerIndex {
 	@RequestMapping(value="/login")
 	public void login(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		String phoneNum = request.getParameter("phoneNum");
-		String password = request.getParameter("password");
+		String password = DigestUtils.md5Hex(request.getParameter("password"));
 		Map<String, Object> message=new HashMap<String, Object>();
 		Tmember member = (Tmember)baseService.findObject(Tmember.class, "phoneNum", phoneNum);
 		if (member==null) {

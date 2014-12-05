@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div style="float: left;margin: 0 0 0 150px;">
 				<div style="float: left; width: 388px; height: 50px; margin: 25px 0; line-height: 50px;color:#fff;line-height:50px;font-size:20px;">
 					<span style="color:#00f;">${member.phoneNum }</span>,您好。欢迎来到丽人！
-					<a href="#" style="color:red;font-size:13px;">[退出]</a>
+					<a href="/logout.jhtml" style="color:red;font-size:13px;">[退出]</a>
 				</div>
 			</div>
 		</div>

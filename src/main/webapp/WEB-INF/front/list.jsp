@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<i style="width:28px;height:28px;background:url(/static/public/images/phone.png);display:inline-block;position: relative;top: 6px;"></i>
 						丽人热线：400-8888-6666
 					</span>
-					<a href="#" style="color:red;font-size:13px;">[退出]</a>
+					<a href="/logout.jhtml" style="color:red;font-size:13px;">[退出]</a>
 				</div>
 			</div>
 		</div>
