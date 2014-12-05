@@ -30,9 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$inputForm.validate({
 			rules: {
 				nickName: "required"
-				,yearSalary: "required"
-				,houseCase: "houseCase"
-				,unitNature: "required"
 			}
 		});
 		
@@ -86,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					年&nbsp;薪：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="yearSalary"  id="yearSalary">
+					<select validate="required:true"  style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="yearSalary"  id="yearSalary">
 						  <option value="">--请选择--</option>
 						  <option value="36000以下">36000以下</option>
 						  <option value="3.6万-6万">3.6万-6万</option>
@@ -108,16 +105,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					住房状况：
-					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="houseCase"  id="houseCase">
-						<option value="">--请选择--</option>
-						<option value="暂时未购车">暂未购车</option>
-				  		<option value="已购车一辆">已购车一辆</option>
-				  		<option value="已购多辆车">已购多辆车</option>
+					<select validate="required:true" style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="houseCase"  id="houseCase">
+						  <option value="">--请选择--</option>
+						  <option value="暂未购房">暂未购房</option>
+						  <option value="已购一室一厅">已购一室一厅</option>
+						  <option value="已购二室一厅">已购二室一厅</option>
+						  <option value="已购二室二厅">已购二室二厅</option>
+						  <option value="已购三室一厅">已购三室一厅</option>
+						  <option value="已购三室二厅">已购三室二厅</option>
+						  <option value="已购复式住房">已购复式住房</option>
+						  <option value="已购别墅">已购别墅</option>
+						  <option value="已购多套住房">已购多套住房</option>
+						  <option value="与人合租">与人合租</option>
+						  <option value="与父母同住">与父母同住</option>
+						  <option value="住亲朋家">住亲朋家</option>
+						  <option value="住单位房">住单位房</option>	
+						  <option value="打算婚后购房">打算婚后购房</option>
 					</select>
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					单位性质：
-					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name=unitNature  id="unitNature">
+					<select validate="required:true"  style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name=unitNature  id="unitNature">
 						<option value="">--请选择--</option>
 						<option value="国企">国企</option>
 						<option value="私企">私企</option>

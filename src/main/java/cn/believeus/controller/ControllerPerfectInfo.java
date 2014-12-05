@@ -36,6 +36,6 @@ public class ControllerPerfectInfo {
 		member.setHouseCase(houseCase);
 		member.setUnitNature(unitNature);
 		baseService.saveOrUpdata(member);
-		return "/WEB-INF/front/list.jsp";
+		return "redirect:/memberList.jhtml";
 	}
 }

@@ -32,12 +32,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			rules: {
 				phoneNum: "required"
 				,password: "required"
-				,enpassword: "required" 
+				,enpassword: {
+				    required: true,
+				    equalTo: "#password"
+				   }
 				/*,vCode: "required"*/
 			}
 		});
 		
+		
 	});
+	// ajax 提交验证和注册。
+	function submitF(){
+		var phoneNum=$("#phoneNum").val();
+		var password=$("#ppassword").val();
+		if(phoneNum==""&&password==""){
+			return;
+		}
+		$.ajax({
+			url: "/login.jhtml",
+			type: "get",
+			data: {
+				phoneNum:phoneNum,
+				password:password
+				},
+			dataType: "json",
+			cache: false,
+			success: function(data) {
+					// 如果注册成功，则进行跳转
+					if(data.message=="success"){
+						alert("success!"); 
+					}else{
+						alert(data.message);
+					}
+				}
+			});
+	}
 	</script>
 </head>
 
@@ -55,10 +85,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</a>
 		</div>
 		<div class="login">
-			<input type="text" name="username" placeholder="登录ID/手机号" class="text"/>
-			<input type="password" name="password" placeholder="密码" class="text"/>
-			<input type="button" value="登录" class="submitBtn"/>
-			<a href="#" style="margin-right: 30px;color: #999;text-decoration: underline;">忘记密码？</a>
+		  <form id="loginForm" action="" method="post">
+			<input type="text" name="phoneNum" id="phoneNum" placeholder="手机号" class="text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"/>
+			<input type="password" name="ppassword" id="ppassword" placeholder="密码" class="text"/>
+			<input type="button" value="登录" class="submitBtn" onClick="submitF();"/>
+		 </form>
+			<a href="/findpassword.jhtml" style="margin-right: 30px;color: #999;text-decoration: underline;">忘记密码？</a>
 		</div>
 	</div>
 	
@@ -79,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>手机号码：</td>
-					<td><input type="text" name="phoneNum" class="login_text"></td>
+					<td><input type="text" name="phoneNum" class="login_text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"></td>
 					<td></td>
 				</tr>
 				<tr>
@@ -89,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>密码：</td>
-					<td><input type="password" name="password" class="login_text"></td>
+					<td><input type="password" name="password" id="password" class="login_text"></td>
 					<td></td>
 				</tr>
 				<tr>
