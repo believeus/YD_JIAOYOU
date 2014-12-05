@@ -163,13 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					年龄:
 				</th>
 				<td>
-					<select name="age">
-						<option value="18-26">18-26</option>
-						<option value="27-36">27-36</option>
-						<option value="37-46">37-46</option>
-						<option value="47-56">47-56</option>
-						<option value="57以上">57以上</option>
-					</select>
+					<input name="age"/>
 				</td>
 			</tr>
 			<tr>

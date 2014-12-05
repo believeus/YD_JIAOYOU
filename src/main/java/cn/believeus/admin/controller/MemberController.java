@@ -214,6 +214,9 @@ public class MemberController {
 	public String edit(Integer memberId, HttpServletRequest request){
 		Tmember member=(Tmember)baseService.findObject(Tmember.class, memberId);
 		request.setAttribute("member", member);
+		System.out.println(member.getSex());
+		String sex = String.valueOf(member.getSex());
+		request.setAttribute("sex",sex);
 		return "/WEB-INF/back/member/edit.jsp";
 	}
 	

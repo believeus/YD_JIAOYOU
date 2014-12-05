@@ -76,10 +76,11 @@ a{
     top: 35%;
     width: 40%;
 }
-td {
+#inputForm td {
     color: #000;
     font-size: 15px;
     text-align: left;
+    line-height: 55px;
 }
 .freeReg{
 	background: #92009f;

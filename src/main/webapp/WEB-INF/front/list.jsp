@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,14 +9,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>丽人交友网-美女列表</title>
+		<script type="text/javascript" src="/static/public/js/jquery.js"></script>
 		<link rel="stylesheet" href="/static/public/css/style.css" />
 		<link href="/static/public/css/common_s.css" rel="stylesheet" type="text/css" />
 	</head>
+	<script type="text/javascript">
+		$(function(){
+			$("#ageRange").val("${ageRange}");
+			$("#yearSalary").val("${yearSalary}");
+			$("#houseCase").val("${houseCase}");
+			$("#unitNature").val("${unitNature}");
+		});
+	</script>
 	<body style="background: url(/static/public/images/bg2-1.jpg);overflow-x:hidden;">
 		<div class="list-header">
 			<div class="list-header-logo">
@@ -48,12 +57,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<form action="/search.jhtml" method="post">
 					<span>
 						性别:
-						<label>男<input type="radio" name="sex" value="boy"/></label>&nbsp;
-						<label>女<input type="radio" name="sex" value="girl"/></label>
+						<label>男<input type="radio" name="sex" value="男" <c:if test="${sex=='男'}">checked="checked"</c:if> /></label>&nbsp;
+						<label>女<input type="radio" name="sex" value="女" <c:if test="${sex=='女'}">checked="checked"</c:if> /></label>
 					</span>
 					<span>
 						年龄:
-						<select name="ageRage">
+						<select name="ageRange" id="ageRange">
 							<option value="">--请选择--</option>
 							<option value="18-26">18-26</option>
 							<option value="27-36">27-36</option>
@@ -64,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						年薪:
-						<select name="yearSalary">
+						<select name="yearSalary" id="yearSalary">
 							<option value="">--请选择--</option>
 							  <option value="36000以下">36000以下</option>
 							  <option value="3.6万-6万">3.6万-6万</option>
@@ -86,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						住房:
-						<select name="houseCase">
+						<select name="houseCase" id="houseCase">
 							<option value="">--请选择--</option>
 							<option value="暂未购房">暂未购房</option>
 							  <option value="已购一室一厅">已购一室一厅</option>
@@ -106,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						工作性质:
-						<select name="unitNature">
+						<select name="unitNature" id="unitNature">
 							<option value="">--请选择--</option>
 							<option value="国企">国企</option>
 							<option value="私企">私企</option>
@@ -122,12 +131,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<c:forEach items="${memberList}" var="list" varStatus="status">
 						<div class="list-content" <c:if test="${(status.index+1)%4==0 }"> style="margin-right:0;"</c:if>>						
 							<div class="list-content-img">
-								<a href="#">
+								<a href="/memberInfo.jhtml?id=${list.id }">
 									<img src="${list.artImage }" width="200px" height="205px"/>
 								</a>
 							</div>
 							<div class="list-content-name">
-								<a href="#">
+								<a href="/memberInfo.jhtml?id=${list.id }">
 									<span>${list.username }</span>&nbsp;&nbsp;<span>${list.age }</span>
 								</a>
 							</div>

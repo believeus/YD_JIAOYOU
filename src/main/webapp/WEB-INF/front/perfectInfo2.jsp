@@ -41,20 +41,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	<div class="header" style="background-image: url(/static/public/images/daohang.png);width: 100%;height: 100px;padding-top:0;position:static;">
-		<div style="width: 1000px;margin: 0 auto;">
-			<div style="float: left;margin: 20px auto;">
-				<a href="/"><img src="/static/public/images/liren2.png" /></a>
-			</div>
-			<div style="float: left;margin: 39px 15px;">
-				<a href="/"><img src="/static/public/images/true2.png" /></a>
-			</div>
-			<div style="float: left;margin: 0 0 0 150px;">
-				<div style="float: left; width: 388px; height: 50px; margin: 25px 0; line-height: 50px;color:#fff;line-height:50px;font-size:20px;">
-					<span style="color:#00f;">${member.phoneNum }</span>,您好。欢迎来到丽人！
-					<a href="#" style="color:red;font-size:13px;">[退出]</a>
+	<div class="header" style="background-image: url(/static/public/images/daohang.png);width: 100%;height: 100px;padding-top:0;">
+		<div style="float: left;margin: 20px 0.5% 20px 16%;">
+			<a href="/"><img src="/static/public/images/liren2.png" /></a>
+		</div>
+		<div style="float: left;margin: 39px 0.9%;">
+			<a href="/"><img src="/static/public/images/true2.png" /></a>
+		</div>
+		<div style="float: left;margin: 0 0 0 6%;">
+			<form action="#" method="post">
+				<div style="float: left;margin: 34px 3%;width: 32%;">
+					<input style="width: 100%;height: 30px;border-style: none;border-radius: 2px;" 
+						type="text" name="username"  id="username" placeholder="登录ID/手机号" />
 				</div>
-			</div>
+				<div style="float: left;margin: 34px 3%;width: 32%;">
+					<input style="width: 100%;height: 30px;border-style: none;border-radius: 2px;" 
+						type="password" name="password" id="password" placeholder="密码" />
+				</div>
+				<div style="float: left;margin: 35px 3%;width: 18%;">
+					<input style="width: 100%;height: 30px;border-style: none;border-radius: 2px;color: #770284;cursor: pointer;" 
+						type="submit" value="登 录"/>
+				</div>
+			</form>
+		</div>
+		<div style="float: left;line-height: 100px;">
+			<a style="color: #FFFFFF;text-decoration: underline;" href="#">忘记密码？</a>
 		</div>
 	</div>
 	
@@ -69,9 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<div class="" style="width: 722px; height: 629px;margin: 0 auto;border: 12px solid #E0D7DA;background-image: url(/static/public/images/bg2-2.jpg);">
-			<div style="font-size: 16px;text-align: center; margin-top: 108px;font-weight: bold;">
-				<a href="#" style="color: #790284;">我的资料</a>
-			</div>
+			<div style="font-size: 16px;text-align: center; margin-top: 108px;font-weight: bold;">我的资料</div>
 			<form id="inputForm" action="/savePerfectInfo.jhtml" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="${member.id }"/>
 				<div style="font-size: 14px;margin-top: 44px;margin-left: 35px;">
@@ -132,8 +141,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</form>
 		</div>
-		<div class="" style="width: 1000px; height: auto;margin: 30px auto 0px;">
-			<img style="width: 1000px;" src="/static/public/images/horse.png" />
+		<div class="" style="width: 80%; height: auto;margin: 0 auto;">
+			<img src="/static/public/images/horse.png" />
 		</div>
     </div>
     

@@ -32,7 +32,7 @@ public class ControllerPerfectInfo {
 		Tmember  member= (Tmember)baseService.findObject(Tmember.class, id);
 		member.setNickName(nickName);
 		member.setSex(sex);
-		member.setYearSalary(yearSalary);
+		member.setYearSalary(yearSalary);   
 		member.setHouseCase(houseCase);
 		member.setUnitNature(unitNature);
 		baseService.saveOrUpdata(member);
