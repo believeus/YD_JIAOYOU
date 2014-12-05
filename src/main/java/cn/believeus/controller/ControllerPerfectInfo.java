@@ -1,5 +1,7 @@
 package cn.believeus.controller;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,9 +23,19 @@ public class ControllerPerfectInfo {
 	}
 
 	@RequestMapping(value="/savePerfectInfo")
-	public String savePerfectInfo(){
-		System.out.println("--ss------");
-		//baseService.saveOrUpdata(member);
+	public String savePerfectInfo(Integer id,HttpServletRequest request){
+		String nickName = request.getParameter("nickName");
+		char sex = request.getParameter("sex").charAt(0); 
+		String yearSalary = request.getParameter("yearSalary");
+		String houseCase = request.getParameter("houseCase");
+		String unitNature = request.getParameter("unitNature");
+		Tmember  member= (Tmember)baseService.findObject(Tmember.class, id);
+		member.setNickName(nickName);
+		member.setSex(sex);
+		member.setYearSalary(yearSalary);
+		member.setHouseCase(houseCase);
+		member.setUnitNature(unitNature);
+		baseService.saveOrUpdata(member);
 		return "/WEB-INF/front/list.jsp";
 	}
 }

@@ -12,6 +12,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="/static/public/css/main.css" />
 <link rel="stylesheet" href="/static/public/css/style.css" />
 <script type="text/javascript" src="/static/public/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/public/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/static/public/js/common.js"></script>
+<script type="text/javascript" src="/static/public/js/input.js"></script>
 <script src='/static/public/js/me.js'></script>
 <style type="text/css">
 	body{
@@ -19,6 +22,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 	a:hover{text-decoration:underline;color: #C20C0C;}
 </style>
+<script type="text/javascript">
+	$().ready(function() {
+	
+		var $inputForm = $("#inputForm");
+		// 表单验证
+		$inputForm.validate({
+			rules: {
+				nickName: "required"
+			}
+		});
+		
+	});
+	</script>
 </head>
 
 <body>
@@ -62,9 +78,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="" style="width: 722px; height: 629px;margin: 0 auto;border: 12px solid #E0D7DA;background-image: url(/static/public/images/bg2-2.jpg);">
 			<div style="font-size: 16px;text-align: center; margin-top: 108px;font-weight: bold;">我的资料</div>
-			<form action="/savePerfectInfo.jhtml" method="post">
+			<form id="inputForm" action="/savePerfectInfo.jhtml" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="${member.id }"/>
-				<input type="hidden" name="phoneNum" value="${member.phoneNum }"/>
 				<div style="font-size: 14px;margin-top: 44px;margin-left: 35px;">
 					昵&nbsp;称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input style="width: 20%;height: 20px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="nickName"  id="nickName" />
@@ -78,19 +93,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					年&nbsp;薪：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="yearSalary"  id="yearSalary">
-						<option value="0"></option>
-						<option value="1">1万-2万</option>
-						<option value="1">2万-3万</option>
-						<option value="3">3万-4万</option>
+						  <option value="36000以下">36000以下</option>
+						  <option value="3.6万-6万">3.6万-6万</option>
+						  <option value="6万-9.6万">6万-9.6万</option>
+						  <option value="9.6万-14.4万">9.6万-14.4万</option>
+						  <option value="14.4万-24万">14.4万-24万</option>
+						  <option value="24万-36万">24万-36万</option>
+						  <option value="36万-60万">36万-60万</option>
+						  <option value="60万-96万">60万-96万</option>
+						  <option value="96万-120万">96万-120万</option>
+						  <option value="120万-360万">120万-360万</option>
+						  <option value="360万-600万">360万-600万</option>
+						  <option value="600万-600万">600万-600万</option>
+						  <option value="600万-1.2亿">600万-1.2亿</option>
+						  <option value="1.2亿-24亿">1.2亿-24亿</option>
+						  <option value="24亿-60亿">24亿-60亿</option>	
+						  <option value="60亿以上">60亿以上</option>
 					</select>
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					住房状况：
 					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="houseCase"  id="houseCase">
 						<option value="0"></option>
-						<option value="1">没有住房</option>
-						<option value="1">有一套住房</option>
-						<option value="3">有两套住房</option>
+						<option value="暂时未购车">暂未购车</option>
+				  		<option value="已购车一辆">已购车一辆</option>
+				  		<option value="已购多辆车">已购多辆车</option>
 					</select>
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
@@ -99,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<option value="0"></option>
 						<option value="1">私营企业</option>
 						<option value="1">国有企业</option>
-						<option value="3">外资企业</option>
+						<option value="3">外资企业</option>	
 					</select>
 				</div>
 				<div style="font-size: 14px;margin-top: 110px;margin-left: 430px;">
