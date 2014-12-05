@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>丽人交友网-美女列表</title>
 		<script type="text/javascript" src="/static/public/js/jquery.js"></script>
+		<script type="text/javascript" src="/static/public/js/list.js"></script>
 		<link rel="stylesheet" href="/static/public/css/style.css" />
 		<link href="/static/public/css/common_s.css" rel="stylesheet" type="text/css" />
 	</head>
@@ -30,17 +31,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="list-header-logo">
 				<div class="logo-img-left">
 					<div class="logoImg">
-						<img src="/static/public/images/liren2.png" />
+						<a href="/">
+							<img src="/static/public/images/liren2.png" />
+						</a>
 					</div>
 					<div class="logoImg" style="margin-top: 42px; margin-left: 20px;">
-						<img src="/static/public/images/true2.png" />
+						<a href="/">
+							<img src="/static/public/images/true2.png" />
+						</a>
 					</div>
 				</div>
-				<div class="hot-line">
+				<div class="hot-line" style="width:350px;">
 					<span>
 						<i style="width:28px;height:28px;background:url(/static/public/images/phone.png);display:inline-block;position: relative;top: 6px;"></i>
 						丽人热线：400-8888-6666
 					</span>
+					<a href="#" style="color:red;font-size:13px;">[退出]</a>
 				</div>
 			</div>
 		</div>
@@ -287,6 +293,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 					</div> -->
 				</div>
+				<form action="/memberList.jhtml" id="listForm">
+					<jsp:include page="/WEB-INF/include/pagination.jsp" flush="true" />
+				</form>
 			</div>
 		</div>
 		<div class="horse">

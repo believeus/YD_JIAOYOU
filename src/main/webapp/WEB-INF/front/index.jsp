@@ -50,7 +50,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="logo_img" style="margin-top: 17px;">
 				<img src="images/true.png" />
 			</div>-->
-			<img src="/static/public/images/logo.png" />
+			<a href="/">
+				<img src="/static/public/images/logo.png" />
+			</a>
 		</div>
 		<div class="login">
 			<input type="text" name="username" placeholder="登录ID/手机号" class="text"/>
