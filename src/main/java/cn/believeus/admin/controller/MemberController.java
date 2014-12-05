@@ -230,7 +230,7 @@ public class MemberController {
           //通过Pattern获得Matcher  
           Matcher birthDateMather= birthDatePattern.matcher(idcard);  
           //通过Matcher获得用户的出生年月日  
-          if(birthDateMather.find()){  
+          if(birthDateMather.find()){
               String year = birthDateMather.group(1);  
               String month = birthDateMather.group(2);  
               String date = birthDateMather.group(3);  

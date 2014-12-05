@@ -17,13 +17,15 @@ public class Tmember extends TbaseEntity {
 	private char sex;
 	// 身份证号码
 	private String idCard;
+	// 年龄
+	private int age;
 	// 电话号码
 	private String phoneNum;
 	// 密码
 	private String password;
 	// 身高
 	private String height;
-	// 身高
+	// 生日
 	private long birthday;
 	// 常住地
 	private String residentPlace;
@@ -33,7 +35,7 @@ public class Tmember extends TbaseEntity {
 	private String degree;
 	// 职业类型
 	private String career;
-	// 月薪
+	// 年薪
 	private String yearSalary;
 	// 资产
 	private String asset;
@@ -163,4 +165,11 @@ public class Tmember extends TbaseEntity {
 	public void setYearSalary(String yearSalary) {
 		this.yearSalary = yearSalary;
 	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
 }

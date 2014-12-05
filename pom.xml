@@ -5,7 +5,7 @@
 	<artifactId>OYE</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>OYE</name>
+	<name>YD_JIAOYOU</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
