@@ -3,12 +3,12 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>添加新闻 - Powered By believeus</title>
+     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>编辑会员 - Powered By believeus</title>
 	<meta name="author" content="believeus Team" />
 	<meta name="copyright" content="believeus" />
 	<link href="/static/public/css/common_s.css" rel="stylesheet" type="text/css" />
@@ -32,20 +32,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        this.sync();
 	        $('textarea').valid();
 	    });
-	    
+	
 	    var editor1 = new UE.ui.Editor();
 	    editor1.render('editor1');
 	    editor1.addListener('contentchange',function(){
 	        this.sync();
 	        $('#editor1').valid();
 	    });
-	
+	    
 		var $inputForm = $("#inputForm");
+		
 		// 表单验证
 		$inputForm.validate({
 			rules: {
 				title: "required",
-				upload_img: "required",
 				content: "required",
 				entitle: "required",
 				encontent: "required",
@@ -53,16 +53,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		});
 		
+		
 	});
 	
 	</script>
   </head>
   
   <body>
-    <div class="path">
-		<a href="/admin/manager.jhtml" target="_parent">首页</a> &raquo; 添加新闻
+     <div class="path">
+		<a href="/admin/manager.jhtml" target="_parent">首页</a> &raquo; 编辑新闻
 	</div>
 	<form id="inputForm" action="/admin/news/save.jhtml" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="${news.id }"/>
+		<input type="hidden" name="path" value="${news.path}"/>
 		<table class="input">
 			<tr>
 				<th>
@@ -70,10 +73,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</th>
 				<td>
 					<select name="type">
-						<option value="">--请选择--</option>
-						<option value="0">最新动态</option>
-						<option value="1">媒体报道</option>
-						<option value="2">常见问题</option>
+						<c:if test="${news.type==null }">
+							<option value="" selected="selected">--请选择--</option>
+							<option value="0">最新动态</option>
+							<option value="1">媒体报道</option>
+							<option value="2">常见问题</option>
+						</c:if>
+						<c:if test="${news.type==0 }">
+							<option value="">--请选择--</option>
+							<option value="0" selected="selected">最新动态</option>
+							<option value="1">媒体报道</option>
+							<option value="2">常见问题</option>
+						</c:if>
+						<c:if test="${news.type==1 }">
+							<option value="">--请选择--</option>
+							<option value="0">最新动态</option>
+							<option value="1" selected="selected">媒体报道</option>
+							<option value="2">常见问题</option>
+						</c:if>
+						<c:if test="${news.type==2 }">
+							<option value="">--请选择--</option>
+							<option value="0">最新动态</option>
+							<option value="1">媒体报道</option>
+							<option value="2" selected="selected">常见问题</option>
+						</c:if>
 					</select>
 				</td>
 			</tr>
@@ -82,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					新闻中文标题:
 				</th>
 				<td>
-					<input type="text" name="title" class="text" maxlength="200" />
+					<input type="text" name="title" class="text" maxlength="10000" value="${news.title}"/>
 				</td>
 			</tr>
 			<tr>
@@ -90,20 +113,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					新闻英文标题:
 				</th>
 				<td>
-					<input type="text" name="entitle" class="text" maxlength="200" />
+					<input type="text" name="entitle" class="text" maxlength="10000" value="${ennews.title}"/>
 				</td>
 			</tr>
-			
 			<tr id="pathTr">
 				<th>
-					相关图片:
+					<span class="requiredField">*</span>相关图片:
 				</th>
 				<td colspan="3">
 					<div>
 						<span style="float:left">
 							<div id="preview_wrapper">    
 						        <div id="preview_fake" >    
-						            <img id="preview" onload="onPreviewLoad(this,190,120)" src="/static/public/images/bg.png"/>
+						            <img id="preview" onload="onPreviewLoad(this,190,120)" src="/${news.path}"/>
 						        </div>    
 						    </div>    
 						    <br/>    
@@ -121,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					中文内容:
 				</th>
 				<td colspan="3">
-					<textarea id="editor" name="content" maxlength="10000" class="editor"></textarea>
+					<textarea id="editor" name="content" class="editor">${news.content}</textarea>
 				</td>
 			</tr>
 			<tr id="contentTr">
@@ -129,7 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					英文内容:
 				</th>
 				<td colspan="3">
-					<textarea id="editor1" name="encontent" maxlength="10000" ></textarea>
+					<textarea id="editor1" name="encontent" class="editor">${ennews.content}</textarea>
 				</td>
 			</tr>
 			<tr>
@@ -138,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</th>
 				<td colspan="3">
 					<input type="submit" class="button" value="确定" />
-					<input type="button" class="button" value="返回"  onclick="javascript:window.history.back();"/>
+					<input type="button" class="button" value="返回" onclick="javascript:window.history.back();"/>
 				</td>
 			</tr>
 		</table>

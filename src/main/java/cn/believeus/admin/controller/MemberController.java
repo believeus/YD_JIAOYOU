@@ -21,12 +21,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import cn.believeus.PaginationUtil.Page;
 import cn.believeus.PaginationUtil.Pageable;
 import cn.believeus.PaginationUtil.PaginationUtil;
+import cn.believeus.model.Tmember;
 import cn.believeus.service.BaseService;
 
 @Controller
-public class NewsController {
+public class MemberController {
 	
-	private static final Log log=LogFactory.getLog(NewsController.class);
+	private static final Log log=LogFactory.getLog(MemberController.class);
 	
 	@Resource
 	private MydfsTrackerServer mydfsTrackerServer;
@@ -39,7 +40,7 @@ public class NewsController {
 	 * @return
 	 */
 	@RequiresPermissions("newsDinamic:view")
-	@RequestMapping(value="/admin/news/list")
+	@RequestMapping(value="/admin/member/list")
 	public String list(HttpServletRequest request){
 		String pageNumber = request.getParameter("pageNumber");
 		// 如果为空，则设置为1
@@ -52,7 +53,7 @@ public class NewsController {
 		// 分页
 		PaginationUtil.pagination(request, page.getPageNumber(),page.getTotalPages(), 0);*/
 
-		return "/WEB-INF/back/news/list.jsp";
+		return "/WEB-INF/back/member/list.jsp";
 	}
 	
 	/**
@@ -60,18 +61,44 @@ public class NewsController {
 	 * @return
 	 */
 	@RequiresPermissions("newsDinamic:create")
-	@RequestMapping(value="/admin/news/add")
+	@RequestMapping(value="/admin/member/add")
 	public String add(){
-		return "/WEB-INF/back/news/add.jsp";
+		return "/WEB-INF/back/member/add.jsp";
 	}
 	
 	/**
 	 * 新闻保存
 	 * @return
 	 * */
-	@RequiresPermissions("newsDinamic:create")
-	@RequestMapping(value="/admin/news/save")
+	@RequestMapping(value="/admin/member/save")
 	public String save(HttpServletRequest request){
+		String username=request.getParameter("username");
+		char sex=request.getParameter("sex").charAt(0);
+		String career=request.getParameter("career");
+		String idCard=request.getParameter("idCard");
+		String nickName=request.getParameter("nickName");
+		String birthday=request.getParameter("birthday");
+		String residentPlace=request.getParameter("residentPlace");
+		String marriageCase=request.getParameter("marriageCase");
+		String degree=request.getParameter("degree");
+		String yearSalary=request.getParameter("yearSalary");
+		String asset=request.getParameter("asset");
+		String carCase=request.getParameter("carCase");
+		String houseCase=request.getParameter("houseCase");
+		Tmember member=new Tmember();
+		member.setUsername(username);
+		member.setSex(sex);
+		member.setCareer(career);
+		member.setIdCard(idCard);
+		member.setCarCase(carCase);
+		member.setMarriageCase(marriageCase);
+		member.setAsset(asset);
+		member.setNickName(nickName);
+		member.setResidentPlace(residentPlace);
+		member.setDegree(degree);
+		member.setYearSalary(yearSalary);
+		member.setCarCase(carCase);
+		member.setHouseCase(houseCase);
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
 		Map<String, MultipartFile> files = multipartRequest.getFileMap();
@@ -82,17 +109,24 @@ public class NewsController {
 				if(inputStream.available()==0){
 					break;
 				}
-				Assert.assertNotNull("upload file InputStream is null", inputStream);
 				String originName=file.getOriginalFilename();
 				String extention = originName.substring(originName.lastIndexOf(".") + 1);
 				log.debug("upload file stuffix:"+extention);
-				storepath += mydfsTrackerServer.upload(inputStream, extention);
+				String formName=file.getName();
+				storepath = mydfsTrackerServer.upload(inputStream, extention);
+				if(formName.equals("artImage")){
+					member.setArtImage(storepath);
+				}else if (formName.equals("lifeImage")) {
+					member.setLifeImage(storepath);
+				}else if(formName.equals("workImage")) {
+					member.setWorkImage(storepath);
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		return "redirect:/admin/news/list.jhtml";
+		baseService.saveOrUpdata(member);
+		return "redirect:/admin/member/list.jhtml";
 	}
 	
 	/**
@@ -102,7 +136,7 @@ public class NewsController {
 	@RequiresPermissions("newsDinamic:update")
 	@RequestMapping(value="/admin/news/edit")
 	public String edit(Integer myNewId, HttpServletRequest request){
-		return "/WEB-INF/back/news/edit.jsp";
+		return "/WEB-INF/back/member/edit.jsp";
 	}
 	
 	/**

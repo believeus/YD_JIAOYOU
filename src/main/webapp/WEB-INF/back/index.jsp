@@ -18,22 +18,18 @@
 			{"menuid":"1","icon":"icon-sys","menuname":"内容管理",
 				"menus":[
 						<shiro:hasPermission name="newsDinamic:view">
-				         {"menuname":"企业新闻管理","icon":"icon-add","url":"/admin/news/list.jhtml"},
+				         {"menuname":"会员管理","icon":"icon-users","url":"/admin/member/list.jhtml"}
 				        </shiro:hasPermission>
-				         
-				        <shiro:hasPermission name="business:view"> 
-						 {"menuname":"服务范围管理","icon":"icon-users","url":"/admin/business/list.jhtml"}
-						</shiro:hasPermission>
 					]
 			}
-			,{"menuid":"2","icon":"icon-sys","menuname":"系统管理",
+		/* 	,{"menuid":"2","icon":"icon-sys","menuname":"系统管理",
 				"menus":[
 						<c:if test="${sessionUser.id==1}">
 				        {"menuname":"角色管理","icon":"icon-log","url":"/admin/roleList.jhtml"},
 				        </c:if>
 						{"menuname":"管理员管理","icon":"icon-log","url":"/admin/adminList.jhtml"}
 					]
-			}
+			} */
 			
 	]};
         //设置登录窗口

@@ -44,6 +44,7 @@
 		<mapping class="cn.believeus.model.Admin"/>
 		<mapping class="cn.believeus.model.Authority"/>
 		<mapping class="cn.believeus.model.Role"/>
+		<mapping class="cn.believeus.model.Tmember"/>
 		
 		
 	</session-factory>

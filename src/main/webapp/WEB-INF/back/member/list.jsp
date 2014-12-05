@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>新闻列表 - Powered By believeus</title>
+	<title>会员列表 - Powered By believeus</title>
 	<meta name="author" content="believeus Team" />
 	<meta name="copyright" content="believeus" />
 	<link href="/static/public/css/common_s.css" rel="stylesheet" type="text/css" />
@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div>
 		<div class="bar">
-			<a href="/admin/news/add.jhtml" class="iconButton">
+			<a href="/admin/member/add.jhtml" class="iconButton">
 				<span class="addIcon">&nbsp;</span>添加
 			</a>
 		<div class="buttonWrap">
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div>
 		<form action="/admin/news/list.jhtml" id="listForm">
-			<jsp:include page="../include/pagination.jsp" flush="true" />
+			<jsp:include page="/WEB-INF/include/pagination.jsp" flush="true" />
 		</form>
 	</div>
   </body>
