@@ -49,6 +49,9 @@ public class Tmember extends TbaseEntity {
 	private String lifeImage;
 	// 工作照
 	private String workImage;
+	//单位性质
+	private String unitNature ;
+	
 	public String getArtImage() {
 		return artImage;
 	}
@@ -170,6 +173,12 @@ public class Tmember extends TbaseEntity {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public String getUnitNature() {
+		return unitNature;
+	}
+	public void setUnitNature(String unitNature) {
+		this.unitNature = unitNature;
 	}
 	
 }

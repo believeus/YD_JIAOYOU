@@ -9,10 +9,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>丽人交友网-详细资料填写</title>
-<link rel="stylesheet" href="css/main.css" />
-<link rel="stylesheet" href="css/style.css" />
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script src='js/me.js'></script>
+<link rel="stylesheet" href="/static/public/css/main.css" />
+<link rel="stylesheet" href="/static/public/css/style.css" />
+<script type="text/javascript" src="/static/public/js/jquery-1.9.1.min.js"></script>
+<script src='/static/public/js/me.js'></script>
 <style type="text/css">
 	body{
 		font-size:12px;
@@ -22,12 +22,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	<div class="header" style="background-image: url(images/daohang.png);width: 100%;height: 100px;">
+	<div class="header" style="background-image: url(/static/public/images/daohang.png);width: 100%;height: 100px;">
 		<div style="float: left;margin: 20px 0.5% 20px 16%;">
-			<a href="#"><img src="images/liren2.png" /></a>
+			<a href="#"><img src="/static/public/images/liren2.png" /></a>
 		</div>
 		<div style="float: left;margin: 39px 0.9%;">
-			<a href="#"><img src="images/true2.png" /></a>
+			<a href="#"><img src="/static/public/images/true2.png" /></a>
 		</div>
 		<div style="float: left;margin: 0 0 0 6%;">
 			<form action="#" method="post">
@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	
-	<div class="center" style="width: 100%; height: auto;margin: 0 auto;background-image: url(images/bg2-1.jpg);">
+	<div class="center" style="width: 100%; height: auto;margin: 0 auto;background-image: url(/static/public/images/bg2-1.jpg);">
 		<div class="" style="width: 1000px; height: 40px;margin: 0 auto;">
 			<div style="float: right;font-size: 14px;line-height: 40px;">
 				<a href="#" style="color: #790284;">完善资料</a>
@@ -60,12 +60,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="#" style="color: #790284;">主页</a>
 			</div>
 		</div>
-		<div class="" style="width: 722px; height: 629px;margin: 0 auto;border: 12px solid #E0D7DA;background-image: url(images/bg2-2.jpg);">
+		<div class="" style="width: 722px; height: 629px;margin: 0 auto;border: 12px solid #E0D7DA;background-image: url(/static/public/images/bg2-2.jpg);">
 			<div style="font-size: 16px;text-align: center; margin-top: 108px;font-weight: bold;">我的资料</div>
-			<form action="#" method="post">
+			<form action="/savePerfectInfo.jhtml" method="post">
+				<input type="hidden" name="id" value="${member.id }"/>
+				<input type="hidden" name="phoneNum" value="${member.phoneNum }"/>
 				<div style="font-size: 14px;margin-top: 44px;margin-left: 35px;">
 					昵&nbsp;称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input style="width: 20%;height: 20px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="name"  id="name" />
+					<input style="width: 20%;height: 20px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="nickName"  id="nickName" />
 				</div>
 				<div style="font-size: 14px;margin-top: 28px;margin-left: 35px;">
 					性&nbsp;别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -75,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					年&nbsp;薪：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="name"  id="name">
+					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="yearSalary"  id="yearSalary">
 						<option value="0"></option>
 						<option value="1">1万-2万</option>
 						<option value="1">2万-3万</option>
@@ -84,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					住房状况：
-					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="name"  id="name">
+					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="houseCase"  id="houseCase">
 						<option value="0"></option>
 						<option value="1">没有住房</option>
 						<option value="1">有一套住房</option>
@@ -93,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					单位性质：
-					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="name"  id="name">
+					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name=unitNature  id="unitNature">
 						<option value="0"></option>
 						<option value="1">私营企业</option>
 						<option value="1">国有企业</option>
@@ -107,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</form>
 		</div>
 		<div class="" style="width: 80%; height: auto;margin: 0 auto;">
-			<img src="images/horse.png" />
+			<img src="/static/public/images/horse.png" />
 		</div>
     </div>
     
