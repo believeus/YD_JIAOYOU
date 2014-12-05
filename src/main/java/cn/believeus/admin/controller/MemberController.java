@@ -71,6 +71,8 @@ public class MemberController {
 	@RequestMapping(value="/admin/member/update")
 	public String update(HttpServletRequest request){
 		String memberId=request.getParameter("memberId");
+		String unitNature = request.getParameter("unitNature");
+		String age=request.getParameter("age");
 		String username=request.getParameter("username");
 		char sex=request.getParameter("sex").charAt(0);
 		String career=request.getParameter("career");
@@ -88,6 +90,10 @@ public class MemberController {
 		String houseCase=request.getParameter("houseCase");
 		Tmember member=(Tmember) baseService.findObject(Tmember.class, Integer.parseInt(memberId));
 		member.setUsername(username);
+		if (!StringUtils.isEmpty(age)) {
+			member.setAge(Integer.parseInt(age));
+		}
+		member.setUnitNature(unitNature);
 		member.setSex(sex);
 		member.setCareer(career);
 		member.setIdCard(idCard);
@@ -135,6 +141,7 @@ public class MemberController {
 	@RequestMapping(value="/admin/member/save")
 	public String save(HttpServletRequest request){
 		String username=request.getParameter("username");
+		String age=request.getParameter("age");
 		char sex=request.getParameter("sex").charAt(0);
 		String career=request.getParameter("career");
 		String idCard=request.getParameter("idCard");
@@ -151,6 +158,9 @@ public class MemberController {
 		String houseCase=request.getParameter("houseCase");
 		Tmember member=new Tmember();
 		member.setUsername(username);
+		if (!StringUtils.isEmpty(age)) {
+			member.setAge(Integer.parseInt(age));
+		}
 		member.setSex(sex);
 		member.setCareer(career);
 		member.setIdCard(idCard);

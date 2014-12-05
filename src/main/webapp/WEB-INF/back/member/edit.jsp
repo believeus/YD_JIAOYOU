@@ -62,6 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$("#asset").val("${member.asset}");
 		$("#carCase").val("${member.carCase}");
 		$("#houseCase").val("${member.houseCase}");
+		$("#unitNature").val("${member.unitNature}");
 	});
 	
 	</script>
@@ -96,6 +97,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</th>
 				<td>
 					<input name="phoneNum" value="${member.phoneNum}"/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					工作性质:
+				</th>
+				<td>
+					<select name="unitNature" id="unitNature">
+						<option value="国企">国企</option>
+						<option value="私企">私企</option>
+						<option value="民营">民营</option>
+						<option value="个体">个体</option>
+						<option value="其它">其它</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
@@ -148,6 +163,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</th>
 				<td>
 					男<input type="radio" value="男" name="sex" checked="checked"/> 女<input type="radio" value="女" name="sex"/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					年龄:
+				</th>
+				<td>
+					<input type="text" name="age" value="${member.age}"/>
 				</td>
 			</tr>
 			<tr>

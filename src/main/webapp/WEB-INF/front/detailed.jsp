@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	<div class="header" style="background-image: url(images/daohang.png);width: 100%;height: 100px;">
+	<div class="header" style="background-image: url(images/daohang.png);width: 100%;height: 100px;padding-top:0;">
 		<div style="float: left;margin: 20px 0.5% 20px 16%;">
 			<a href="#"><img src="images/liren2.png" /></a>
 		</div>

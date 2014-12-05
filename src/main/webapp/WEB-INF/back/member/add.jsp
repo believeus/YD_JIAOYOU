@@ -94,6 +94,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 				<th>
+					工作性质:
+				</th>
+				<td>
+					<select name="unitNature">
+						<option value="国企">国企</option>
+						<option value="私企">私企</option>
+						<option value="民营">民营</option>
+						<option value="个体">个体</option>
+						<option value="其它">其它</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>
 					职业类型:
 				</th>
 				<td>
@@ -142,6 +156,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</th>
 				<td>
 					男<input type="radio" value="男" name="sex" checked="checked"/> 女<input type="radio" value="女" name="sex"/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					年龄:
+				</th>
+				<td>
+					<select name="age">
+						<option value="18-26">18-26</option>
+						<option value="27-36">27-36</option>
+						<option value="37-46">37-46</option>
+						<option value="47-56">47-56</option>
+						<option value="57以上">57以上</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
