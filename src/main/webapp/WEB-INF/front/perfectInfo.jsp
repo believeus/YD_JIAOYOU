@@ -30,6 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$inputForm.validate({
 			rules: {
 				nickName: "required"
+				,yearSalary: "required"
+				,houseCase: "houseCase"
+				,unitNature: "required"
 			}
 		});
 		
@@ -86,13 +89,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div style="font-size: 14px;margin-top: 28px;margin-left: 35px;">
 					性&nbsp;别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="sex" />男
+					<input type="radio" name="sex" checked="checked"/>男
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" checked="checked" name="sex" />女
+					<input type="radio"  name="sex" />女
 				</div>
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					年&nbsp;薪：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="yearSalary"  id="yearSalary">
+						  <option value="">--请选择--</option>
 						  <option value="36000以下">36000以下</option>
 						  <option value="3.6万-6万">3.6万-6万</option>
 						  <option value="6万-9.6万">6万-9.6万</option>
@@ -114,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					住房状况：
 					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name="houseCase"  id="houseCase">
-						<option value="0"></option>
+						<option value="">--请选择--</option>
 						<option value="暂时未购车">暂未购车</option>
 				  		<option value="已购车一辆">已购车一辆</option>
 				  		<option value="已购多辆车">已购多辆车</option>
@@ -123,10 +127,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="font-size: 14px;margin-top: 24px;margin-left: 35px;">
 					单位性质：
 					<select style="width: 21%;height: 25px;border: 1px solid #A0A0A0;border-radius: 2px;" type="text" name=unitNature  id="unitNature">
-						<option value="0"></option>
-						<option value="1">私营企业</option>
-						<option value="1">国有企业</option>
-						<option value="3">外资企业</option>	
+						<option value="">--请选择--</option>
+						<option value="国企">国企</option>
+						<option value="私企">私企</option>
+						<option value="民营">民营</option>
+						<option value="个体">个体</option>
+						<option value="其它">其它</option>
 					</select>
 				</div>
 				<div style="font-size: 14px;margin-top: 110px;margin-left: 430px;">
