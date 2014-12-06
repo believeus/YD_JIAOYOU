@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 auto;"></div>
 				<div style="border: 2px solid #790284;float: left;margin: 20px 60px 20px 25px;">
-					<a href="#"><img style="padding: 15px;" src="${member.artImage }" /></a>
+					<a href="#"><img style="padding: 15px;" src="${member.artImage }?w=205&h=205" /></a>
 				</div>
 				<div style="margin-top: 5px;width: 545px;float: left;">
 					<div style="font-size: 18px;line-height: 48px;">昵称：${member.nickName }</div>
@@ -82,13 +82,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 auto;"></div>
 				<div style="width: 845px;margin: 0 auto;">
 					<div style="float: left;margin: 20px 20px;">
-						<a href="#"><img src="${member.artImage }" /></a>
+						<a href="#"><img src="${member.artImage }?w=205&h=205" /></a>
 					</div>
 					<div style="float: left;margin: 20px 20px;">
-						<a href="#"><img src="${member.lifeImage }" /></a>
+						<a href="#"><img src="${member.lifeImage }?w=205&h=205" /></a>
 					</div>
 					<div style="float: left;margin: 20px 20px;">
-						<a href="#"><img src="${member.workImage }" /></a>
+						<a href="#"><img src="${member.workImage }?w=205&h=205" /></a>
 					</div>
 				</div>
 			</div>

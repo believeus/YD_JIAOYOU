@@ -27,6 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			margin-bottom: 0px;
 			background-color: #016aa9;
 			overflow:hidden;
+			background: url("/static/public/images/backbg.jpg") no-repeat scroll center top / 100% auto #fefefe;
 		}
 		.STYLE1 {
 			color: #000000;
@@ -54,8 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <tr>
 	        <td height="53"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 	          <tr>
-	            <td width="394" height="53" background="/static/public/images/login_05.gif">&nbsp;</td>
-	            <td width="206" background="/static/public/images/login_06.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+	            <td width="394" height="53">&nbsp;</td>
+	            <td width="206"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 	              <tr>
 	                <td width="16%" height="25"><div align="right"><span class="STYLE1">用户</span></div></td>
 	                <td width="57%" height="25"><div align="center">
