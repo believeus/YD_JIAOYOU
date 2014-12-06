@@ -7,11 +7,11 @@ a{
 	text-decoration: none;
 }
 .center{
-	height: 801px;
+	height: 750px;
 	width: 100%;
+	background: url("../images/bg.jpg") no-repeat scroll center top auto / 100% auto #D3E9F6;
 	/*background-size: 100% auto;
 	background: url("../images/bg.png") repeat scroll 0 0 / 100% auto rgba(0, 0, 0, 0);*/
-	background: url("../images/bg.png") no-repeat scroll center top / 100% auto #fefefe;
 }
 .header{
 	height:120px;
@@ -67,13 +67,14 @@ a{
 	background: #DEF5FD;
 }
 .regForm{
-	background:#e4f5fc;
+	background: #e4f5fc;
     height: 372px;
     left: 50%;
+    margin: -186px 0 0 -3%;
     opacity: 0.5;
     position: absolute;
     text-align: center;
-    top: 35%;
+    top: 50%;
     width: 36%;
 }
 #inputForm td {

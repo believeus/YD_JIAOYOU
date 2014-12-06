@@ -20,12 +20,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style type="text/css">
 	body{
 		font-size:12px;
+		background: url(/static/public/images/bg.jpg) no-repeat scroll center top / 100% auto #D3E9F6;
+	    height: 100%;
+	    position: relative;
 	}
 	a:hover{text-decoration:underline;color: #C20C0C;}
 </style>
 <script type="text/javascript">
 	$().ready(function() {
-	
+		if(window.screen.width > 1440){
+			$(".footer").css("position","fixed");
+		}else if(window.screen.width < 1440){
+			$(".regForm").css({"margin-top":"-255px"});
+		}
+		
 		var $inputForm = $("#inputForm");
 		// 表单验证
 		$inputForm.validate({
@@ -71,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</script>
 </head>
 
-<body>
+<body >
 	<div class="header">
 		<div class="logo">
 			<!--<div class="logo_img" style="text-align: right;">
@@ -139,7 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
     </div>
     
-	<div class="footer" style="background-color: #790284;width: 100%;height: 90px;">
+	<div class="footer" style="background-color: #790284;width: 100%;height: 90px;position:static;bottom:0;">
 		<div style="color: #FFFFFF;font-family: 'microsoft yahei';text-align: center;line-height: 30px;">
 			诚信：诚信会员验证&nbsp;&nbsp;&nbsp;严谨：专业的资深红娘队伍&nbsp;&nbsp;&nbsp;安全：真正实名制不泄露
 		</div>
