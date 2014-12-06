@@ -322,12 +322,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </th>
 			  <td>
 				<select name="degree" id="degree">
-				  <option value="未婚">中专或相关学历</option>
-				  <option value="离异">大专</option>
-				  <option value="丧偶">本科</option>
-				  <option value="未婚">双学士</option>
-				  <option value="离异">硕士</option>
-				  <option value="丧偶">博士</option>
+				  <option value="中专或相关学历">中专或相关学历</option>
+				  <option value="大专">大专</option>
+				  <option value="本科">本科</option>
+				  <option value="双学士">双学士</option>
+				  <option value="硕士">硕士</option>
+				  <option value="博士">博士</option>
 				  <option value="博士后">博士后</option>
 				</select>
 			  </td>
