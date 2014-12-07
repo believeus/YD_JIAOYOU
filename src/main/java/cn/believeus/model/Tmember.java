@@ -53,7 +53,16 @@ public class Tmember extends TbaseEntity {
 	private String workImage;
 	//单位性质
 	private String unitNature ;
+	//头像
+	private String headerImg;
 	
+	
+	public String getHeaderImg() {
+		return headerImg;
+	}
+	public void setHeaderImg(String headerImg) {
+		this.headerImg = headerImg;
+	}
 	public String getArtImage() {
 		return artImage;
 	}

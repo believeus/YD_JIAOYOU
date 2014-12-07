@@ -13,9 +13,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>丽人交友网-找回密码</title>
-		<script type="text/javascript" src="/static/public/js/jquery.js"></script>
 		<link rel="stylesheet" href="/static/public/css/style.css" />
 		<link href="/static/public/css/common_s.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="/static/public/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="/static/public/js/jquery.validate.js"></script>
+		<script type="text/javascript" src="/static/public/js/common.js"></script>
+		<script type="text/javascript" src="/static/public/js/input.js"></script>
 		<style type="text/css">
 			.list-main tr {
 			    line-height: 50px;
@@ -26,16 +29,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</style>
 	</head>
 	<script type="text/javascript">
-		$(function(){
-			$("#subminEmail").click(function(){
-				$.post("/mailSend.jhtml?"+$("#findpasswordForm").serialize(),function(data){
-					$("#subminEmail").attr('disabled',"true");
-					alert(data);
-				});
+	$().ready(function() {
+		
+			var $findpasswordForm = $("#findpasswordForm");
+			$findpasswordForm.validate({
+				rules: {
+					phoneNum:{
+						required:true
+					} 
+					,email:{
+						required:true,
+						email:true
+					} 
+				},
+				submitHandler:function(form){
+					$.post("/mailSend.jhtml?"+$("#findpasswordForm").serialize(),function(data){
+						window.location.href="/";
+					});
+				}
 			});
-			$("#phoneNum").blur(function(){
+			
+			$("#phoneNum").change(function(){
 				$.post("/ajaxMemberExist.jhtml?phoneNum="+$("#phoneNum").val(),function(data){
 					if(data=="unExist"){
+						$("#phoneNum").val("");
 						alert("用户不存在请注册");
 					}
 				});
@@ -71,20 +88,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 					<tr>
-						<td><span style="font-size: 20px;">手机号码:</span></td>
+						<td><span style="font-size: 20px;">用户名:</span></td>
 						<td>
-							<input id="phoneNum" type="text" name="phoneNum" class="text">
+							<input name="phoneNum" id="phoneNum" type="text" placeholder="手机号"  onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"  class="text">
 						</td>
 					</tr>
 					<tr>
 						<td><span style="font-size: 20px;">邮箱:</span></td>
 						<td>
-							<input type="text" name="email" class="text">
+							<input type="text" name="email" id="email" placeholder="填写邮箱"  class="text">
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input id="subminEmail" class="submitBtn" type="button" value="确定" style="margin-right:20px;" >
+							<input id="subminEmail" class="submitBtn" type="submit" value="确定" style="margin-right:20px;" >
 							<input class="submitBtn" type="button" value="返回" onclick="javascript:window.history.back();">
 						</td>
 					</tr>

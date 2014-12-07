@@ -45,37 +45,81 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    equalTo: "#password"
 				   }
 				/*,vCode: "required"*/
-			}
+			},
+			submitHandler:function(form){
+	    		$.ajax({
+	    			url: "/register.jhtml",
+	    			type: "get",
+	    			data: {
+	    				phoneNum:$("#phoneNum").val(),
+	    				password:$("#password").val(),
+	    				vCode:$("vCode").val()
+	    				},
+	    			dataType: "json",
+	    			cache: false,
+	    			success: function(data) {
+	    					// 如果注册成功，则进行跳转
+	    					if(data.message=="success"){
+	    						window.location.href="/perfectInfo.jhtml";
+	    					}else{
+	    						alert(data.message);
+	    					}
+	    				}
+	    			});
+	        }    
+		});
+
+		// 用户名验证。
+		$("#phoneNum").change(function(){
+			$.ajax({
+				url: "/ajaxComValidReg.jhtml",
+				type: "get",
+				data: {
+					phoneNum:$(this).val()
+					},
+				dataType: "json",
+				cache: false,
+				success: function(data) {
+						// 如果注册成功，则进行跳转
+						if(data.message!="success"){
+							$("#phoneNum").val("");
+							alert(data.message);
+						}
+					}
+				});
 		});
 		
 		
+		var $loginForm = $("#loginForm");
+		$loginForm.validate({
+			rules: {
+				LphoneNum: "required"
+				,Lpassword: "required"
+			},
+			submitHandler:function(form){
+				$.ajax({
+					url: "/login.jhtml",
+					type: "get",
+					data: {
+						phoneNum:$("#LphoneNum").val(),
+						password:$("#Lpassword").val()
+						},
+					dataType: "json",
+					cache: false,
+					success: function(data) {
+							// 如果注册成功，则进行跳转
+							if(data.message=="success"){
+								window.location.href="/perfectInfo.jhtml";
+							}else{
+								alert(data.message);
+							}
+						}
+					});
+			}
+		});
+		
 	});
-	// ajax 提交验证和注册。
-	function submitF(){
-		var phoneNum=$("#phoneNum").val();
-		var password=$("#ppassword").val();
-		if(phoneNum==""&&password==""){
-			return;
-		}
-		$.ajax({
-			url: "/login.jhtml",
-			type: "get",
-			data: {
-				phoneNum:phoneNum,
-				password:password
-				},
-			dataType: "json",
-			cache: false,
-			success: function(data) {
-					// 如果注册成功，则进行跳转
-					if(data.message=="success"){
-						window.location.href="/memberList.jhtml";
-					}else{
-						alert(data.message);
-					}
-				}
-			});
-	}
+	
 	</script>
 </head>
 
@@ -94,9 +138,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="login">
 		  <form id="loginForm" action="" method="post">
-			<input type="text" name="phoneNum" id="phoneNum" placeholder="手机号" class="text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"/>
-			<input type="password" name="ppassword" id="ppassword" placeholder="密码" class="text"/>
-			<input type="button" value="登录" class="submitBtn" onClick="submitF();"/>
+			<input type="text" name="LphoneNum" id="LphoneNum" placeholder="手机号" class="text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"/>
+			<input type="password" name="Lpassword" id="Lpassword" placeholder="密码" class="text"/>
+			<input type="submit" value="登录" class="submitBtn"/>
 			<a href="/findpassword.jhtml" style="margin-right: 30px;color: #999;text-decoration: underline;">忘记密码？</a>
 		 </form>
 		</div>
@@ -119,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>手机号码：</td>
-					<td><input type="text" name="phoneNum" class="login_text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"></td>
+					<td><input type="text" placeholder="请填写" name="phoneNum" id="phoneNum" class="login_text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"></td>
 					<td></td>
 				</tr>
 				<tr>
@@ -129,14 +173,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>密码：</td>
-					<td><input type="password" name="password" id="password" class="login_text"></td>
+					<td><input type="password" placeholder="密码" name="password" id="password" class="login_text"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>确认密码：</td>
 					<td colspan="2">
-						<input type="password" name="enpassword" class="login_text">
-					</td>
+					<input type="password" placeholder="确认密码" name="enpassword" class="login_text"></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td colspan="3" style="text-align: center;">

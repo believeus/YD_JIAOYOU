@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,18 +30,40 @@ public class ControllerIndex {
 	}
 	
 	@RequestMapping(value="/register")
-	public String register(Tmember member,HttpSession session){
-		String password = DigestUtils.md5Hex(member.getPassword());
-		member.setPassword(password);
+	public void register(Tmember member,HttpSession session,HttpServletResponse response){
+		Tmember tmember = (Tmember)baseService.findObject(Tmember.class, "phoneNum", member.getPhoneNum());
+		Map<String, Object> message=new HashMap<String, Object>();
+		if (tmember!=null) {
+			message.put("message","手机号码已经注册！");
+			JsonOutToBrower.out(message, response);
+			return;
+		}
+/*		String password = DigestUtils.md5Hex(member.getPassword());
+		member.setPassword(password);*/
 		baseService.saveOrUpdata(member);
 		session.setAttribute("member", member);
-		return "redirect:/perfectInfo.jhtml";
+		message.put("message","success");
+		JsonOutToBrower.out(message, response);
+	}
+	
+	@RequestMapping(value="/ajaxComValidReg")
+	public void ajaxComValidReg(String phoneNum,HttpServletResponse response){
+		Tmember tmember = (Tmember)baseService.findObject(Tmember.class, "phoneNum", phoneNum);
+		Map<String, Object> message=new HashMap<String, Object>();
+		if (tmember!=null) {
+			message.put("message","手机号码已经注册！");
+			JsonOutToBrower.out(message, response);
+			return;
+		}
+		message.put("message","success");
+		JsonOutToBrower.out(message, response);
 	}
 	
 	@RequestMapping(value="/login")
 	public void login(HttpServletRequest request,HttpSession session,HttpServletResponse response){
 		String phoneNum = request.getParameter("phoneNum");
-		String password = DigestUtils.md5Hex(request.getParameter("password"));
+		String password = request.getParameter("password");
+		/*String password = DigestUtils.md5Hex(request.getParameter("password"));*/
 		Map<String, Object> message=new HashMap<String, Object>();
 		Tmember member = (Tmember)baseService.findObject(Tmember.class, "phoneNum", phoneNum);
 		if (member==null) {

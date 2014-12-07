@@ -1,6 +1,7 @@
 package cn.believeus.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,11 @@ public class ControllerPerfectInfo {
 	private BaseService baseService;
 	
 	@RequestMapping(value="/perfectInfo")
-	public String perfectInfo(){
+	public String perfectInfo(HttpSession session){
+		Tmember member = (Tmember)session.getAttribute("member");
+		if (member.getNickName()!=null) {
+			return "redirect:/memberList.jhtml";
+		}
 		return "/WEB-INF/front/perfectInfo.jsp";
 	}
 
