@@ -21,9 +21,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<script type="text/javascript">
 		$(function(){
-			$("#age").val("${age}");
-			$("#sex").val("${sex}");
 			$("#height").val("${height}");
+			$("#unitNature").val("${unitNature}");
+			$("#career").val("${career}");
+			$("#marriageCase").val("${marriageCase}");
+			$("#degree").val("${degree}");
+			$("#yearSalary").val("${yearSalary}");
+			$("#asset").val("${asset}");
+			$("#carCase").val("${carCase}");
+			$("#houseCase").val("${houseCase}");
+			$("#age_range").val("${age_range}");
+			$("#height_range").val("${height_range}");
 			var provinceCase=new ProvinceCase("province","city","${province}","${city}"); 
 			provinceCase.init(provinceCase);
 			
@@ -82,19 +90,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					选择您喜爱的那位
 				</p>
 				<div class="select-conditions">
-					<form action="/baseSearch.jhtml" method="post">
-					<input type="hidden" name="memberId" value="${sessionUser.id}"/>
+				<form action="/baseSearch.jhtml" method="post">
+					<input type="hidden" name="id" value="${sessionUser.id}"/>
 					<span>
 						性别:
 						<select name="sex" id="sex" style="margin-left: 25px;">
 							<option value="">不限</option>
-							<option>男</option>
-							<option>女</option>
+							<option value="男">男</option>
+							<option value="女">女</option>
 						</select>
 					</span>
 					<span>
 						年龄:
-						<select name="age" id="age" style="margin-left: 25px;">
+						<select name="age_range" id="age" style="margin-left: 25px;">
 							<option value="">不限</option>
 							<option value="18-26">18-26</option>
 							<option value="27-36">27-36</option>
@@ -105,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						身高:
-						<select name="height" id="height" style="margin-left: 25px;">
+						<select name="height_range" id="height" style="margin-left: 25px;">
 							<option value="">不限</option>
 							<option value="150-159">150-159cm</option>
 							<option value="160-169">160-169cm</option>
@@ -125,7 +133,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- 更多 -->
 					<div id="cond_list" style="margin-top: 10px; line-height: 30px;display:none;">
 					<span>
-						工作性质:
+						单位性质:
 						<select name="unitNature">
 							<option value="国企">国企</option>
 							<option value="私企">私企</option>
@@ -186,7 +194,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span>
 						最高学历:
 						<select name="degree">
-							<option value="">不限</option>
+						  <option value="">不限</option>
 						  <option value="中专或相关学历">中专或相关学历</option>
 						  <option value="大专">大专</option>
 						  <option value="本科">本科</option>
@@ -200,7 +208,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span>
 						目前年薪:
 						<select name="yearSalary">
-							<option value="">不限</option>
+						  <option value="">不限</option>
 						  <option value="36000以下">36000以下</option>
 						  <option value="3.6万-6万">3.6万-6万</option>
 						  <option value="6万-9.6万">6万-9.6万</option>
@@ -222,7 +230,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span>
 						目前资产:
 					  <select name="asset">
-					  		<option value="">不限</option>
+					  	  <option value="">不限</option>
 						  <option value="50万以下">50万以下</option>
 						  <option value="50万-80万">50万-80万</option>
 						  <option value="80万-100万">80万-100万</option>
@@ -254,7 +262,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span>
 						购房情况:
 						<select name="houseCase">
-							<option value="">不限</option>
+						  <option value="">不限</option>
 						  <option value="暂未购房">暂未购房</option>
 						  <option value="已购一室一厅">已购一室一厅</option>
 						  <option value="已购二室一厅">已购二室一厅</option>
@@ -292,150 +300,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 						</div>
 					</c:forEach>
-					<!-- <div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/001.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/002.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/003.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content" style="margin-right: 0;">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/004.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/005.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/006.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/007.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content" style="margin-right: 0;">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/008.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/009.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/010.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/011.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div>
-					<div class="list-content" style="margin-right: 0;">
-						<div class="list-content-img">
-							<a href="#">
-								<img src="images/012.png" width="200px" height="205px"/>
-							</a>
-						</div>
-						<div class="list-content-name">
-							<a href="#">
-								<span>小雯</span>&nbsp;&nbsp;<span>20</span>
-							</a>
-						</div>
-					</div> -->
 				</div>
 				<form action="/memberList.jhtml" id="listForm">
 					<jsp:include page="/WEB-INF/include/pagination.jsp" flush="true" />

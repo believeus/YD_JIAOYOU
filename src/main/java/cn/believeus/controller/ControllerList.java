@@ -50,28 +50,68 @@ public class ControllerList {
 		if (StringUtils.isEmpty(pageNumber)) {
 			pageNumber="1";
 		}
-		String memberId=request.getParameter("memberId");
-		String sex = request.getParameter("sex");
-		String age = request.getParameter("age");
-		String height = request.getParameter("height");
-		String province = request.getParameter("province");
-		String city = request.getParameter("city");
-		Page<Tmember> page =  memberService.findMemberListByBaseInfo(memberId,sex,age,height,province,city, pageNumber);
+		Tmember member=new Tmember();
+		String id=request.getParameter("id");
+		if (!StringUtils.isEmpty(id)) {
+			member.setId(Integer.parseInt(id));
+		}
+		String sex=request.getParameter("sex");
+		if(!StringUtils.isEmpty(sex)){
+			member.setSex(sex.charAt(0));
+		}
+		String age_range = request.getParameter("age_range");
+		String height_range = request.getParameter("height_range");
+		member.setProvince(request.getParameter("province"));
+		member.setCity(request.getParameter("city"));
+		member.setUnitNature(request.getParameter("unitNature"));
+		member.setCareer(request.getParameter("career"));
+		member.setMarriageCase(request.getParameter("marriageCase"));
+		member.setDegree(request.getParameter("degree"));
+		member.setYearSalary(request.getParameter("yearSalary"));
+		member.setAsset(request.getParameter("asset"));
+		member.setCarCase(request.getParameter("carCase"));
+		member.setHouseCase(request.getParameter("houseCase"));
+		Page<Tmember> page =  memberService.findMemberListByBaseInfo(age_range,height_range,member, pageNumber);
 		request.setAttribute("memberList", page.getContent());
 		request.setAttribute("size",page.getTotal());
 		request.setAttribute("sex", request.getParameter("sex"));
-		if(!StringUtils.isEmpty(age)){
-			request.setAttribute("age", age);
+		if(!StringUtils.isEmpty(member.getProvince())){
+			request.setAttribute("province", member.getProvince());
 		}
-		if(!StringUtils.isEmpty(height)){
-			request.setAttribute("height", height);
+		if(!StringUtils.isEmpty(member.getCity())){
+			request.setAttribute("city", member.getCity());
 		}
-		if(!StringUtils.isEmpty(province)){
-			request.setAttribute("province", province);
+		if(!StringUtils.isEmpty(member.getUnitNature())){
+			request.setAttribute("unitNature", member.getUnitNature());
 		}
-		if(!StringUtils.isEmpty(city)){
-			request.setAttribute("city", city);
+		if(!StringUtils.isEmpty(member.getCareer())){
+			request.setAttribute("career", member.getCareer());
 		}
+		if(!StringUtils.isEmpty(member.getMarriageCase())){
+			request.setAttribute("marriageCase", member.getMarriageCase());
+		}
+		if(!StringUtils.isEmpty(member.getDegree())){
+			request.setAttribute("degree", member.getDegree());
+		}
+		if(!StringUtils.isEmpty(member.getYearSalary())){
+			request.setAttribute("yearSalary", member.getYearSalary());
+		}
+		if(!StringUtils.isEmpty(member.getAsset())){
+			request.setAttribute("asset", member.getAsset());
+		}
+		if(!StringUtils.isEmpty(member.getCarCase())){
+			request.setAttribute("carCase", member.getCarCase());
+		}
+		if(!StringUtils.isEmpty(member.getHouseCase())){
+			request.setAttribute("houseCase", member.getHouseCase());
+		}
+		if(!StringUtils.isEmpty(age_range)){
+			request.setAttribute("age_range", age_range);
+		}
+		if(!StringUtils.isEmpty(height_range)){
+			request.setAttribute("height_range", height_range);
+		}
+		
 		// 分页
 		PaginationUtil.pagination(request, page.getPageNumber(),page.getTotalPages(), 0);
 		return "/WEB-INF/front/list.jsp";

@@ -134,6 +134,18 @@
 		<url-pattern>/group/M00/*</url-pattern>
 	</servlet-mapping>
 	<!-- End Author:wuqiwei:Data:2014-06-05 AddReason:内嵌式小型分布式文件系统集成 -->
+	
+	<!-- begin:产生验证码 -->
+	<servlet>
+		<servlet-name>GenValidataNum</servlet-name>
+		<servlet-class>cn.believeus.validcode.BelieveusImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GenValidataNum</servlet-name>
+		<url-pattern>/jpgCode.do</url-pattern>
+	</servlet-mapping>
+	<!-- end:产生验证码 -->
+	
 	<error-page>
 		<exception-type>org.apache.shiro.authz.AuthorizationException</exception-type>
 		<location>/authorException.jhtml</location>
