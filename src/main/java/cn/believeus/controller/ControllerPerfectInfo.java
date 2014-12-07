@@ -32,7 +32,7 @@ public class ControllerPerfectInfo {
 	@RequestMapping(value="/ajaxComValidIdCard")
 	public @ResponseBody String ajaxComValidReg(String idCard,String old_idCard){
 		if (old_idCard!=null) {
-			if (old_idCard.equals(old_idCard)) {
+			if (old_idCard.equals(idCard)) {
 				return "true";
 			}
 		}
@@ -53,7 +53,7 @@ public class ControllerPerfectInfo {
 	}
 
 	@RequestMapping(value="/savePerfectInfo")
-	public String savePerfectInfo(Tmember member,HttpServletRequest request){
+	public String savePerfectInfo(Tmember member,HttpServletRequest request,HttpSession session){
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
 		Map<String, MultipartFile> files = multipartRequest.getFileMap();
@@ -82,6 +82,7 @@ public class ControllerPerfectInfo {
 			}
 		}
 		baseService.saveOrUpdata(member);
+		session.setAttribute("member", member);
 		return "redirect:/memberList.jhtml";
 	}
 }
