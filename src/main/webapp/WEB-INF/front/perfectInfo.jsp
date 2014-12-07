@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    line-height: 37px;
 	}
 	#inputForm select {
-	    width: 120px;
+	    width: 135px;
 	    background:#F0F9E4;
 	    border:1px solid #A0A0A0;
 	    border-radius:3px;
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	#inputForm input[type="text"] {
 	    height:23px;
-	    width: 114px;
+	    width: 130px;
 	    background:#F0F9E4;
 	    border:1px solid #A0A0A0;
 	    border-radius:3px;

@@ -98,6 +98,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				,workImage1: "required"
 				,province: "required"
 				,city: "required"
+				,email: {
+					required:true,
+					email:true
+				}
 			}
 			,messages: {
 				phoneNum:{remote:jQuery.format("已使用")},
@@ -141,6 +145,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</th>
 				<td>
 					<input name="phoneNum" id="phoneNum"/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					邮箱:
+				</th>
+				<td>
+					<input name="email" id="email"/>
 				</td>
 			</tr>
 			<tr>

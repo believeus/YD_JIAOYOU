@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>丽人交友网-美女列表</title>
+		<title>丽人交友网-会员列表</title>
 		<script type="text/javascript" src="/static/public/js/jquery.js"></script>
 		<script type="text/javascript" src="/static/public/js/list.js"></script>
 		<script type="text/javascript" src="/static/public/js/province.js"></script>
@@ -138,6 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span>
 						单位性质:
 						<select name="unitNature">
+							<option value="">不限</option>
 							<option value="国企">国企</option>
 							<option value="私企">私企</option>
 							<option value="民营">民营</option>
@@ -148,6 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span>
 						职业类型:
 						<select name="career">
+							<option value="">不限</option>
 							<option value="企业家">企业家</option>
 							<option value="高级管理">高级管理</option>
 							<option value="经理">经理</option>

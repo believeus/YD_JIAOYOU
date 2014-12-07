@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 			$("#phoneNum").change(function(){
-				$.post("/ajaxMemberExist.jhtml?phoneNum="+$("#phoneNum").val(),function(data){
+				$.post("/ajaxMemberExistByPhoneNum.jhtml?phoneNum="+$("#phoneNum").val(),function(data){
 					if(data=="unExist"){
 						$("#phoneNum").val("");
 						alert("用户不存在请注册");
@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a href="/"><img src="/static/public/images/true2.png" /></a>
 					</div>
 				</div>
-				<div class="hot-line">
+				<div class="hot-line" style="line-height:105px;">
 					<span>
 						<i style="width:28px;height:28px;background:url(/static/public/images/phone.png);display:inline-block;position: relative;top: 6px;"></i>
 						丽人热线：400-8888-6666
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form action="/mailSend.jhtml" method="post" id="findpasswordForm">
 				<table style="margin: 0px auto;">
 					<tr>
-						<td style="text-align: left;width: 80px;"><span style="font-size: 20px;">用户名:</span></td>
+						<td style="text-align: left;width: 80px;"><span style="font-size: 20px;">手机号:</span></td>
 						<td style="width:300px;text-align: left;">
 							<input name="phoneNum" id="phoneNum" type="text" placeholder="手机号"  onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"  class="text">
 						</td>
