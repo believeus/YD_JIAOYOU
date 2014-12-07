@@ -17,6 +17,8 @@ public class Tmember extends TbaseEntity {
 	private char sex;
 	// 身份证号码
 	private String idCard;
+	// 邮箱
+	private  String email;
 	// 年龄
 	private int age;
 	// 电话号码
@@ -179,6 +181,12 @@ public class Tmember extends TbaseEntity {
 	}
 	public void setUnitNature(String unitNature) {
 		this.unitNature = unitNature;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

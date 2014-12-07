@@ -27,10 +27,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<script type="text/javascript">
 		$(function(){
-			$("#ageRange").val("${ageRange}");
-			$("#yearSalary").val("${yearSalary}");
-			$("#houseCase").val("${houseCase}");
-			$("#unitNature").val("${unitNature}");
+			$("#subminEmail").click(function(){
+				$.post("/mailSend.jhtml?"+$("#findpasswordForm").serialize(),function(data){
+					$("#subminEmail").attr('disabled',"true");
+					alert(data);
+				});
+			});
+			$("#phoneNum").blur(function(){
+				$.post("/ajaxMemberExist.jhtml?phoneNum="+$("#phoneNum").val(),function(data){
+					if(data=="unExist"){
+						alert("用户不存在请注册");
+					}
+				});
+			});
 		});
 	</script>
 	<body style="background: url(/static/public/images/bg2-1.jpg);overflow-x:hidden;">
@@ -54,11 +63,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="list-main" style="height:300px;text-align:center;padding-top: 100px;">
-			<form action="" method="post" id="">
+			<form action="/mailSend.jhtml" method="post" id="findpasswordForm">
 				<table style="width: 300px; margin: 0px auto;">
 					<tr>
 						<td colspan="2">
 							<h2>找回密码</h2>
+						</td>
+					</tr>
+					<tr>
+						<td><span style="font-size: 20px;">手机号码:</span></td>
+						<td>
+							<input id="phoneNum" type="text" name="phoneNum" class="text">
 						</td>
 					</tr>
 					<tr>
@@ -69,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input class="submitBtn" type="submit" value="确定" style="margin-right:20px;">
+							<input id="subminEmail" class="submitBtn" type="button" value="确定" style="margin-right:20px;" >
 							<input class="submitBtn" type="button" value="返回" onclick="javascript:window.history.back();">
 						</td>
 					</tr>

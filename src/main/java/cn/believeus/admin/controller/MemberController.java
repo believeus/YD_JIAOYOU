@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import cn.believeus.PaginationUtil.Page;
@@ -22,6 +23,7 @@ import cn.believeus.PaginationUtil.Pageable;
 import cn.believeus.PaginationUtil.PaginationUtil;
 import cn.believeus.model.Tmember;
 import cn.believeus.service.BaseService;
+import cn.believeus.variables.Variables;
 
 @Controller
 public class MemberController {
@@ -258,5 +260,13 @@ public class MemberController {
       }
       return birthday;
   }
-
+  @RequestMapping(value="/ajaxMemberExist")
+  public @ResponseBody String ajaxMemberExist(String phoneNum){
+	  Tmember member = (Tmember)baseService.findObject(Tmember.class, Variables.PHONE_NUM, phoneNum);
+	  if(member==null){
+		  return "unExist";
+	  }else {
+		return "exist";
+	}
+  }
 }
