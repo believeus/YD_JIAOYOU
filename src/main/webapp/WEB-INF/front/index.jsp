@@ -38,15 +38,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		// 表单验证
 		$inputForm.validate({
 			rules: {
-				phoneNum: "required"
+				phoneNum:{
+					required:true,
+					remote: {
+					    url: "/ajaxComValidReg.jhtml",     //后台处理程序
+					    type: "get",               //数据发送方式
+					    dataType: "json",           //接受数据格式  
+					    data: {                     //要传递的数据
+					    	phoneNum: function() {
+					            return $("#phoneNum").val();
+					        }
+					    }
+					}
+					
+				} 
 				,password: "required"
 				,enpassword: {
 				    required: true,
 				    equalTo: "#password"
 				   }
-				/*,vCode: "required"*/
+				/* ,vCode:{
+					required:true,
+			        remote:{
+			               type:"POST",
+			               url:"valCodeAction",            
+			               data:{
+			            	  vCode:function(){return $("#vCode").val();}
+			               } 
+			              } 
+			     } */
 			},
-			submitHandler:function(form){
+			messages: {
+				phoneNum:{remote:jQuery.format("已被注册！")}
+			    /*  ,veryCode:  {required:"请输入验证码",remote:jQuery.format("验证码错误")} */
+			 }
+			,submitHandler:function(form){
 	    		$.ajax({
 	    			url: "/register.jhtml",
 	    			type: "get",
@@ -69,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        }    
 		});
 
-		// 用户名验证。
+		/* // 用户名验证。
 		$("#phoneNum").change(function(){
 			$.ajax({
 				url: "/ajaxComValidReg.jhtml",
@@ -87,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 					}
 				});
-		});
+		}); */
 		
 		
 		var $loginForm = $("#loginForm");

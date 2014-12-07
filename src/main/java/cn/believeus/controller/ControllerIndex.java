@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.believeus.util.JsonOutToBrower;
 
@@ -47,16 +48,12 @@ public class ControllerIndex {
 	}
 	
 	@RequestMapping(value="/ajaxComValidReg")
-	public void ajaxComValidReg(String phoneNum,HttpServletResponse response){
+	public @ResponseBody String ajaxComValidReg(String phoneNum){
 		Tmember tmember = (Tmember)baseService.findObject(Tmember.class, "phoneNum", phoneNum);
-		Map<String, Object> message=new HashMap<String, Object>();
 		if (tmember!=null) {
-			message.put("message","手机号码已经注册！");
-			JsonOutToBrower.out(message, response);
-			return;
+			return "false";
 		}
-		message.put("message","success");
-		JsonOutToBrower.out(message, response);
+		return "true";
 	}
 	
 	@RequestMapping(value="/login")
