@@ -45,35 +45,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		// 表单验证
 		$inputForm.validate({
 			rules: {
-				username: "required",
-				idCard:"required",
-				nickName:"required",
-				artImage: "required",
-				lifeImage:"required",
-				workImage:"required",
-				content: "required",
-				entitle: "required",
-				encontent: "required",
-				type:"required"
+				nickName: "required"
+				,age:"required"
+				,unitNature:"required"
+				,houseCase:"required"
+				,email:{
+					required:true,
+					email:true
+				}
+				,username:"required"
+				,idCard:{
+					required:true,
+					minlength:18,
+					idCardVali:true,
+					remote: {
+					    url: "/ajaxComValidIdCard.jhtml",     //后台处理程序
+					    type: "get",               //数据发送方式
+					    dataType: "json",           //接受数据格式  
+					    data: {                     //要传递的数据
+					    	idCard: function() {
+					            return $("#idCard").val();
+					        }
+					    }
+					}
+				}
+				,phoneNum:{
+					isMobile:true,
+					required:true,
+					remote: {
+					    url: "/ajaxMemberExistByPhoneNum.jhtml",     //后台处理程序
+					    type: "get",               //数据发送方式
+					    dataType: "json",           //接受数据格式  
+					    data: {                     //要传递的数据
+					    	phoneNum: function() {
+					            return $("#phoneNum").val();
+					        }
+					    }
+					}
+					
+				} 
+				,province: "required"
+				,city: "required"
+				,marriageCase: "required"
+				,height: "required"
+				,degree: "required"
+				,yearSalary: "required"
+				,asset: "required"
+				,carCase: "required"
+				,headerImg1: "required"
+				,artImage1: "required"
+				,lifeImage1: "required"
+				,workImage1: "required"
+				,province: "required"
+				,city: "required"
 			}
+			,messages: {
+				phoneNum:{remote:jQuery.format("已使用")},
+				idCard:{remote:jQuery.format("已使用")}
+		 }
 		});
 		
-		$("#phoneNum").blur(function(){
-			$.post("/ajaxMemberExistByPhoneNum.jhtml?phoneNum="+$("#phoneNum").val(),function(data){
-				if(data=="exist"){
-					alert("手机号已被注册");
-					$("#phoneNum").val("");
-				}
-			});
-		});
-		$("#idCard").blur(function(){
-			$.post("/ajaxMemberExistByIdCard.jhtml?idCard="+$("#idCard").val(),function(data){
-				if(data=="exist"){
-					alert("身份证号已被注册");
-					$("#idCard").val("");
-				}
-			});
-		});
+		
 		var provinceCase=new ProvinceCase("province","city","",""); 
 		provinceCase.init(provinceCase);
 	});

@@ -28,12 +28,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 <script type="text/javascript">
 	$().ready(function() {
-		// 手机号码验证
-		jQuery.validator.addMethod("isMobile", function(value, element) {
-		  var length = value.length;
-		  var mobile = /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/;
-		  return this.optional(element) || (length == 11 && mobile.test(value));
-		}, "格式错误"); 
 		
 		if(window.screen.width > 1440){
 			$(".footer").css("position","fixed");

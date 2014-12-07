@@ -30,7 +30,8 @@ public class AdminController {
 	public String manager() {
 		return "/WEB-INF/back/index.jsp";
 	}
-	
+	 
+	//
 	@RequestMapping(value="/admin/login")
 	public String admin(){
 		return "/WEB-INF/back/login.jsp";

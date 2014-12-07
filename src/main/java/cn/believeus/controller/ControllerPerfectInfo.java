@@ -11,6 +11,7 @@ import mydfs.storage.server.MydfsTrackerServer;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -27,6 +28,15 @@ public class ControllerPerfectInfo {
 	private BaseService baseService;
 	@Resource
 	private MydfsTrackerServer mydfsTrackerServer;
+	
+	@RequestMapping(value="/ajaxComValidIdCard")
+	public @ResponseBody String ajaxComValidReg(String idCard){
+		Tmember tmember = (Tmember)baseService.findObject(Tmember.class, "idCard", idCard);
+		if (tmember!=null) {
+			return "false";
+		}
+		return "true";
+	}
 	
 	@RequestMapping(value="/perfectInfo")
 	public String perfectInfo(HttpSession session){
