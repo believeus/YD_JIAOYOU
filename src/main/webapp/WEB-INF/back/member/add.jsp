@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 		});
-		var provinceCase=new ProvinceCase("province","city"); 
+		var provinceCase=new ProvinceCase("province","city","",""); 
 		provinceCase.init(provinceCase);
 	});
 	
@@ -308,8 +308,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				常驻地区:
 			  </th>
 			  <td>
-				<select id="province"></select>
-				<select id="city"></select>
+				<select id="province" name="province"></select>
+				<select id="city" name="city"></select>
 			  </td>
 			</tr>
 			<tr>

@@ -57,10 +57,19 @@ var provinces = {
 	澳门特区 : [ "澳门" ]
 };
 
-var ProvinceCase = function(provinceID,cityID) {
+var ProvinceCase = function(provinceID,cityID,defaultProvince,defaultCity) {
 	this.init = function(provinceCase) {
-		$('#'+provinceID).append($("<option>-请选择省-</option>"));
-		$('#'+cityID).append($("<option>-请选择市-</option>"));
+		if(defaultProvince !=""){
+			$('#'+provinceID).append($("<option value='"+defaultProvince+"'>" + defaultProvince + "</option>"));
+		}else{
+			$('#'+provinceID).append($("<option>-请选择省-</option>"));
+		}
+		if(defaultCity!=""){
+			$('#'+cityID).append($("<option value='"+defaultCity+"'>" + defaultCity + "</option>"));
+		}else{
+			$('#'+cityID).append($("<option>-请选择市-</option>"));
+		}
+		
 		$('#'+cityID).attr("disabled","disabled");
 		// 从数组中提取省份信息
 		for ( var p in provinces) {
@@ -86,5 +95,11 @@ var ProvinceCase = function(provinceID,cityID) {
 		}
 	};
 };
-
+/**
+ * 使用方式
+ * var provinceCase=new ProvinceCase("province","city","默认显示省","默认显示市"); 
+    provinceCase.init(provinceCase);
+    <select id="province" name="province"></select>
+	<select id="city" name="city"></select>
+ * */
 

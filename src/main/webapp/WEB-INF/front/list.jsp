@@ -21,9 +21,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<script type="text/javascript">
 		$(function(){
-			$("#ageRange").val("${ageRange}");
+			$("#age").val("${age}");
 			$("#sex").val("${sex}");
-			var provinceCase=new ProvinceCase("province","city"); 
+			$("#height").val("${height}");
+			var provinceCase=new ProvinceCase("province","city","${province}","${city}"); 
 			provinceCase.init(provinceCase);
 		});
 	</script>
@@ -62,16 +63,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</p>
 				<div class="select-conditions">
 					<form action="/baseSearch.jhtml" method="post">
+					<input type="hidden" name="memberId" value="${sessionUser.id}"/>
 					<span>
 						性别:
 						<select name="sex" id="sex">
-							<option>男</option>
-							<option>女</option>
+							<option value="男">男</option>
+							<option value="女">女</option>
 						</select>
 					</span>
 					<span>
 						年龄:
-						<select name="ageRange" id="ageRange">
+						<select name="age" id="age">
 							<option value="">不限</option>
 							<option value="18-26">18-26</option>
 							<option value="27-36">27-36</option>
@@ -82,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						身高:
-						<select name="heightRange" id="heightRange">
+						<select name="height" id="height">
 							<option value="">不限</option>
 							<option value="150-159">150-159cm</option>
 							<option value="160-169">160-169cm</option>
@@ -92,11 +94,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						省
-						<select id="province"></select>  
+						<select id="province" name="province"></select>  
 					</span>
 					<span>
 						市:
-						<select id="city"></select>
+						<select id="city" name="city"></select>
 					</span>
 					<input type="submit" value="确定" class="submitBtn">
 					</form>

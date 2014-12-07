@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$("#houseCase").val("${member.houseCase}");
 		$("#unitNature").val("${member.unitNature}");
 		
-		var provinceCase=new ProvinceCase("province","city"); 
+		var provinceCase=new ProvinceCase("province","city","${member.province}","${member.city}"); 
 		provinceCase.init(provinceCase);
 	});
 	
@@ -334,8 +334,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				常驻地区:
 			  </th>
 			  <td>
-				<select id="province"></select>
-				<select id="city"></select>
+				<select id="province" name="province"></select>
+				<select id="city" name="city"></select>
 			  </td>
 			</tr>
 			<tr>

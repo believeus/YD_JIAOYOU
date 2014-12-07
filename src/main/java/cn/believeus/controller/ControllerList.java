@@ -50,26 +50,27 @@ public class ControllerList {
 		if (StringUtils.isEmpty(pageNumber)) {
 			pageNumber="1";
 		}
+		String memberId=request.getParameter("memberId");
 		String sex = request.getParameter("sex");
-		String ageRange = request.getParameter("ageRange");
-		String heightRange = request.getParameter("heightRange");
+		String age = request.getParameter("age");
+		String height = request.getParameter("height");
 		String province = request.getParameter("province");
 		String city = request.getParameter("city");
-		Page<Tmember> page =  memberService.getMemberListByBaseInfo(sex,ageRange,heightRange,province,city, pageNumber);
+		Page<Tmember> page =  memberService.findMemberListByBaseInfo(memberId,sex,age,height,province,city, pageNumber);
 		request.setAttribute("memberList", page.getContent());
 		request.setAttribute("size",page.getTotal());
 		request.setAttribute("sex", request.getParameter("sex"));
-		if(!StringUtils.isEmpty(ageRange)){
-			request.setAttribute("ageRange", ageRange);
+		if(!StringUtils.isEmpty(age)){
+			request.setAttribute("age", age);
 		}
-		if(!StringUtils.isEmpty(heightRange)){
-			request.setAttribute("yearSalary", heightRange);
+		if(!StringUtils.isEmpty(height)){
+			request.setAttribute("height", height);
 		}
 		if(!StringUtils.isEmpty(province)){
-			request.setAttribute("houseCase", province);
+			request.setAttribute("province", province);
 		}
 		if(!StringUtils.isEmpty(city)){
-			request.setAttribute("unitNature", city);
+			request.setAttribute("city", city);
 		}
 		// 分页
 		PaginationUtil.pagination(request, page.getPageNumber(),page.getTotalPages(), 0);
