@@ -33,8 +33,6 @@ public class Tmember extends TbaseEntity {
 	private String city;
 	// 生日
 	private long birthday;
-	// 常住地
-	private String residentPlace;
 	// 婚姻情况
 	private String marriageCase;
 	// 学历
@@ -103,9 +101,6 @@ public class Tmember extends TbaseEntity {
 	public String getPhoneNum() {
 		return phoneNum;
 	}
-	public String getResidentPlace() {
-		return residentPlace;
-	}
 	public char getSex() {
 		return sex;
 	}
@@ -160,9 +155,6 @@ public class Tmember extends TbaseEntity {
 	}
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
-	}
-	public void setResidentPlace(String residentPlace) {
-		this.residentPlace = residentPlace;
 	}
 	public void setSex(char sex) {
 		this.sex = sex;

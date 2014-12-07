@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="/static/public/js/admin/ueditor1_2_6_2/ueditor.all.js"></script>
 	<script type="text/javascript" src="/static/public/js/common.js"></script>
 	<script type="text/javascript" src="/static/public/js/input.js"></script>
+	<script type="text/javascript" src="/static/public/js/province.js"></script>
 	<style type="text/css">
 		table.input th {
 		    font-size: 13px;
@@ -73,6 +74,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 		});
+		var provinceCase=new ProvinceCase("province","city"); 
+		provinceCase.init(provinceCase);
 	});
 	
 	</script>
@@ -305,7 +308,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				常驻地区:
 			  </th>
 			  <td>
-				<input name="residentPlace"/>
+				<select id="province"></select>
+				<select id="city"></select>
 			  </td>
 			</tr>
 			<tr>

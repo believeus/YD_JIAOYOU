@@ -92,16 +92,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						省
-						<select id="province">  
-  							<option>-请选择-</option>  
-						 </select>  
-
+						<select id="province"></select>  
 					</span>
 					<span>
 						市:
-						<select id="city">  
-  							<option>-请选择-</option>  
- 						</select>
+						<select id="city"></select>
 					</span>
 					<input type="submit" value="确定" class="submitBtn">
 					</form>

@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="/static/public/js/jquery.validate.js"></script>
 <script type="text/javascript" src="/static/public/js/common.js"></script>
 <script type="text/javascript" src="/static/public/js/input.js"></script>
+<script type="text/javascript" src="/static/public/js/province.js"></script>
 <script src='/static/public/js/me.js'></script>
 <style type="text/css">
 	body{
@@ -72,7 +73,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				,houseCase:"required"
 			}
 		});
-		
+		var provinceCase=new ProvinceCase("province","city"); 
+		provinceCase.init(provinceCase);
 	});
 </script>
 </head>
@@ -132,7 +134,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td>常驻地区：</td>
 								<td>
-									<input type="text" name="residentPlace" />
+									<select id="province"></select>
+									<select id="city"></select>
 								</td>
 							</tr>
 							<tr>

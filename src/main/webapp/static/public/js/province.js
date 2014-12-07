@@ -59,12 +59,15 @@ var provinces = {
 
 var ProvinceCase = function(provinceID,cityID) {
 	this.init = function(provinceCase) {
+		$('#'+provinceID).append($("<option>-请选择省-</option>"));
+		$('#'+cityID).append($("<option>-请选择市-</option>"));
+		$('#'+cityID).attr("disabled","disabled");
 		// 从数组中提取省份信息
 		for ( var p in provinces) {
 			$('#'+provinceID).append($("<option value='" + p + "'>" + p + "</option>"));
 		}
-		console.info($("#"+cityID));
 		$("#"+provinceID).change(function(){
+			$('#'+cityID).removeAttr("disabled");
 			provinceCase.loadCity();
 		});
 	};
@@ -77,7 +80,7 @@ var ProvinceCase = function(provinceID,cityID) {
 		// 将元素列表框中的元素全部清空
 		$("#"+cityID).empty();
 
-		$('#'+cityID).append($("<option>-请选择-</option>"));
+		$('#'+cityID).append($("<option>-请选择市-</option>"));
 		for ( var index = 0; index < citys.length; index++) {
 			$('#'+cityID).append($("<option value='" + citys[index] + "'>" + citys[index] + "</option>"));
 		}
