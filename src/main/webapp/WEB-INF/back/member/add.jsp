@@ -340,7 +340,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				常驻地区:
 			  </th>
 			  <td>
-				<select id="province" name="province"></select>
+				<select id="province" name="province">
+				<option value="">--请选择--</option>
+				</select>
 				<select id="city" name="city"></select>
 			  </td>
 			</tr>

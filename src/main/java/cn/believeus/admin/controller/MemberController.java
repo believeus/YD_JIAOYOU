@@ -189,21 +189,16 @@ public class MemberController {
       return birthday;
   }
   @RequestMapping(value="/ajaxMemberExistByPhoneNum")
-  public @ResponseBody String ajaxMemberExistByPhoneNum(String phoneNum){
+  public @ResponseBody String ajaxMemberExistByPhoneNum(String phoneNum,String old_phoneNum){
+	  if (old_phoneNum!=null) {
+			if (phoneNum.equals(old_phoneNum)) {
+				return "true";
+			}
+		}
 	  Tmember member = (Tmember)baseService.findObject(Tmember.class, Variables.PHONE_NUM, phoneNum);
-	  if(member==null){
-		  return "unExist";
-	  }else {
-		return "exist";
-	}
-  }
-  @RequestMapping(value="/ajaxMemberExistByIdCard")
-  public @ResponseBody String ajaxMemberExistByIdCard(String idCard){
-	  Tmember member = (Tmember)baseService.findObject(Tmember.class, Variables.ID_CARD, idCard);
-	  if(member==null){
-		  return "unExist";
-	  }else {
-		return "exist";
-	}
+	  if (member!=null) {
+			return "false";
+	  }
+		return "true";
   }
 }

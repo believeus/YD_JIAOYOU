@@ -87,6 +87,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				}
 				,headerImg1: "required"
+				,artImage1: "required"
+				,lifeImage1: "required"
+				,workImage1: "required"
 				/* ,username:"required" 
 				,province: "required"
 				,city: "required"
@@ -94,10 +97,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				,degree: "required"
 				,yearSalary: "required"
 				,asset: "required"
-				,artImage1: "required"
-				,lifeImage1: "required"
-				,workImage1: "required"
 				,province: "required"
+				,career: "required"
 				,city: "required"*/
 			}
 			,messages: {
@@ -153,6 +154,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="" style="width: 722px; height: auto;margin: 0 auto;border: 12px solid #E0D7DA;">
 			<form id="inputForm" action="/savePerfectInfo.jhtml" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="${member.id }"/>
+				<input type="hidden" name="phoneNum" value="${member.phoneNum }"/>
+				<input type="hidden" name="password" value="${member.password }"/>
 				<div style="background:url(/static/public/images/11.jpg);width:722px;height:534px;">
 					<div style="width:400px;height:400px;margin-left:30px;padding-top:35px;">
 						<table>
@@ -243,6 +246,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</select>
 								</td>
 							</tr>
+							<tr>
+							<td>
+								职业类型:
+							</td>
+							<td>
+								<select name="career" id="career">
+								 	<option value="">--请选择--</option>
+									<option value="企业家">企业家</option>
+									<option value="高级管理">高级管理</option>
+									<option value="经理">经理</option>
+									<option value="公务员">公务员</option>
+									<option value="白领">白领</option>
+									<option value="教师">教师</option>
+									<option value="教授">教授</option>
+									<option value="研究人员">研究人员</option>
+									<option value="医生">医生</option>
+									<option value="护士">护士</option>
+									<option value="空姐">空姐</option>
+									<option value="军人">军人</option>
+									<option value="警察">警察</option>
+									<option value="演员">演员</option>
+									<option value="模特">模特</option>
+									<option value="大学生">大学生</option>
+									<option value="在校读研">在校读研</option>
+									<option value="留学生">留学生</option>
+									<option value="记者">记者</option>
+									<option value="编辑">编辑</option>
+									<option value="自由撰稿人">自由撰稿人</option>
+									<option value="媒体人士">媒体人士</option>
+									<option value="工程师">工程师</option>
+									<option value="市场销售">市场销售</option>
+									<option value="行政人员">行政人员</option>
+									<option value="客服服务">客服服务</option>
+									<option value="律师">律师</option>
+									<option value="自营业主">自营业主</option>
+									<option value="自由职业者">自由职业者</option>
+									<option value="作家">作家</option>
+									<option value="艺术家">艺术家</option>
+									<option value="出租司机">出租司机</option>
+									<option value="蓝领工人">蓝领工人</option>
+									<option value="海员">海员</option>
+									<option value="其他">其他</option>
+								</select>
+							</td>
+						</tr>
 							<tr>
 								<td>身高：</td>
 								<td>
@@ -353,23 +401,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</select>
 							  </td>
 							</tr>
-							<tr>
-								<td>常驻地区：</td>
-								<td>
-									<select id="province" name="province">
-										<option value="">--请选择--</option>
-									</select>
-									<select id="city" name="city">
-										<option value="">--请选择--</option>
-									</select>
-								</td>
-							</tr>
 						</table>
 					</div>
 				</div>
 				
 				<div style="background:url(/static/public/images/22.jpg);width:722px;height:236px;">
-					<div style="width:400px;height:210px;margin-left:30px;padding-top:40px;">
+					<div style="width:400px;height:210px;margin-left:30px;padding-top:26px;">
 						<table class="zhanghao_table">
 							<tr>
 								<td colspan="2">
@@ -392,6 +429,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td>身份证号：</td>
 								<td>
 									<input type="text" name="idCard" id="idCard" maxlength="18" minlegnth="18"/>
+								</td>
+							</tr>
+							<tr>
+								<td>常驻地区：</td>
+								<td>
+									<select id="province" name="province">
+										<option value="">--请选择--</option>
+									</select>
+									<select id="city" name="city">
+										<option value="">--请选择--</option>
+									</select>
 								</td>
 							</tr>
 						</table>

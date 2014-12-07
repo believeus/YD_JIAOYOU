@@ -30,7 +30,12 @@ public class ControllerPerfectInfo {
 	private MydfsTrackerServer mydfsTrackerServer;
 	
 	@RequestMapping(value="/ajaxComValidIdCard")
-	public @ResponseBody String ajaxComValidReg(String idCard){
+	public @ResponseBody String ajaxComValidReg(String idCard,String old_idCard){
+		if (old_idCard!=null) {
+			if (old_idCard.equals(old_idCard)) {
+				return "true";
+			}
+		}
 		Tmember tmember = (Tmember)baseService.findObject(Tmember.class, "idCard", idCard);
 		if (tmember!=null) {
 			return "false";
