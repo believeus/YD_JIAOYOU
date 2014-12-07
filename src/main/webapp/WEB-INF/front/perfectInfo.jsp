@@ -51,13 +51,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 	.selectImg{
 		cursor: pointer;
-	    opacity: 0;
+	    opacity: 0.8;
 	    position: relative;
 	    top: -60px;
 	    width: 150px;
-	}
-	.zhanghao_table td{
-		line-height:50px !important;
 	}
 </style>
 <script type="text/javascript">
@@ -90,6 +87,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div style="float: left;margin: 0 0 0 150px;">
 				<div style="float: left; width: 388px; height: 50px; margin: 25px 0; line-height: 50px;color:#fff;line-height:50px;font-size:20px;">
+					<span>
+						<i style="width:28px;height:28px;background:url(/static/public/images/phone.png);display:inline-block;position: relative;top: 6px;"></i>
+						丽人热线：400-8888-6666
+					</span>
 					<span style="color:#00f;">${member.nickName }</span>&nbsp;&nbsp;&nbsp;您好，欢迎来到丽人！
 					<a href="/logout.jhtml" style="color:red;font-size:13px;">[退出]</a>
 				</div>
@@ -131,13 +132,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<label>女<input type="radio" name="sex" value="女"/></label>
 								</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>常驻地区：</td>
 								<td>
 									<select id="province"></select>
 									<select id="city"></select>
 								</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<td>年龄：</td>
 								<td>
@@ -324,7 +325,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				
 				<div style="background:url(/static/public/images/22.jpg);width:722px;height:236px;">
-					<div style="width:400px;height:210px;margin-left:30px;padding-top:15px;">
+					<div style="width:400px;height:210px;margin-left:30px;padding-top:40px;">
 						<table class="zhanghao_table">
 							<tr>
 								<td colspan="2">
@@ -362,8 +363,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</tr>
 							<tr>
 								<td>上传头像：</td>
-								<td>
-									<div>
+								<td style="padding-top: 10px;">
+									<div style="text-align:center;">
 										<span style="float:left">
 											<div id="preview_wrapper" style="width:100px;height:100px;">    
 										        <div id="preview_fake00" >    
@@ -371,7 +372,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="headerImg" type="file" name="headerImg1" title="请选择头像" style="width: 100px;" onchange="filename0.value=this.value;onUploadImgChange(this,100,100,'preview00','preview_fake00','preview_size_fake00');"/>  
+										    <input class="selectImg" id="headerImg" type="file" name="headerImg1" title="请选择头像" style="width: 62px;" onchange="filename0.value=this.value;onUploadImgChange(this,100,100,'preview00','preview_fake00','preview_size_fake00');"/>  
 										    <input type="hidden" id="filename00" name="filename00">
 										    <br/>    
 										    <img id="preview_size_fake00"/> 
@@ -382,7 +383,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td>上传照片：</td>
 								<td>
-									<div style="float:left;margin-right:50px;">
+									<div style="float:left;margin-right:50px;text-align:center;">
 										<span style="float:left">
 											<div id="preview_wrapper">    
 										        <div id="preview_fake0" >    
@@ -390,13 +391,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="artImage" type="file" name="artImage1" title="请选择艺术照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview0','preview_fake0','preview_size_fake0');"/>  
+										    <input class="selectImg" id="artImage" type="file" name="artImage1" title="请选择艺术照" style="width:62px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview0','preview_fake0','preview_size_fake0');"/>  
 										    <input type="hidden" id="filename0" name="filename0">
 										    <br/>    
 										    <img id="preview_size_fake0"/> 
 										</span>
 									</div>
-									<div style="float:left;margin-right:50px;">
+									<div style="float:left;margin-right:50px;text-align:center;">
 										<span style="float:left">
 											<div id="preview_wrapper">    
 										        <div id="preview_fake1" >    
@@ -404,13 +405,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="lifeImage" type="file" name="lifeImage1" title="请选择生活照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview1','preview_fake1','preview_size_fake1');"/>  
+										    <input class="selectImg" id="lifeImage" type="file" name="lifeImage1" title="请选择生活照" style="width:62px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview1','preview_fake1','preview_size_fake1');"/>  
 										    <input type="hidden" id="filename1" name="filename1">
 										    <br/>    
 										    <img id="preview_size_fake1"/> 
 										</span>
 									</div>
-									<div style="float:left;">
+									<div style="float:left;text-align:center;">
 										<span style="float:left">
 											<div id="preview_wrapper">    
 										        <div id="preview_fake2" >    
@@ -418,7 +419,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="workImage" type="file" name="workImage1" title="请选择工作照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview2','preview_fake2','preview_size_fake2');"/>  
+										    <input class="selectImg" id="workImage" type="file" name="workImage1" title="请选择工作照" style="width:62px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview2','preview_fake2','preview_size_fake2');"/>  
 										    <input type="hidden" id="filename2" name="filename2">
 										    <br/>    
 										    <img id="preview_size_fake2" /> 

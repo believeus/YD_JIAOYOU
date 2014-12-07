@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		if(window.screen.width > 1440){
 			$(".footer").css("position","fixed");
 		}else if(window.screen.width == 1366){
-			$(".center").css({"height":"599px"});
+			$(".center").css({"height":"565px"});
 		}else if(window.screen.width == 1280){
 			$(".center").css({"height":"560px"});
 		}else if(window.screen.width == 1280 && window.screen.height == 800){
@@ -182,7 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form id="inputForm" action="/register.jhtml" method="post" enctype="multipart/form-data">
 			<table style="height: 100%; width: 80%; margin: 0px auto;">
 				<tr>
-					<td colspan="3" style="text-align: center; font-weight: bold; font-size: 20px;">
+					<td colspan="3" style="text-align: center; font-weight: bold; font-size: 20px;line-height:30px;">
 						59秒完成注册，下1秒享受幸福！
 					</td>
 				</tr>
@@ -198,23 +198,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>验证码：</td>
-					<td><input type="text" name="vCode" class="login_text"></td>
-					<td><a href="#">获取验证码</a></td>
+					<td><input type="text" name="vCode" class="login_text"><a href="#" style="font-size:12px;">获取验证码</a></td>
 				</tr>
 				<tr>
 					<td>密码：</td>
-					<td><input type="password" placeholder="密码" name="password" id="password" class="login_text"></td>
+					<td><input type="password" placeholder="密码" name="password" id="password" class="login_text" style="font-size: 13px;"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>确认密码：</td>
 					<td colspan="2">
-					<input type="password" placeholder="确认密码" name="enpassword" class="login_text"></td>
+					<input type="password" placeholder="确认密码" name="enpassword" class="login_text" style="font-size: 13px;"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td colspan="3" style="text-align: center;">
-						<input type="submit" value="免费注册" class="freeReg"/>
+						<input type="submit" value="免费注册" class="freeReg" style="margin-top: 10px;"/>
 					</td>
 				</tr>
 			</table>
@@ -222,14 +221,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
     </div>
     
-	<div class="footer" style="background-color: #790284;width: 100%;height: 90px;position:static;bottom:0;">
-		<div style="color: #FFFFFF;font-family: 'microsoft yahei';text-align: center;line-height: 30px;">
+	<div class="footer" style="background-color: #790284;width: 100%;height: 80px;position:static;bottom:0;">
+		<div style="color: #FFFFFF;font-family: 'microsoft yahei';text-align: center;line-height: 20px;padding-top: 10px;">
 			诚信：诚信会员验证&nbsp;&nbsp;&nbsp;严谨：专业的资深红娘队伍&nbsp;&nbsp;&nbsp;安全：真正实名制不泄露
 		</div>
 		<div style="color: #FFFFFF;font-family: 'microsoft yahei';text-align: center;line-height: 20px;">
 			Copyright &copy; 2014-2014 版权所有：武汉市交友网信息技术有限公司
 		</div>
-		<div style="color: #FFFFFF;font-family: 'microsoft yahei';text-align: center;line-height: 30px;">
+		<div style="color: #FFFFFF;font-family: 'microsoft yahei';text-align: center;line-height: 20px;">
 			客服热线：400-521-521（周一至周日：9:00-24:00）
 		</div>
 	</div>

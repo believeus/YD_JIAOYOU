@@ -45,36 +45,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div style="color: #790284;float: right;font-size: 14px;line-height: 40px;">&nbsp;>>&nbsp;</div>
 			<div style="float: right;font-size: 14px;line-height: 40px;">
-				<a href="#" style="color: #790284;">挑选</a>
+				<a href="/memberList.jhtml" style="color: #790284;">挑选</a>
 			</div>
 			<div style="color: #790284;float: right;font-size: 14px;line-height: 40px;">&nbsp;>>&nbsp;</div>
 			<div style="float: right;font-size: 14px;line-height: 40px;">
 				<a href="#" style="color: #790284;">主页</a>
 			</div>
 		</div>
-		<div class="" style="width: 900px; height: 650px;margin: 0 auto;border: 6px solid #E0D7DA;">
+		<div class="" style="width: 900px; height: auto;margin: 0 auto;border: 6px solid #E0D7DA;">
 			<div style="width: 900px;height: 300px;margin: 0 auto;">
 				<div style="font-size: 18px;font-weight: bold;margin: 10px 25px 5px 25px;">
 					<a href="#" style="color: #790284;">${member.username }的资料</a>
 				</div>
 				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 auto;"></div>
 				<div style="border: 2px solid #790284;float: left;margin: 20px 60px 20px 25px;">
-					<a href="#"><img style="padding: 15px;" src="${member.artImage }?w=205&h=205" /></a>
+					<a href="#"><img style="padding: 15px;" src="${member.headerImg }?w=205&h=205" /></a>
 				</div>
 				<div style="margin-top: 5px;width: 545px;float: left;">
-					<div style="font-size: 18px;line-height: 48px;">昵称：${member.nickName }</div>
+					<div style="font-size: 18px;line-height: 48px;"><span style="color:#999;">昵称：</span>${member.nickName }</div>
 					<div style="width: 100%;border: 1px dashed #E0D7DA;"></div>
-					<div style="font-size: 18px;line-height: 48px;">年龄：${member.age }岁</div>
+					<div style="font-size: 18px;line-height: 48px;"><span style="color:#999;">年龄：</span>${member.age }岁</div>
 					<div style="width: 100%;border: 1px dashed #E0D7DA;"></div>
-					<div style="font-size: 18px;line-height: 48px;">月薪状况：${member.yearSalary }</div>
+					<div style="font-size: 18px;line-height: 48px;"><span style="color:#999;">年薪状况：</span>${member.yearSalary }</div>
 					<div style="width: 100%;border: 1px dashed #E0D7DA;"></div>
-					<div style="font-size: 18px;line-height: 48px;">住房状况：${member.houseCase }</div>
+					<div style="font-size: 18px;line-height: 48px;"><span style="color:#999;">住房状况：</span>${member.houseCase }</div>
 					<div style="width: 100%;border: 1px dashed #E0D7DA;"></div>
-					<div style="font-size: 18px;line-height: 48px;">工作性质：${member.unitNature }</div>
+					<div style="font-size: 18px;line-height: 48px;"><span style="color:#999;">工作性质：</span>${member.unitNature }</div>
 					<div style="width: 100%;border: 1px dashed #E0D7DA;"></div>
 				</div>
 			</div>
-			
+			<div style="">
+				<div style="margin:22px 25px 0 25px;font-size: 20px;color: #790284;font-weight:bold;">基本资料</div>
+				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 25px;"></div>
+				<div style="font-size: 18px;line-height: 48px;margin: 0 25px;"><span style="color:#999;">婚姻状况：</span>${member.marriageCase }</div>
+				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 25px;"></div>
+				<div style="font-size: 18px;line-height: 48px;margin: 0 25px;"><span style="color:#999;">身高：</span>${member.height }cm</div>
+				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 25px;"></div>
+				<div style="font-size: 18px;line-height: 48px;margin: 0 25px;"><span style="color:#999;">最高学历：</span>${member.degree }</div>
+				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 25px;"></div>
+				<div style="font-size: 18px;line-height: 48px;margin: 0 25px;"><span style="color:#999;">目前资产：</span>${member.asset }</div>
+				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 25px;"></div>
+				<div style="font-size: 18px;line-height: 48px;margin: 0 25px;"><span style="color:#999;">购车情况：</span>${member.carCase }</div>
+				<div style="width: 845px;border: 1px dashed #E0D7DA;margin: 0 25px;"></div>
+			</div>
 			<div style="width: 900px;height: 300px;margin: 0 auto;">
 				<div style="font-size: 18px;font-weight: bold;color: #790284;margin: 30px 25px 5px 25px;">
 					<a href="#" style="color: #790284;">生活特写</a>

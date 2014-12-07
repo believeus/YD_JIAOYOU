@@ -20,13 +20,12 @@ a{
 	padding-top: 30px;
 }
 .logo{
-	width: 55%;
+	width: 50%;
 	float: left;
 	text-align: center;
 }
 .logo img{
 	max-height: 100%;
-	width: 55%;
 }
 .logo_img{
 	width: 50%;	
@@ -69,9 +68,9 @@ a{
 }
 .regForm{
 	background: #e4f5fc;
-    height: 372px;
+    height: 335px;
     left: 50%;
-    margin: -186px 0 0 -3%;
+    margin: -168px 0 0 34px;
     opacity: 0.5;
     position: absolute;
     text-align: center;
@@ -82,16 +81,18 @@ a{
     color: #000;
     font-size: 15px;
     text-align: left;
-    line-height: 55px;
+    line-height: 46px;
 }
 .freeReg{
 	background: #92009f;
     border: 1px solid #92009f;
     border-radius: 3px;
     color: #fff;
-    font-size: 20px;
-    padding: 6px 50px;
+    font-size: 14px;
+    padding: 6px 55px;
     cursor: pointer;
+    font-family: microsoft yahei;
+    font-weight: bold;
 }
 @media only screen and (max-width: 720px) {
 	.regForm{
@@ -123,7 +124,7 @@ a{
     font-size: 21px;
     font-weight: bold;
     height: 105px;
-    line-height: 105px;
+   /*  line-height: 105px; */
     text-align: center;
     width: 300px;
 }
@@ -187,4 +188,14 @@ a{
 .fieldError {
     color: red;
     font-size: 12px;
+}
+.welcome_liren{
+	font-size: 12px;
+    font-weight: normal;
+    height: 52px;
+    line-height: 52px;
+    width: 350px;
+}
+.select-conditions span{
+	font-size:13px;
 }
