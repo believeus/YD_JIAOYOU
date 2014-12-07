@@ -18,6 +18,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="/static/public/js/province.js"></script>
 		<link rel="stylesheet" href="/static/public/css/style.css" />
 		<link href="/static/public/css/common_s.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			a:hover{text-decoration:underline;color: #C20C0C;}
+		</style>
 	</head>
 	<script type="text/javascript">
 		$(function(){

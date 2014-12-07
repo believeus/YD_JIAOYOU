@@ -3,7 +3,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -49,12 +50,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	#preview_wrapper {
 	    width: 150px;
 	}
-	.selectImg{
-		cursor: pointer;
-	    opacity: 0.8;
+	.select_Img label {
+	    left: 55px;
 	    position: relative;
-	    top: -60px;
-	    width: 150px;
+	    top: -110px;
 	}
 </style>
 <script type="text/javascript">
@@ -125,28 +124,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div style="float: left;margin: 39px 15px;">
 				<a href="/"><img src="/static/public/images/true2.png" /></a>
 			</div>
-			<div style="float: left;margin: 0 0 0 150px;">
-				<div style="float: left; width: 388px; height: 50px; margin: 25px 0; line-height: 50px;color:#fff;line-height:50px;font-size:20px;">
+			<div class="hot-line" style="width:350px;">
+				<div class="welcome_liren">
+					<span style="color:#fff;">
+						${fn:substring(member.nickName, 0, 6)}
+						<c:if test="${fn:length(member.nickName) > 6 }">
+		   					...
+	   					</c:if>
+					</span>&nbsp;&nbsp;您好，欢迎来到丽人！
+					<a href="/logout.jhtml" style="color:#fff;font-size:13px;">[安全退出]</a>
+				</div>
+				<div style="width:350px;height:52px;">
 					<span>
 						<i style="width:28px;height:28px;background:url(/static/public/images/phone.png);display:inline-block;position: relative;top: 6px;"></i>
 						丽人热线：400-8888-6666
 					</span>
-					<span style="color:#00f;">${member.nickName }</span>&nbsp;&nbsp;&nbsp;您好，欢迎来到丽人！
-					<a href="/logout.jhtml" style="color:red;font-size:13px;">[退出]</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	
 	<div class="center" style="width: 100%; height: auto;margin: 0 auto;background-image: url(/static/public/images/bg2-1.jpg);">
-		<div class="" style="width: 1000px; height: 40px;margin: 0 auto;">
-			<div style="float: right;font-size: 14px;line-height: 40px;">
-				<a href="#" style="color: #790284;">完善资料</a>
-			</div>
-			<div style="color: #790284;float: right;font-size: 14px;line-height: 40px;">&nbsp;>>&nbsp;</div>
-			<div style="float: right;font-size: 14px;line-height: 40px;">
-				<a href="#" style="color: #790284;">主页</a>
-			</div>
+		<div class="" style="width: 722px; height: 40px;margin: 0 auto;">
+			<p class="list-position" style="margin:0;height:40px;line-height:40px;">
+				<a href="#">主页</a>&gt;&gt;<a href="/perfectInfo.jhtml">完善资料</a>
+			</p>
 		</div>
 		<div class="" style="width: 722px; height: auto;margin: 0 auto;border: 12px solid #E0D7DA;">
 			<form id="inputForm" action="/savePerfectInfo.jhtml" method="post" enctype="multipart/form-data">
@@ -406,15 +408,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td>上传头像：</td>
 								<td style="padding-top: 10px;">
-									<div style="text-align:center;">
-										<span style="float:left">
+									<div>
+										<span style="float:left;height:115px;">
 											<div id="preview_wrapper" style="width:100px;height:100px;">    
 										        <div id="preview_fake00" >    
 										            <img id="preview00" onload="onPreviewLoad(this,100,100)" src="/static/public/images/bg.png"/>
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="headerImg" type="file" name="headerImg1" title="请选择头像" style="width: 62px;" onchange="filename0.value=this.value;onUploadImgChange(this,100,100,'preview00','preview_fake00','preview_size_fake00');"/>  
+										    <div class="selectImg">
+										    	<span class="sel_header">请选择头像</span>
+										    	<input id="headerImg" type="file" name="headerImg1" title="请选择头像" onchange="filename0.value=this.value;onUploadImgChange(this,100,100,'preview00','preview_fake00','preview_size_fake00');"/>
+									    	</div>  
 										    <input type="hidden" id="filename00" name="filename00">
 										    <br/>    
 										    <img id="preview_size_fake00"/> 
@@ -423,45 +428,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</td>
 							</tr>
 							<tr>
-								<td>上传照片：</td>
+								<td><span style="height: 200px; position: relative; top: -15px;">上传照片：</span></td>
 								<td>
-									<div style="float:left;margin-right:50px;text-align:center;">
-										<span style="float:left">
+									<div style="float:left;margin-right:50px;">
+										<span style="float:left;height:150px;">
 											<div id="preview_wrapper">    
 										        <div id="preview_fake0" >    
 										            <img id="preview0" onload="onPreviewLoad(this,150,120)" src="/static/public/images/bg.png"/>
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="artImage" type="file" name="artImage1" title="请选择艺术照" style="width:62px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview0','preview_fake0','preview_size_fake0');"/>  
+										    <div class="select_Img">
+										    	<span class="sel_header">请选择艺术照</span>
+										    	<input id="artImage" type="file" name="artImage1" title="请选择艺术照" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview0','preview_fake0','preview_size_fake0');"/>
+									    	</div>  
 										    <input type="hidden" id="filename0" name="filename0">
 										    <br/>    
 										    <img id="preview_size_fake0"/> 
 										</span>
 									</div>
-									<div style="float:left;margin-right:50px;text-align:center;">
-										<span style="float:left">
+									<div style="float:left;margin-right:50px;">
+										<span style="float:left;height:150px;">
 											<div id="preview_wrapper">    
 										        <div id="preview_fake1" >    
 										            <img id="preview1" onload="onPreviewLoad(this,150,120)" src="/static/public/images/bg.png"/>
 										        </div>    
 										    </div>    
-										    <br/>    
-										    <input class="selectImg" id="lifeImage" type="file" name="lifeImage1" title="请选择生活照" style="width:62px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview1','preview_fake1','preview_size_fake1');"/>  
+										    <br/>
+										    <div class="select_Img">
+										    	<span class="sel_header">请选择生活照</span>
+										   	 	<input id="lifeImage" type="file" name="lifeImage1" title="请选择生活照" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview1','preview_fake1','preview_size_fake1');"/>  
+										    </div>
 										    <input type="hidden" id="filename1" name="filename1">
 										    <br/>    
 										    <img id="preview_size_fake1"/> 
 										</span>
 									</div>
-									<div style="float:left;text-align:center;">
-										<span style="float:left">
+									<div style="float:left;">
+										<span style="float:left;height:150px;">
 											<div id="preview_wrapper">    
 										        <div id="preview_fake2" >    
 										            <img id="preview2" onload="onPreviewLoad(this,150,120)" src="/static/public/images/bg.png"/>
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="workImage" type="file" name="workImage1" title="请选择工作照" style="width:62px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview2','preview_fake2','preview_size_fake2');"/>  
+										    <div class="select_Img">
+										    	<span class="sel_header">请选择工作照</span>
+										    	<input class="selectImg" id="workImage" type="file" name="workImage1" title="请选择工作照" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview2','preview_fake2','preview_size_fake2');"/>  
+										   	</div>
 										    <input type="hidden" id="filename2" name="filename2">
 										    <br/>    
 										    <img id="preview_size_fake2" /> 

@@ -135,7 +135,7 @@ a{
 	margin: 0 auto;
 }
 .list-position{
-	text-align: right;padding-right: 10px;font-size: 13px;margin: 10px 0;
+	text-align: left;padding-right: 10px;font-size: 13px;margin: 10px 0;
 }
 .list-position a{
 	color: #92009F;font-weight: bold;
@@ -198,4 +198,34 @@ a{
 }
 .select-conditions span{
 	font-size:13px;
+}
+.selectImg{
+	cursor: pointer;
+    opacity: 0.8;
+    position: relative;
+    top: -60px;
+    height: 100px;
+    line-height: 100px;
+    top: -101px;
+    width: 160px;
+}
+.selectImg input {
+	opacity: 0; position: relative; margin-left: -90px; width: 100px; height: 100px; top: -2px;cursor:pointer;
+}
+.sel_header{
+	color: #790284;
+    margin-left: 11px;
+    opacity: 0.59;
+}
+.select_Img{
+    opacity: 0.8;
+    position: relative;
+    top: -101px;
+    width: 160px;
+    height: 120px;
+    line-height: 120px;
+    top: -120px;
+}
+.select_Img input {
+	opacity: 0; position: relative; width: 100px; height: 100px; top: -112px;cursor:pointer;
 }
