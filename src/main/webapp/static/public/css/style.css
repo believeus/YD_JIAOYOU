@@ -63,7 +63,7 @@ a{
 	text-indent: 10px;
 	font-size: 15px;
 	margin-right: 15px;
-	width: 70%;
+	width: 150px;
 	background: #DEF5FD;
 }
 .regForm{
@@ -75,7 +75,7 @@ a{
     position: absolute;
     text-align: center;
     top: 50%;
-    width: 36%;
+    width: 485px;
 }
 #inputForm td {
     color: #000;
@@ -182,4 +182,8 @@ a{
 	color:#fff;
 	padding:5px 15px;
 	border: 1px solid #790284;
+}
+.fieldError {
+    color: red;
+    font-size: 12px;
 }

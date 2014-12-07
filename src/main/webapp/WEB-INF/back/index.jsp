@@ -126,7 +126,7 @@
         <span style="padding-left:10px; font-size: 16px; "></span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
-        <div class="footer">By ¿ ‘√</div>
+        <div class="footer">By believeus</div>
     </div>
     <div region="west" split="true" title="µº∫Ω≤Àµ•" style="width:180px;" id="west">
 <div class="easyui-accordion" fit="true" border="false">

@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
   </head>
   
-  <body>
+  <body style="overflow-y: hidden;background: url(/static/public/images/backbg1.jpg);">
     <!-- Begin Name:wuqiwei 此处必须加：不加验证之后就不能表单提交了,所以如果已经验证直接跳转到/admin/manager.jhtml页面 -->
      <shiro:authenticated>
       <script type="text/javascript">
@@ -45,44 +45,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</shiro:authenticated>
 	<!-- End Name:wuqiwei 此处必须加：不加验证之后就不能表单提交了,所以如果已经验证直接跳转到/admin/manager.jhtml页面 -->
 	
-  	<form action="/admin/login.jhtml" method="post">
-    <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
-	  <tr>
-	    <td><table width="962" border="0" align="center" cellpadding="0" cellspacing="0">
-	      <tr>
-	        <td height="235" background="/static/public/images/login_03.gif">&nbsp;</td>
-	      </tr>
-	      <tr>
-	        <td height="53"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-	          <tr>
-	            <td width="394" height="53">&nbsp;</td>
-	            <td width="206"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-	              <tr>
-	                <td width="16%" height="25"><div align="right"><span class="STYLE1">用户</span></div></td>
-	                <td width="57%" height="25"><div align="center">
-	                  <input type="text" name="username" style="width:105px; height:17px; background-color:#292929; border:solid 1px #7dbad7; font-size:12px; color:#6cd0ff">
-	                </div></td>
-	                <td width="27%" height="25">&nbsp;</td>
-	              </tr>
-	              <tr>
-	                <td height="25"><div align="right"><span class="STYLE1">密码</span></div></td>
-	                <td height="25"><div align="center">
-	                  <input type="password" name="password" style="width:105px; height:17px; background-color:#292929; border:solid 1px #7dbad7; font-size:12px; color:#6cd0ff">
-	                </div></td>
-	               <!--  <td height="25"><div align="left"><img src="/static/public/images/dl.gif" width="49" height="18" border="0"></div></td> -->
-	              	<td><input type="submit" value="提交"/></td>
-	              </tr>
-	            </table></td>
-	            <td width="362" background="/static/public/images/login_07.gif">&nbsp;</td>
-	          </tr>
-	        </table></td>
-	      </tr>
-	      <tr>
-	        <td height="213" background="/static/public/images/login_08.gif">&nbsp;</td>
-	      </tr>
-	    </table></td>
-	  </tr>
-	</table>
-	</form>
+	<div class="center" style="width: 100%; height: 1000px;margin: 0 auto;">
+		<div style="width: 689px; height: auto; position: absolute; left: 50%; top: 50%; margin-left: -344px; margin-top: -91px;">
+			<img src="/static/public/images/loginbg.png" />
+		</div>
+		<div style="background-color: #d9e1f4;height: 39px;left: 50%;margin-left: -300px;margin-top: 30px;position: absolute;top: 50%;width: 600px;">
+			<form action="/admin/login.jhtml" method="post">
+				<div style="float: left;border: 1px solid #A8AFB7;width: 35px;height: 37px;">
+					<img src="/static/public/images/user.png" style="width: 20px;height: 20px;margin: 8px 0px 0px 7px;" />
+				</div>
+				<div style="float: left;">
+					<input type="text" name="username" id="username" placeholder="用户名" style="width: 130px;height: 38px;border: none;text-indent: 10px;" />
+				</div>
+				<div style="float: left;border: 1px solid #A8AFB7;width: 35px;height: 37px;">
+					<img src="/static/public/images/lock.png" style="width: 15px;height: 20px;margin: 8px 0px 0px 10px;" />
+				</div>
+				<div style="float: left;">
+					<input type="password" name="password" id="password" placeholder="密码" style="width: 130px;height: 38px;border: none;text-indent: 10px;" />
+				</div>
+				<div style="float: left;margin-left: 141px;">
+					<input type="image" src="/static/public/images/login1.png" style="float: left;width: 125px;height: 39px;" />
+				</div>
+			</form>
+		</div>
+    </div>
   </body>
 </html>

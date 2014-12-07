@@ -30,8 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	$().ready(function() {
 		if(window.screen.width > 1440){
 			$(".footer").css("position","fixed");
-		}else if(window.screen.width < 1440){
-			$(".regForm").css({"margin-top":"-255px"});
+		}else if(window.screen.width == 1366){
+			$(".center").css({"height":"599px"});
 		}
 		
 		var $inputForm = $("#inputForm");
@@ -134,8 +134,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>确认密码：</td>
-					<td><input type="password" name="enpassword" class="login_text"></td>
-					<td></td>
+					<td colspan="2">
+						<input type="password" name="enpassword" class="login_text">
+					</td>
 				</tr>
 				<tr>
 					<td colspan="3" style="text-align: center;">

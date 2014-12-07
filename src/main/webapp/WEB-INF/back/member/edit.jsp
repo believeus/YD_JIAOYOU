@@ -159,7 +159,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 				<th>
-					性别:${sex}
+					性别:
 				</th>
 				<td>
 					<label>男<input type="radio" name="sex" value="男" <c:if test="${sex=='男'}">checked="checked"</c:if> /></label>&nbsp;
