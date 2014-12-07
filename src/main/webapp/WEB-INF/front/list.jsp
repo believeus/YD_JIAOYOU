@@ -312,9 +312,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<div class="horse">
-			<img src="/static/public/images/horse.png" />
+			<img src="/static/public/images/horse.png" style="position:fixed;bottom:90px;" />
 		</div>
-		<div class="footer" style="background-color: #790284;width: 100%;height: 90px;">
+		<div class="footer" style="background-color: #790284;width: 100%;height: 90px;position:fixed;bottom:0;">
 			<div style="width: 1000px;height:90px;background: #790284;margin: 0 auto;">
 				<div style="color: #FFFFFF;font-family: 'microsoft yahei';text-align: center;line-height: 30px;">
 					诚信：诚信会员验证&nbsp;&nbsp;&nbsp;严谨：专业的资深红娘队伍&nbsp;&nbsp;&nbsp;安全：真正实名制不泄露
