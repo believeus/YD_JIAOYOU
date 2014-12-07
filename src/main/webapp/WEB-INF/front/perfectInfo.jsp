@@ -64,6 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$inputForm.validate({
 			rules: {
 				nickName: "required"
+				,age:"required"
 			}
 		});
 		
@@ -119,14 +120,78 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td>性别：</td>
 								<td>
-									<label>男<input type="radio" name="sex" value="男"/></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>男<input type="radio" name="sex" value="男" checked="checked"/></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<label>女<input type="radio" name="sex" value="女"/></label>
+								</td>
+							</tr>
+							<tr>
+								<td>常驻地区：</td>
+								<td>
+									<input type="text" name="residentPlace" />
+								</td>
+							</tr>
+							<tr>
+								<td>年龄：</td>
+								<td>
+									<input type="text" name="age" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									工作性质:
+								</td>
+								<td>
+									<select name="unitNature">
+										<option value="">--请选择--</option>
+										<option value="国企">国企</option>
+										<option value="私企">私企</option>
+										<option value="民营">民营</option>
+										<option value="个体">个体</option>
+										<option value="其它">其它</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+							  <td>
+								购房情况:
+							  </td>
+							  <td>
+								<select name="houseCase">
+								  <option value="">--请选择--</option>
+								  <option value="暂未购房">暂未购房</option>
+								  <option value="已购一室一厅">已购一室一厅</option>
+								  <option value="已购二室一厅">已购二室一厅</option>
+								  <option value="已购二室二厅">已购二室二厅</option>
+								  <option value="已购三室一厅">已购三室一厅</option>
+								  <option value="已购三室二厅">已购三室二厅</option>
+								  <option value="已购复式住房">已购复式住房</option>
+								  <option value="已购别墅">已购别墅</option>
+								  <option value="已购多套住房">已购多套住房</option>
+								  <option value="与人合租">与人合租</option>
+								  <option value="与父母同住">与父母同住</option>
+								  <option value="住亲朋家">住亲朋家</option>
+								  <option value="住单位房">住单位房</option>	
+								  <option value="打算婚后购房">打算婚后购房</option>
+								</select>
+							  </td>
+							</tr>
+							
+							<tr>
+								<td>婚姻状况：</td>
+								<td>
+									<select name="marriageCase">
+									  <option value="">--请选择--</option>
+									  <option value="未婚">未婚</option>
+									  <option value="离异">离异</option>
+									  <option value="丧偶">丧偶</option>
+									</select>
 								</td>
 							</tr>
 							<tr>
 								<td>身高：</td>
 								<td>
 									<select name="height">
+									    <option value="">--请选择--</option>
 										<option value="150">150cm</option>
 										<option value="151">151cm</option>
 										<option value="152">152cm</option>
@@ -163,33 +228,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</td>
 							</tr>
 							<tr>
-								<td>年龄：</td>
-								<td>
-									<input type="text" name="age" />
-								</td>
-							</tr>
-							<tr>
-								<td>常驻地区：</td>
-								<td>
-									<input type="text" name="residentPlace" />
-								</td>
-							</tr>
-							<tr>
-								<td>婚姻状况：</td>
-								<td>
-									<select name="marriageCase">
-									  <option value="未婚">未婚</option>
-									  <option value="离异">离异</option>
-									  <option value="丧偶">丧偶</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
 					  			<td>
 									最高学历:
 							 	 </td>
 								 <td>
 									<select name="degree">
+									  <option value="">--请选择--</option>
 									  <option value="中专或相关学历">中专或相关学历</option>
 									  <option value="大专">大专</option>
 									  <option value="本科">本科</option>
@@ -206,6 +250,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							  </td>
 							  <td>
 								<select name="yearSalary">
+								  <option value="">--请选择--</option>
 								  <option value="36000以下">36000以下</option>
 								  <option value="3.6万-6万">3.6万-6万</option>
 								  <option value="6万-9.6万">6万-9.6万</option>
@@ -231,6 +276,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							  </td>
 							  <td>
 								<select name="asset">
+								  <option value="">--请选择--</option>
 								  <option value="50万以下">50万以下</option>
 								  <option value="50万-80万">50万-80万</option>
 								  <option value="80万-100万">80万-100万</option>
@@ -257,35 +303,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							  </td>
 							  <td>
 								<select name="carCase">
+								  <option value="">--请选择--</option>
 								  <option value="暂时未购车">暂未购车</option>
 								  <option value="已购车一辆">已购车一辆</option>
 								  <option value="已购多辆车">已购多辆车</option>
 								</select>
 							  </td>
 							</tr>
-							<tr>
-							  <td>
-								购房情况:
-							  </td>
-							  <td>
-								<select name="houseCase">
-								  <option value="暂未购房">暂未购房</option>
-								  <option value="已购一室一厅">已购一室一厅</option>
-								  <option value="已购二室一厅">已购二室一厅</option>
-								  <option value="已购二室二厅">已购二室二厅</option>
-								  <option value="已购三室一厅">已购三室一厅</option>
-								  <option value="已购三室二厅">已购三室二厅</option>
-								  <option value="已购复式住房">已购复式住房</option>
-								  <option value="已购别墅">已购别墅</option>
-								  <option value="已购多套住房">已购多套住房</option>
-								  <option value="与人合租">与人合租</option>
-								  <option value="与父母同住">与父母同住</option>
-								  <option value="住亲朋家">住亲朋家</option>
-								  <option value="住单位房">住单位房</option>	
-								  <option value="打算婚后购房">打算婚后购房</option>
-								</select>
-							  </td>
-							</tr>
+							
 						</table>
 					</div>
 				</div>
@@ -302,12 +327,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td>邮箱：</td>
 								<td>
 									<input type="text" name="email" />
-								</td>
-							</tr>
-							<tr>
-								<td>手机号：</td>
-								<td>
-									<input type="text" name="phoneNum" />
 								</td>
 							</tr>
 							<tr>
