@@ -37,7 +37,7 @@ public class MemberController {
 	private BaseService baseService;
 
 	/**
-	 * 新闻列表
+	 * 会员列表
 	 * @return
 	 */
 	@RequestMapping(value="/admin/member/list")
@@ -58,7 +58,7 @@ public class MemberController {
 	}
 	
 	/**
-	 * 新闻添加
+	 * 会员添加
 	 * @return
 	 */
 	@RequestMapping(value="/admin/member/add")
@@ -67,50 +67,11 @@ public class MemberController {
 	}
 	
 	/**
-	 * 新闻保存
+	 * 会员保存
 	 * @return
 	 * */
 	@RequestMapping(value="/admin/member/update")
-	public String update(HttpServletRequest request){
-		String memberId=request.getParameter("memberId");
-		String unitNature = request.getParameter("unitNature");
-		String age=request.getParameter("age");
-		String username=request.getParameter("username");
-		char sex=request.getParameter("sex").charAt(0);
-		String career=request.getParameter("career");
-		String idCard=request.getParameter("idCard");
-		String height=request.getParameter("height");
-		String phoneNum=request.getParameter("phoneNum");
-		long birthday=getBirthDay(idCard);
-		String nickName=request.getParameter("nickName");
-		String residentPlace=request.getParameter("residentPlace");
-		String marriageCase=request.getParameter("marriageCase");
-		String degree=request.getParameter("degree");
-		String yearSalary=request.getParameter("yearSalary");
-		String asset=request.getParameter("asset");
-		String carCase=request.getParameter("carCase");
-		String houseCase=request.getParameter("houseCase");
-		Tmember member=(Tmember) baseService.findObject(Tmember.class, Integer.parseInt(memberId));
-		member.setUsername(username);
-		if (!StringUtils.isEmpty(age)) {
-			member.setAge(Integer.parseInt(age));
-		}
-		member.setUnitNature(unitNature);
-		member.setSex(sex);
-		member.setCareer(career);
-		member.setIdCard(idCard);
-		member.setCarCase(carCase);
-		member.setMarriageCase(marriageCase);
-		member.setAsset(asset);
-		member.setNickName(nickName);
-		member.setResidentPlace(residentPlace);
-		member.setDegree(degree);
-		member.setYearSalary(yearSalary);
-		member.setCarCase(carCase);
-		member.setHouseCase(houseCase);
-		member.setBirthday(birthday);
-		member.setHeight(Integer.parseInt(height));
-		member.setPhoneNum(phoneNum);
+	public String update(Tmember member,HttpServletRequest request){
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
 		Map<String, MultipartFile> files = multipartRequest.getFileMap();
@@ -126,12 +87,14 @@ public class MemberController {
 				log.debug("upload file stuffix:"+extention);
 				String formName=file.getName();
 				storepath = mydfsTrackerServer.upload(inputStream, extention);
-				if(formName.equals("artImage")){
+				if(formName.equals("artImage1")){
 					member.setArtImage(storepath);
-				}else if (formName.equals("lifeImage")) {
+				}else if (formName.equals("lifeImage1")) {
 					member.setLifeImage(storepath);
-				}else if(formName.equals("workImage")) {
+				}else if(formName.equals("workImage1")) {
 					member.setWorkImage(storepath);
+				}else if (formName.equals("headerImg1")) {
+					member.setHeaderImg(storepath);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -141,43 +104,7 @@ public class MemberController {
 		return "redirect:/admin/member/list.jhtml";
 	}
 	@RequestMapping(value="/admin/member/save")
-	public String save(HttpServletRequest request){
-		String username=request.getParameter("username");
-		String age=request.getParameter("age");
-		char sex=request.getParameter("sex").charAt(0);
-		String career=request.getParameter("career");
-		String idCard=request.getParameter("idCard");
-		String height=request.getParameter("height");
-		String phoneNum=request.getParameter("phoneNum");
-		long birthday=getBirthDay(idCard);
-		String nickName=request.getParameter("nickName");
-		String residentPlace=request.getParameter("residentPlace");
-		String marriageCase=request.getParameter("marriageCase");
-		String degree=request.getParameter("degree");
-		String yearSalary=request.getParameter("yearSalary");
-		String asset=request.getParameter("asset");
-		String carCase=request.getParameter("carCase");
-		String houseCase=request.getParameter("houseCase");
-		Tmember member=new Tmember();
-		member.setUsername(username);
-		if (!StringUtils.isEmpty(age)) {
-			member.setAge(Integer.parseInt(age));
-		}
-		member.setSex(sex);
-		member.setCareer(career);
-		member.setIdCard(idCard);
-		member.setCarCase(carCase);
-		member.setMarriageCase(marriageCase);
-		member.setAsset(asset);
-		member.setNickName(nickName);
-		member.setResidentPlace(residentPlace);
-		member.setDegree(degree);
-		member.setYearSalary(yearSalary);
-		member.setCarCase(carCase);
-		member.setHouseCase(houseCase);
-		member.setBirthday(birthday);
-		member.setHeight(Integer.parseInt(height));
-		member.setPhoneNum(phoneNum);
+	public String save(Tmember member,HttpServletRequest request){
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
 		Map<String, MultipartFile> files = multipartRequest.getFileMap();
@@ -193,12 +120,14 @@ public class MemberController {
 				log.debug("upload file stuffix:"+extention);
 				String formName=file.getName();
 				storepath = mydfsTrackerServer.upload(inputStream, extention);
-				if(formName.equals("artImage")){
+				if(formName.equals("artImage1")){
 					member.setArtImage(storepath);
-				}else if (formName.equals("lifeImage")) {
+				}else if (formName.equals("lifeImage1")) {
 					member.setLifeImage(storepath);
-				}else if(formName.equals("workImage")) {
+				}else if(formName.equals("workImage1")) {
 					member.setWorkImage(storepath);
+				}else if (formName.equals("headerImg1")) {
+					member.setHeaderImg(storepath);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -209,7 +138,7 @@ public class MemberController {
 	}
 	
 	/**
-	 * 新闻修改
+	 * 会员修改
 	 * @return
 	 */
 	@RequestMapping(value="/admin/member/edit")
@@ -223,7 +152,7 @@ public class MemberController {
 	}
 	
 	/**
-	 * 新闻删除
+	 * 会员删除
 	 * @return
 	 */
 	@RequestMapping(value="/admin/member/delete")

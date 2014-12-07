@@ -231,7 +231,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</select>
 				</td>
 			</tr>
-			
+			<tr>
+				<th>上传头像：</th>
+				<td>
+					<div>
+						<span style="float:left">
+							<div id="preview_wrapper" >    
+						        <div id="preview_fake00" >    
+						            <img id="preview00" onload="onPreviewLoad(this,190,120)" src="/static/public/images/bg.png"/>
+						        </div>    
+						    </div>    
+						    <br/>    
+						    <input class="selectImg" id="headerImg" type="file" name="headerImg1" style="width: 190px" title="请选择头像"  onchange="filename0.value=this.value;onUploadImgChange(this,100,100,'preview00','preview_fake00','preview_size_fake00');"/>  
+						    <input type="hidden" id="filename00" name="filename00">
+						    <br/>    
+						    <img id="preview_size_fake00"/> 
+						</span>
+					</div>
+				</td>
+			</tr>
 			<tr id="pathTr">
 				<th>
 					上传照片:
@@ -245,7 +263,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						        </div>    
 						    </div>    
 						    <br/>    
-						    <input id="artImage" type="file" name="artImage" onchange="filename0.value=this.value;onUploadImgChange(this,190,120,'preview0','preview_fake0','preview_size_fake0');"/>  
+						    <input id="artImage" type="file" name="artImage1" style="width: 190px" onchange="filename0.value=this.value;onUploadImgChange(this,190,120,'preview0','preview_fake0','preview_size_fake0');"/>  
 						    <input type="hidden" id="filename0" name="filename0">
 						    <br/>    
 						    <img id="preview_size_fake0"/> 
@@ -259,7 +277,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						        </div>    
 						    </div>    
 						    <br/>    
-						    <input id="lifeImage" type="file" name="lifeImage" onchange="filename0.value=this.value;onUploadImgChange(this,190,120,'preview1','preview_fake1','preview_size_fake1');"/>  
+						    <input id="lifeImage1" type="file" name="lifeImage1" style="width: 190px" onchange="filename0.value=this.value;onUploadImgChange(this,190,120,'preview1','preview_fake1','preview_size_fake1');"/>  
 						    <input type="hidden" id="filename1" name="filename1">
 						    <br/>    
 						    <img id="preview_size_fake1"/> 
@@ -273,7 +291,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						        </div>    
 						    </div>    
 						    <br/>    
-						    <input id="workImage" type="file" name="workImage" onchange="filename0.value=this.value;onUploadImgChange(this,190,120,'preview2','preview_fake2','preview_size_fake2');"/>  
+						    <input id="workImage1" type="file" name="workImage1" style="width: 190px" onchange="filename0.value=this.value;onUploadImgChange(this,190,120,'preview2','preview_fake2','preview_size_fake2');"/>  
 						    <input type="hidden" id="filename2" name="filename2">
 						    <br/>    
 						    <img id="preview_size_fake2"/> 

@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 	#inputForm h2 {
 		font-size: 19px;
-	    font-weight: normal;
+	    font-weight: bold;
 	    margin: 0;
 	}
 	#preview_wrapper {
@@ -65,6 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			rules: {
 				nickName: "required"
 				,age:"required"
+				,unitNature:"required"
+				,houseCase:"required"
 			}
 		});
 		
@@ -141,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									工作性质:
 								</td>
 								<td>
-									<select name="unitNature">
+									<select name="unitNature" >
 										<option value="">--请选择--</option>
 										<option value="国企">国企</option>
 										<option value="私企">私企</option>
@@ -363,7 +365,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="headerImg" type="file" name="headerImg" title="请选择头像" style="width: 100px;" onchange="filename0.value=this.value;onUploadImgChange(this,100,100,'preview00','preview_fake00','preview_size_fake00');"/>  
+										    <input class="selectImg" id="headerImg" type="file" name="headerImg1" title="请选择头像" style="width: 100px;" onchange="filename0.value=this.value;onUploadImgChange(this,100,100,'preview00','preview_fake00','preview_size_fake00');"/>  
 										    <input type="hidden" id="filename00" name="filename00">
 										    <br/>    
 										    <img id="preview_size_fake00"/> 
@@ -382,7 +384,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="artImage" type="file" name="artImage" title="请选择艺术照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview0','preview_fake0','preview_size_fake0');"/>  
+										    <input class="selectImg" id="artImage" type="file" name="artImage1" title="请选择艺术照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview0','preview_fake0','preview_size_fake0');"/>  
 										    <input type="hidden" id="filename0" name="filename0">
 										    <br/>    
 										    <img id="preview_size_fake0"/> 
@@ -396,7 +398,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="lifeImage" type="file" name="lifeImage" title="请选择生活照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview1','preview_fake1','preview_size_fake1');"/>  
+										    <input class="selectImg" id="lifeImage" type="file" name="lifeImage1" title="请选择生活照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview1','preview_fake1','preview_size_fake1');"/>  
 										    <input type="hidden" id="filename1" name="filename1">
 										    <br/>    
 										    <img id="preview_size_fake1"/> 
@@ -410,7 +412,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										        </div>    
 										    </div>    
 										    <br/>    
-										    <input class="selectImg" id="workImage" type="file" name="workImage" title="请选择工作照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview2','preview_fake2','preview_size_fake2');"/>  
+										    <input class="selectImg" id="workImage" type="file" name="workImage1" title="请选择工作照" style="width:150px;" onchange="filename0.value=this.value;onUploadImgChange(this,150,120,'preview2','preview_fake2','preview_size_fake2');"/>  
 										    <input type="hidden" id="filename2" name="filename2">
 										    <br/>    
 										    <img id="preview_size_fake2" /> 

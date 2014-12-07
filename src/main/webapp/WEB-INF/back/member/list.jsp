@@ -87,10 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="javascript:;" class="sort" name="top">购房情况</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="top">艺术照</a>
-				</th>
-				<th>
-					<a href="javascript:;" class="sort" name="top">生活照</a>
+					<a href="javascript:;" class="sort" name="top">头像</a>
 				</th>
 				<th>
 					<a href="#"  class="sort">操作</a>
@@ -134,10 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					   ${member.houseCase}
 					</td>
 					<td>
-					   <img  src="/${member.artImage}?w=100&h=100"/>
-					</td>
-					<td>
-					   <img  src="/${member.lifeImage}?w=100&h=100"/>
+					   <img style="width: 50px;height: 50px" src="/${member.headerImg}"/>
 					</td>
 					<td>
 						<a href="/admin/member/edit.jhtml?memberId=${member.id}">[修改]</a>
