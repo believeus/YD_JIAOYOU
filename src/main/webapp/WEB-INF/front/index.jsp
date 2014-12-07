@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	$().ready(function() {
 		if(window.screen.width > 1440){
 			$(".footer").css("position","fixed");
-		}else if(window.screen.width == 1366){
+		}else if(window.screen.width <= 1366){
 			$(".center").css({"height":"599px"});
 		}
 		
@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			     } */
 			},
 			messages: {
-				phoneNum:{remote:jQuery.format("已被注册！")}
+				phoneNum:{remote:jQuery.format("已注册")}
 			    /*  ,veryCode:  {required:"请输入验证码",remote:jQuery.format("验证码错误")} */
 			 }
 			,submitHandler:function(form){

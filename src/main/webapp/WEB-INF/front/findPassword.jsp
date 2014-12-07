@@ -80,29 +80,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="list-main" style="height:300px;text-align:center;padding-top: 100px;">
+			<div style="padding-left: 311px;">
+				<h2 style="text-align:left;">忘记了我的密码？</h2>
+				<p style="width:500px;line-height: 22px;text-align: left;">
+					首先感谢您访问交友网，如果您忘记了密码，请在下面输入您的用户名（手机号），我们会将修改密码的网址发送到您的邮箱，那么您就可自行修改密码。如果您还不是交友网会员，请先在这里&nbsp;&nbsp;&nbsp;<a href="/" style="color: #6f165d;font-family: 宋体;font-weight: bold;">注册>></a>
+				</p>
+			</div>
 			<form action="/mailSend.jhtml" method="post" id="findpasswordForm">
-				<table style="width: 300px; margin: 0px auto;">
+				<table style="margin: 0px auto;">
 					<tr>
-						<td colspan="2">
-							<h2>找回密码</h2>
-						</td>
-					</tr>
-					<tr>
-						<td><span style="font-size: 20px;">用户名:</span></td>
-						<td>
+						<td style="text-align: left;width: 80px;"><span style="font-size: 20px;">用户名:</span></td>
+						<td style="width:300px;text-align: left;">
 							<input name="phoneNum" id="phoneNum" type="text" placeholder="手机号"  onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"  class="text">
 						</td>
 					</tr>
 					<tr>
-						<td><span style="font-size: 20px;">邮箱:</span></td>
-						<td>
+						<td style="text-align: left;width: 80px;"><span style="font-size: 20px;">邮箱:</span></td>
+						<td style="width:300px;text-align: left;">
 							<input type="text" name="email" id="email" placeholder="填写邮箱"  class="text">
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<input id="subminEmail" class="submitBtn" type="submit" value="确定" style="margin-right:20px;" >
-							<input class="submitBtn" type="button" value="返回" onclick="javascript:window.history.back();">
+							<input class="submitBtn" type="button" value="返回" style="margin-right: 95px;" onclick="javascript:window.history.back();">
 						</td>
 					</tr>
 				</table>
