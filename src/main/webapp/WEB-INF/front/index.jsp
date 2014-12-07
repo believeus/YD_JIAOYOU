@@ -30,8 +30,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	$().ready(function() {
 		if(window.screen.width > 1440){
 			$(".footer").css("position","fixed");
-		}else if(window.screen.width <= 1366){
+		}else if(window.screen.width == 1366){
 			$(".center").css({"height":"599px"});
+		}else if(window.screen.width == 1280){
+			$(".center").css({"height":"560px"});
+		}else if(window.screen.width == 1280 && window.screen.height == 800){
+			$(".center").css({"height":"575px"});
 		}
 		
 		var $inputForm = $("#inputForm");

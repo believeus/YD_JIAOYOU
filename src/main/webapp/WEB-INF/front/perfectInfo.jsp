@@ -55,6 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    top: -60px;
 	    width: 150px;
 	}
+	.zhanghao_table td{
+		line-height:50px !important;
+	}
 </style>
 <script type="text/javascript">
 	$().ready(function() {
@@ -318,8 +321,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				
 				<div style="background:url(/static/public/images/22.jpg);width:722px;height:236px;">
-					<div style="width:400px;height:236px;margin-left:30px;padding-top:15px;">
-						<table>
+					<div style="width:400px;height:210px;margin-left:30px;padding-top:15px;">
+						<table class="zhanghao_table">
 							<tr>
 								<td colspan="2">
 									<h2 style="margin:0;">帐号信息</h2>
