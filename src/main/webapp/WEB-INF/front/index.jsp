@@ -28,6 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 <script type="text/javascript">
 	$().ready(function() {
+		// 手机号码验证
+		jQuery.validator.addMethod("isMobile", function(value, element) {
+		  var length = value.length;
+		  var mobile = /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/;
+		  return this.optional(element) || (length == 11 && mobile.test(value));
+		}, "格式错误"); 
+		
 		if(window.screen.width > 1440){
 			$(".footer").css("position","fixed");
 		}else if(window.screen.width == 1366){
@@ -43,6 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$inputForm.validate({
 			rules: {
 				phoneNum:{
+					isMobile:true,
 					required:true,
 					remote: {
 					    url: "/ajaxComValidReg.jhtml",     //后台处理程序
@@ -99,31 +107,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        }    
 		});
 
-		/* // 用户名验证。
-		$("#phoneNum").change(function(){
-			$.ajax({
-				url: "/ajaxComValidReg.jhtml",
-				type: "get",
-				data: {
-					phoneNum:$(this).val()
-					},
-				dataType: "json",
-				cache: false,
-				success: function(data) {
-						// 如果注册成功，则进行跳转
-						if(data.message!="success"){
-							$("#phoneNum").val("");
-							alert(data.message);
-						}
-					}
-				});
-		}); */
-		
-		
 		var $loginForm = $("#loginForm");
 		$loginForm.validate({
 			rules: {
-				LphoneNum: "required"
+				LphoneNum: {
+					isMobile:true,
+					required:true
+				}
 				,Lpassword: "required"
 			},
 			submitHandler:function(form){
