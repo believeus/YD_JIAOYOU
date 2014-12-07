@@ -15,15 +15,15 @@ public class MemberService extends BaseService{
 	// 第五个参数:职业
 	// 第六个判断:资产
 	public Page<Tmember> findMemberListByBaseInfo(String age_range,String height_range,Tmember member,String pageNumber){
-		String hql="from Tmember t_member ";
-		if (StringUtils.isEmpty(member.getId())) {
-			hql+=" where 1=1 ";
-		}else {
-			hql+=" where t_member.id !='"+member.getId()+"'";
+		String hql="from Tmember t_member where t_member.nickName != null";
+		if (!StringUtils.isEmpty(member.getId())) {
+			hql+=" and t_member.id !='"+member.getId()+"'";
 		}
 		// 性别
 		if(!StringUtils.isEmpty(member.getSex())){
-			hql+=" and t_member.sex='"+member.getSex()+"' ";
+			if(!"".equals(member.getSex().toString().trim())){
+				hql+=" and t_member.sex='"+member.getSex()+"' ";
+			}
 		}
 		// 年龄范围
 		if(!StringUtils.isEmpty(age_range)){

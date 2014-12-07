@@ -59,15 +59,17 @@ var provinces = {
 
 var ProvinceCase = function(provinceID,cityID,defaultProvince,defaultCity) {
 	this.init = function(provinceCase) {
+		$('#'+provinceID).append($("<option value=''>-请选择省-</option>"));
+		$('#'+cityID).append($("<option value=''>-请选择市-</option>"));
 		if(defaultProvince !=""){
 			$('#'+provinceID).append($("<option value='"+defaultProvince+"'>" + defaultProvince + "</option>"));
 		}else{
-			$('#'+provinceID).append($("<option>-请选择省-</option>"));
+			$('#'+provinceID).append($("<option value=''>-请选择省-</option>"));
 		}
 		if(defaultCity!=""){
 			$('#'+cityID).append($("<option value='"+defaultCity+"'>" + defaultCity + "</option>"));
 		}else{
-			$('#'+cityID).append($("<option>-请选择市-</option>"));
+			$('#'+cityID).append($("<option value=''>-请选择市-</option>"));
 		}
 		
 		$('#'+cityID).attr("disabled","disabled");

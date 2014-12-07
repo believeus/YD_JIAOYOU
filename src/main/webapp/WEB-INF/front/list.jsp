@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<script type="text/javascript">
 		$(function(){
+			$("#sex").val("${sex}");
 			$("#height").val("${height}");
 			$("#unitNature").val("${unitNature}");
 			$("#career").val("${career}");
@@ -105,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						年龄:
-						<select name="age_range" id="age" style="margin-left: 25px;">
+						<select name="age_range" id="age_range" style="margin-left: 25px;">
 							<option value="">不限</option>
 							<option value="18-26">18-26</option>
 							<option value="27-36">27-36</option>
@@ -116,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						身高:
-						<select name="height_range" id="height" style="margin-left: 25px;">
+						<select name="height_range" id="height_range" style="margin-left: 25px;">
 							<option value="">不限</option>
 							<option value="150-159">150-159cm</option>
 							<option value="160-169">160-169cm</option>
@@ -137,7 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div id="cond_list" style="margin-top: 10px; line-height: 30px;display:none;">
 					<span>
 						单位性质:
-						<select name="unitNature">
+						<select name="unitNature" id="unitNature">
 							<option value="">不限</option>
 							<option value="国企">国企</option>
 							<option value="私企">私企</option>
@@ -148,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						职业类型:
-						<select name="career">
+						<select name="career" id="career">
 							<option value="">不限</option>
 							<option value="企业家">企业家</option>
 							<option value="高级管理">高级管理</option>
@@ -189,8 +190,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						婚姻状况:
-						<select name="marriageCase">
-							<option value="">不限</option>
+						<select name="marriageCase" id="marriageCase">
+						  <option value="">不限</option>
 						  <option value="未婚">未婚</option>
 						  <option value="离异">离异</option>
 						  <option value="丧偶">丧偶</option>
@@ -198,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						最高学历:
-						<select name="degree">
+						<select name="degree" id="degree">
 						  <option value="">不限</option>
 						  <option value="中专或相关学历">中专或相关学历</option>
 						  <option value="大专">大专</option>
@@ -212,7 +213,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br/>
 					<span>
 						目前年薪:
-						<select name="yearSalary">
+						<select name="yearSalary" id="yearSalary">
 						  <option value="">不限</option>
 						  <option value="36000以下">36000以下</option>
 						  <option value="3.6万-6万">3.6万-6万</option>
@@ -234,7 +235,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						目前资产:
-					  <select name="asset">
+					  <select name="asset" id="asset">
 					  	  <option value="">不限</option>
 						  <option value="50万以下">50万以下</option>
 						  <option value="50万-80万">50万-80万</option>
@@ -257,7 +258,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						购车情况:
-						 <select name="carCase">
+						 <select name="carCase" id="carCase">
 						 	<option value="">不限</option>
 						  <option value="暂时未购车">暂未购车</option>
 						  <option value="已购车一辆">已购车一辆</option>
@@ -266,7 +267,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					<span>
 						购房情况:
-						<select name="houseCase">
+						<select name="houseCase" id="houseCase">
 						  <option value="">不限</option>
 						  <option value="暂未购房">暂未购房</option>
 						  <option value="已购一室一厅">已购一室一厅</option>

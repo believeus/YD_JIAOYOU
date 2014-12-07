@@ -14,7 +14,7 @@ public class Tmember extends TbaseEntity {
 	// 真实姓名
 	private  String username;
 	// 性别
-	private char sex;
+	private Character sex;
 	// 身份证号码
 	private String idCard;
 	// 邮箱
@@ -101,7 +101,7 @@ public class Tmember extends TbaseEntity {
 	public String getPhoneNum() {
 		return phoneNum;
 	}
-	public char getSex() {
+	public Character getSex() {
 		return sex;
 	}
 	public String getUsername() {
@@ -156,7 +156,7 @@ public class Tmember extends TbaseEntity {
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
-	public void setSex(char sex) {
+	public void setSex(Character sex) {
 		this.sex = sex;
 	}
 	public void setUsername(String username) {
