@@ -15,15 +15,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<title>丽人交友网-美女列表</title>
 		<script type="text/javascript" src="/static/public/js/jquery.js"></script>
 		<script type="text/javascript" src="/static/public/js/list.js"></script>
+		<script type="text/javascript" src="/static/public/js/province.js"></script>
 		<link rel="stylesheet" href="/static/public/css/style.css" />
 		<link href="/static/public/css/common_s.css" rel="stylesheet" type="text/css" />
 	</head>
 	<script type="text/javascript">
 		$(function(){
 			$("#ageRange").val("${ageRange}");
-			$("#yearSalary").val("${yearSalary}");
-			$("#houseCase").val("${houseCase}");
-			$("#unitNature").val("${unitNature}");
+			$("#sex").val("${sex}");
+			var provinceCase=new ProvinceCase("province","city"); 
+			provinceCase.init(provinceCase);
 		});
 	</script>
 	<body style="background: url(/static/public/images/bg2-1.jpg);overflow-x:hidden;">
@@ -60,16 +61,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					选择您喜爱的那位
 				</p>
 				<div class="select-conditions">
-					<form action="/search.jhtml" method="post">
+					<form action="/baseSearch.jhtml" method="post">
 					<span>
 						性别:
-						<label>男<input type="radio" name="sex" value="男" <c:if test="${sex=='男'}">checked="checked"</c:if> /></label>&nbsp;
-						<label>女<input type="radio" name="sex" value="女" <c:if test="${sex=='女'}">checked="checked"</c:if> /></label>
+						<select name="sex" id="sex">
+							<option>男</option>
+							<option>女</option>
+						</select>
 					</span>
 					<span>
 						年龄:
 						<select name="ageRange" id="ageRange">
-							<option value="">--请选择--</option>
+							<option value="">不限</option>
 							<option value="18-26">18-26</option>
 							<option value="27-36">27-36</option>
 							<option value="37-46">37-46</option>
@@ -78,57 +81,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</select>
 					</span>
 					<span>
-						年薪:
-						<select name="yearSalary" id="yearSalary">
-							<option value="">--请选择--</option>
-							  <option value="36000以下">36000以下</option>
-							  <option value="3.6万-6万">3.6万-6万</option>
-							  <option value="6万-9.6万">6万-9.6万</option>
-							  <option value="9.6万-14.4万">9.6万-14.4万</option>
-							  <option value="14.4万-24万">14.4万-24万</option>
-							  <option value="24万-36万">24万-36万</option>
-							  <option value="36万-60万">36万-60万</option>
-							  <option value="60万-96万">60万-96万</option>
-							  <option value="96万-120万">96万-120万</option>
-							  <option value="120万-360万">120万-360万</option>
-							  <option value="360万-600万">360万-600万</option>
-							  <option value="600万-600万">600万-600万</option>
-							  <option value="600万-1.2亿">600万-1.2亿</option>
-							  <option value="1.2亿-24亿">1.2亿-24亿</option>
-							  <option value="24亿-60亿">24亿-60亿</option>	
-							  <option value="60亿以上">60亿以上</option>
+						身高:
+						<select name="heightRange" id="heightRange">
+							<option value="">不限</option>
+							<option value="150-159">150-159cm</option>
+							<option value="160-169">160-169cm</option>
+							<option value="170-179">170-179cm</option>
+							<option value="180-189">180-189cm</option>
 						</select>
 					</span>
 					<span>
-						住房:
-						<select name="houseCase" id="houseCase">
-							<option value="">--请选择--</option>
-							<option value="暂未购房">暂未购房</option>
-							  <option value="已购一室一厅">已购一室一厅</option>
-							  <option value="已购二室一厅">已购二室一厅</option>
-							  <option value="已购二室二厅">已购二室二厅</option>
-							  <option value="已购三室一厅">已购三室一厅</option>
-							  <option value="已购三室二厅">已购三室二厅</option>
-							  <option value="已购复式住房">已购复式住房</option>
-							  <option value="已购别墅">已购别墅</option>
-							  <option value="已购多套住房">已购多套住房</option>
-							  <option value="与人合租">与人合租</option>
-							  <option value="与父母同住">与父母同住</option>
-							  <option value="住亲朋家">住亲朋家</option>
-							  <option value="住单位房">住单位房</option>	
-							  <option value="打算婚后购房">打算婚后购房</option>
-						</select>
+						省
+						<select id="province">  
+  							<option>-请选择-</option>  
+						 </select>  
+
 					</span>
 					<span>
-						工作性质:
-						<select name="unitNature" id="unitNature">
-							<option value="">--请选择--</option>
-							<option value="国企">国企</option>
-							<option value="私企">私企</option>
-							<option value="民营">民营</option>
-							<option value="个体">个体</option>
-							<option value="其它">其它</option>
-						</select>
+						市:
+						<select id="city">  
+  							<option>-请选择-</option>  
+ 						</select>
 					</span>
 					<input type="submit" value="确定" class="submitBtn">
 					</form>

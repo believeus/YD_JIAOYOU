@@ -48,7 +48,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					});
 				}
 			});
-			
 			$("#phoneNum").change(function(){
 				$.post("/ajaxMemberExist.jhtml?phoneNum="+$("#phoneNum").val(),function(data){
 					if(data=="unExist"){

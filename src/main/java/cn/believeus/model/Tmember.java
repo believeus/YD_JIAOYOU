@@ -26,7 +26,11 @@ public class Tmember extends TbaseEntity {
 	// 密码
 	private String password;
 	// 身高
-	private String height;
+	private int height;
+	// 省
+	private String province;
+	// 市
+	private String city;
 	// 生日
 	private long birthday;
 	// 常住地
@@ -77,10 +81,6 @@ public class Tmember extends TbaseEntity {
 	}
 	public String getCareer() {
 		return career;
-	}
-	
-	public String getHeight() {
-		return height;
 	}
 	public String getHouseCase() {
 		return houseCase;
@@ -140,9 +140,6 @@ public class Tmember extends TbaseEntity {
 	public void setDegree(String degree) {
 		this.degree = degree;
 	}
-	public void setHeight(String height) {
-		this.height = height;
-	}
 	public void setHouseCase(String houseCase) {
 		this.houseCase = houseCase;
 	}
@@ -196,6 +193,24 @@ public class Tmember extends TbaseEntity {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
+	}
+	public String getProvince() {
+		return province;
+	}
+	public void setProvince(String province) {
+		this.province = province;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
 }

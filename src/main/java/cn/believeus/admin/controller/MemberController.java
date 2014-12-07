@@ -109,7 +109,7 @@ public class MemberController {
 		member.setCarCase(carCase);
 		member.setHouseCase(houseCase);
 		member.setBirthday(birthday);
-		member.setHeight(height);
+		member.setHeight(Integer.parseInt(height));
 		member.setPhoneNum(phoneNum);
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
@@ -176,7 +176,7 @@ public class MemberController {
 		member.setCarCase(carCase);
 		member.setHouseCase(houseCase);
 		member.setBirthday(birthday);
-		member.setHeight(height);
+		member.setHeight(Integer.parseInt(height));
 		member.setPhoneNum(phoneNum);
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
@@ -260,9 +260,18 @@ public class MemberController {
       }
       return birthday;
   }
-  @RequestMapping(value="/ajaxMemberExist")
-  public @ResponseBody String ajaxMemberExist(String phoneNum){
+  @RequestMapping(value="/ajaxMemberExistByPhoneNum")
+  public @ResponseBody String ajaxMemberExistByPhoneNum(String phoneNum){
 	  Tmember member = (Tmember)baseService.findObject(Tmember.class, Variables.PHONE_NUM, phoneNum);
+	  if(member==null){
+		  return "unExist";
+	  }else {
+		return "exist";
+	}
+  }
+  @RequestMapping(value="/ajaxMemberExistByIdCard")
+  public @ResponseBody String ajaxMemberExistByIdCard(String idCard){
+	  Tmember member = (Tmember)baseService.findObject(Tmember.class, Variables.ID_CARD, idCard);
 	  if(member==null){
 		  return "unExist";
 	  }else {

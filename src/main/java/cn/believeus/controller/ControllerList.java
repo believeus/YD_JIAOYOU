@@ -43,39 +43,33 @@ public class ControllerList {
 		return "/WEB-INF/front/list.jsp";
 	}
 	
-	@RequestMapping(value="/search")
-	public String search(HttpServletRequest request){
+	@RequestMapping(value="/baseSearch")
+	public String baseSearch(HttpServletRequest request){
 		String pageNumber = request.getParameter("pageNumber");
 		// 如果为空，则设置为1
 		if (StringUtils.isEmpty(pageNumber)) {
 			pageNumber="1";
 		}
-		Pageable pageable=new Pageable(Integer.valueOf(pageNumber),20);
-		char sex = request.getParameter("sex").charAt(0);
+		String sex = request.getParameter("sex");
 		String ageRange = request.getParameter("ageRange");
-		String yearSalary = request.getParameter("yearSalary");
-		String houseCase = request.getParameter("houseCase");
-		String unitNature = request.getParameter("unitNature");
-		Tmember member = new Tmember();
-		member.setYearSalary(yearSalary);
-		member.setHouseCase(houseCase);
-		member.setUnitNature(unitNature);
-		member.setSex(sex);
-		Page<Tmember> page =  memberService.getMemberList(member, ageRange, pageNumber);
+		String heightRange = request.getParameter("heightRange");
+		String province = request.getParameter("province");
+		String city = request.getParameter("city");
+		Page<Tmember> page =  memberService.getMemberListByBaseInfo(sex,ageRange,heightRange,province,city, pageNumber);
 		request.setAttribute("memberList", page.getContent());
 		request.setAttribute("size",page.getTotal());
 		request.setAttribute("sex", request.getParameter("sex"));
 		if(!StringUtils.isEmpty(ageRange)){
 			request.setAttribute("ageRange", ageRange);
 		}
-		if(!StringUtils.isEmpty(yearSalary)){
-			request.setAttribute("yearSalary", yearSalary);
+		if(!StringUtils.isEmpty(heightRange)){
+			request.setAttribute("yearSalary", heightRange);
 		}
-		if(!StringUtils.isEmpty(houseCase)){
-			request.setAttribute("houseCase", houseCase);
+		if(!StringUtils.isEmpty(province)){
+			request.setAttribute("houseCase", province);
 		}
-		if(!StringUtils.isEmpty(unitNature)){
-			request.setAttribute("unitNature", unitNature);
+		if(!StringUtils.isEmpty(city)){
+			request.setAttribute("unitNature", city);
 		}
 		// 分页
 		PaginationUtil.pagination(request, page.getPageNumber(),page.getTotalPages(), 0);

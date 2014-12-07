@@ -51,7 +51,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<table id="listTable" class="list">
 			<tr>
 				<th>
-					<a href="javascript:;" class="sort" name="id">姓名/昵称</a>
+					<a href="javascript:;" class="sort" name="id">昵称</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="id">姓名</a>
 				</th>
 				<th>
 					<a href="javascript:;" class="sort" name="title">职业类型</a>
@@ -97,8 +100,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<c:forEach var="member" items="${members}" varStatus="status">
 				<tr>
 					<td>
-						${member.username}/${member.nickName}
+						${member.nickName}
 					</td>
+					<td>${member.username}</td>
 					<td>
 						${member.career}	
 					</td>

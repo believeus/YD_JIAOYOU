@@ -57,6 +57,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		});
 		
+		$("#phoneNum").blur(function(){
+			$.post("/ajaxMemberExistByPhoneNum.jhtml?phoneNum="+$("#phoneNum").val(),function(data){
+				if(data=="exist"){
+					alert("手机号已被注册");
+					$("#phoneNum").val("");
+				}
+			});
+		});
+		$("#idCard").blur(function(){
+			$.post("/ajaxMemberExistByIdCard.jhtml?idCard="+$("#idCard").val(),function(data){
+				if(data=="exist"){
+					alert("身份证号已被注册");
+					$("#idCard").val("");
+				}
+			});
+		});
 	});
 	
 	</script>
@@ -89,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					手机号:
 				</th>
 				<td>
-					<input name="phoneNum"/>
+					<input name="phoneNum" id="phoneNum"/>
 				</td>
 			</tr>
 			<tr>
@@ -171,7 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					身份证号:
 				</th>
 				<td>
-					<input name="idCard"/>
+					<input name="idCard" id="idCard"/>
 				</td>
 			</tr>
 			<tr>
@@ -180,38 +196,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</th>
 				<td>
 					<select name="height">
-						<option value="150cm">150cm</option>
-						<option value="151cm">151cm</option>
-						<option value="152cm">152cm</option>
-						<option value="153cm">153cm</option>
-						<option value="154cm">154cm</option>
-						<option value="155cm">155cm</option>
-						<option value="156cm">156cm</option>
-						<option value="157cm">157cm</option>
-						<option value="158cm">158cm</option>
-						<option value="159cm">159cm</option>
-						<option value="160cm">160cm</option>
-						<option value="161cm">161cm</option>
-						<option value="162cm">162cm</option>
-						<option value="163cm">163cm</option>
-						<option value="164cm">164cm</option>
-						<option value="165cm">165cm</option>
-						<option value="166cm">166cm</option>
-						<option value="167cm">167cm</option>
-						<option value="168cm">168cm</option>
-						<option value="169cm">169cm</option>
-						<option value="170cm">170cm</option>
-						<option value="171cm">171cm</option>
-						<option value="172cm">172cm</option>
-						<option value="173cm">173cm</option>
-						<option value="174cm">174cm</option>
-						<option value="175cm">175cm</option>
-						<option value="176cm">176cm</option>
-						<option value="177cm">177cm</option>
-						<option value="178cm">178cm</option>
-						<option value="179cm">179cm</option>
-						<option value="180cm">180cm</option>
-						<option value="180cm">180cm以上</option>
+						<option value="150">150cm</option>
+						<option value="151">151cm</option>
+						<option value="152">152cm</option>
+						<option value="153">153cm</option>
+						<option value="154">154cm</option>
+						<option value="155">155cm</option>
+						<option value="156">156cm</option>
+						<option value="157">157cm</option>
+						<option value="158">158cm</option>
+						<option value="159">159cm</option>
+						<option value="160">160cm</option>
+						<option value="161">161cm</option>
+						<option value="162">162cm</option>
+						<option value="163">163cm</option>
+						<option value="164">164cm</option>
+						<option value="165">165cm</option>
+						<option value="166">166cm</option>
+						<option value="167">167cm</option>
+						<option value="168">168cm</option>
+						<option value="169">169cm</option>
+						<option value="170">170cm</option>
+						<option value="171">171cm</option>
+						<option value="172">172cm</option>
+						<option value="173">173cm</option>
+						<option value="174">174cm</option>
+						<option value="175">175cm</option>
+						<option value="176">176cm</option>
+						<option value="177">177cm</option>
+						<option value="178">178cm</option>
+						<option value="179">179cm</option>
+						<option value="180">180cm</option>
+						<option value="180">180cm以上</option>
 					</select>
 				</td>
 			</tr>

@@ -15,7 +15,7 @@
 	<script type="text/javascript" src='/static/public/js/outlook2.js'></script>
     <script type="text/javascript">
 	 var _menus = {"menus":[
-			{"menuid":"1","icon":"icon-sys","menuname":"内容管理",
+			{"menuid":"1","icon":"icon-sys","menuname":"会员",
 				"menus":[
 				         {"menuname":"会员管理","icon":"icon-users","url":"/admin/member/list.jhtml"},
 					]
