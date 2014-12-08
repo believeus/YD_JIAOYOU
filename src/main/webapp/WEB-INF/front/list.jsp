@@ -43,11 +43,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				if($("#cond_list").css("display") == "block"){
 					$("#cond_list").css("display","none");
 					$("#show_cond").text("更多条件>>");
+					$("#cond_list_status").val("none");
 				}else{
 					$("#cond_list").css("display","block");
 					$("#show_cond").text("收起");
+					$("#cond_list_status").val("block");
 				}
 			});
+			$("#cond_list").css("display","${cond_list_status}");
+			$("#cond_list_status").val("${cond_list_status}");
+			if("${cond_list_status}"=="block"){
+				$("#show_cond").text("收起");
+			}else{
+				$("#show_cond").text("更多条件>>");
+			}
 			var size = ${size};
 			if(size ==0){
 				$(".horse img").css({"position":"fixed","bottom":"90px"});
@@ -101,6 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="select-conditions">
 				<form action="/baseSearch.jhtml" method="post">
 					<input type="hidden" name="id" value="${sessionUser.id}"/>
+					<input type="hidden" name="cond_list_status" id="cond_list_status" value="none"/>
 					<span>
 						性别:
 						<select name="sex" id="sex" style="margin-left: 25px;">
@@ -301,12 +311,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="list-content" <c:if test="${(status.index+1)%4==0 }"> style="margin-right:0;"</c:if>>						
 							<div class="list-content-img">
 								<a href="/memberInfo.jhtml?id=${list.id }">
-									<img src="${list.headerImg }" width="200px" height="205px"/>
+									<img src="/${list.headerImg }?w=200&h=200" width="200px" height="200px"/>
 								</a>
 							</div>
 							<div class="list-content-name">
 								<a href="/memberInfo.jhtml?id=${list.id }">
-									<span>${list.username }</span>&nbsp;&nbsp;<span>${list.age }</span>
+									<span>昵称:${list.username }</span>&nbsp;&nbsp;<span>年龄:${list.age }</span>
 								</a>
 							</div>
 						</div>

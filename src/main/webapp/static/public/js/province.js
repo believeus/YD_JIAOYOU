@@ -59,22 +59,21 @@ var provinces = {
 
 var ProvinceCase = function(provinceID,cityID,defaultProvince,defaultCity) {
 	this.init = function(provinceCase) {
-		$('#'+provinceID).append($("<option value=''>-请选择省-</option>"));
-		$('#'+cityID).append($("<option value=''>-请选择市-</option>"));
 		if(defaultProvince !=""){
-			$('#'+provinceID).append($("<option value='"+defaultProvince+"'>" + defaultProvince + "</option>"));
+			$('#'+provinceID).append($("<option selected='selected' value='"+defaultProvince+"'>" + defaultProvince + "</option>"));
 		}else{
-			$('#'+provinceID).append($("<option value=''>-请选择省-</option>"));
+			$('#'+provinceID).append($("<option selected='selected' value=''>-请选择省-</option>"));
 		}
 		if(defaultCity!=""){
-			$('#'+cityID).append($("<option value='"+defaultCity+"'>" + defaultCity + "</option>"));
+			$('#'+cityID).append($("<option selected='selected' value='"+defaultCity+"'>" + defaultCity + "</option>"));
 		}else{
-			$('#'+cityID).append($("<option value=''>-请选择市-</option>"));
+			$('#'+cityID).append($("<option selected='selected' value=''>-请选择市-</option>"));
 		}
 		
 		$('#'+cityID).attr("disabled","disabled");
 		// 从数组中提取省份信息
 		for ( var p in provinces) {
+			if(p==defaultProvince)continue;
 			$('#'+provinceID).append($("<option value='" + p + "'>" + p + "</option>"));
 		}
 		$("#"+provinceID).change(function(){
@@ -93,6 +92,7 @@ var ProvinceCase = function(provinceID,cityID,defaultProvince,defaultCity) {
 
 		$('#'+cityID).append($("<option>-请选择市-</option>"));
 		for ( var index = 0; index < citys.length; index++) {
+			if(citys[index]==defaultCity)continue;
 			$('#'+cityID).append($("<option value='" + citys[index] + "'>" + citys[index] + "</option>"));
 		}
 	};

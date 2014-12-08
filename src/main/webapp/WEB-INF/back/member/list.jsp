@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					   ${member.houseCase}
 					</td>
 					<td>
-					   <img style="width: 50px;height: 50px" src="/${member.headerImg}"/>
+					   <img style="width: 50px;height: 50px" src="/${member.headerImg}?w=50&h=50"/>
 					</td>
 					<td>
 						<a href="/admin/member/edit.jhtml?memberId=${member.id}">[修改]</a>

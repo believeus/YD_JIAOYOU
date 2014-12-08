@@ -111,7 +111,8 @@ public class ControllerList {
 		if(!StringUtils.isEmpty(height_range)){
 			request.setAttribute("height_range", height_range);
 		}
-		
+		String cond_list_status= request.getParameter("cond_list_status");
+		request.setAttribute("cond_list_status",cond_list_status);
 		// 分页
 		PaginationUtil.pagination(request, page.getPageNumber(),page.getTotalPages(), 0);
 		return "/WEB-INF/front/list.jsp";
