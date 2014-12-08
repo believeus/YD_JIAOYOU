@@ -28,13 +28,15 @@ public class ControllerList {
 
 	@RequestMapping(value="/memberList")
 	public String list(HttpServletRequest request){
+		Tmember member = (Tmember)request.getSession().getAttribute("member");
+		int id=member.getId();
 		String pageNumber = request.getParameter("pageNumber");
 		// 如果为空，则设置为1
 		if (StringUtils.isEmpty(pageNumber)) {
 			pageNumber="1";
 		}
 		Pageable pageable=new Pageable(Integer.valueOf(pageNumber),20);
-		String hql= "from Tmember as entity order by editTime desc";
+		String hql= "from Tmember as entity where entity.id !="+id+"order by editTime desc";
 		Page<?> page = baseService.findObjectList(hql, pageable);
 		request.setAttribute("memberList", page.getContent());
 		request.setAttribute("size",page.getTotal());
