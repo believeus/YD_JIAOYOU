@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -59,9 +60,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<th>
 					<a href="javascript:;" class="sort" name="title">职业类型</a>
 				</th>
+				<shiro:hasRole name="root">
 				<th>
 					<a href="javascript:;" class="sort" name="title">身份证</a>
 				</th>
+				</shiro:hasRole>
 				<th>
 					<a href="javascript:;" class="sort" name="title">身高</a>
 				</th>
@@ -71,9 +74,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<th>
 					<a href="javascript:;" class="sort" name="title">学历</a>
 				</th>
+				<shiro:hasRole name="root">
 				<th>
 					<a href="javascript:;" class="sort" name="top">手机号</a>
 				</th>
+				</shiro:hasRole>
 				<th>
 					<a href="javascript:;" class="sort" name="top">年薪</a>
 				</th>
@@ -103,9 +108,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>
 						${member.career}	
 					</td>
+					<shiro:hasRole name="root">
 					<td>
 						${member.idCard}
 					</td>
+					</shiro:hasRole>
 					<td>
 					   ${member.height}
 					</td>
@@ -115,9 +122,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>
 					   ${member.degree}
 					</td>
+					
+					<shiro:hasRole name="root">
 					<td>
 					   ${member.phoneNum}
 					</td>
+					</shiro:hasRole>
+					<%-- <shiro:hasRole name="loveAdmin">
+					<td>
+					   ${member.phoneNum}xxxxx
+					</td>
+					</shiro:hasRole> --%>
 					<td>
 					   ${member.yearSalary}
 					</td>
@@ -134,8 +149,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					   <img style="width: 50px;height: 50px" src="/${member.headerImg}?w=50&h=50"/>
 					</td>
 					<td>
-						<a href="/admin/member/edit.jhtml?memberId=${member.id}">[修改]</a>
-						<a href="/admin/member/delete.jhtml?memberId=${member.id}">[刪除]</a>
+						<shiro:hasRole name="root">
+						 <a href="/admin/member/edit.jhtml?memberId=${member.id}">[修改]</a>
+						 <a href="/admin/member/delete.jhtml?memberId=${member.id}">[刪除]</a>
+						</shiro:hasRole>
+						<shiro:hasRole name="loveAdmin">
+						 <a href="javascript:void(0)" onclick="alert('无权修改');">[修改]</a>
+						 <a href="javascript:void(0)" onclick="alert('无权修改');">[刪除]</a>
+						</shiro:hasRole>
 					</td>
 				</tr>
 			</c:forEach>

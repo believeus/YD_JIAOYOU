@@ -39,6 +39,24 @@ public class InitAdmin implements ApplicationListener<ApplicationEvent>{
 				 authority.setRole(role);
 				 baseService.saveOrUpdata(authority);
 			}
+			Admin loveAdmin = (Admin)baseService.findObject(Admin.class, Variables.USER_NAME, "loveAdmin");
+			if(loveAdmin==null){
+				loveAdmin=new Admin();
+				loveAdmin.setUsername("loveAdmin");
+				loveAdmin.setPassword("love!@#");
+				loveAdmin.setDescription("该管理员不能查看用户关键信息");
+				baseService.saveOrUpdata(loveAdmin);
+				Role role=new Role();
+				role.setDescription("该角色为最高权限管理员的副手");
+				role.setRoleName("loveAdmin");
+				role.setAdmin(loveAdmin);
+				baseService.saveOrUpdata(role);
+				Authority authority=new Authority();
+				authority.setPermission("love:view");
+				authority.setRole(role);
+				baseService.saveOrUpdata(authority);
+			}
 		}
 	}
+	
 }
