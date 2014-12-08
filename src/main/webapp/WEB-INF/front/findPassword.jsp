@@ -44,6 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				},
 				submitHandler:function(form){
 					$.post("/mailSend.jhtml?"+$("#findpasswordForm").serialize(),function(data){
+						alert("密码已发送至您的邮箱，请查收！");
 						window.location.href="/";
 					});
 				}

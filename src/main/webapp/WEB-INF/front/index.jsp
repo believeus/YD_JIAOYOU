@@ -59,10 +59,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 					
 				} 
-				,password: "required"
+				,password:{
+					required:true,
+					minlength:3,
+					maxlength:16
+				} 
 				,enpassword: {
 				    required: true,
-				    equalTo: "#password"
+				    equalTo: "#password",
+			    	minlength:3,
+					maxlength:16
 				   }
 				/* ,vCode:{
 					required:true,
@@ -109,7 +115,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					isMobile:true,
 					required:true
 				}
-				,Lpassword: "required"
+				,Lpassword:{
+					required:true,
+					minlength:3,
+					maxlength:16
+				} 
 			},
 			submitHandler:function(form){
 				$.ajax({
@@ -125,8 +135,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							// 如果注册成功，则进行跳转
 							if(data.message=="success"){
 								window.location.href="/perfectInfo.jhtml";
-							}else{
-								alert(data.message);
+							}else if(data.message="0"){
+								alert("用户名不存在!");
+							}else if(data.message="1"){
+								alert("密码错误!");
 							}
 						}
 					});
@@ -154,7 +166,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="login">
 		  <form id="loginForm" action="" method="post">
 			<input type="text" name="LphoneNum" id="LphoneNum" placeholder="手机号" class="text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"/>
-			<input type="password" name="Lpassword" id="Lpassword" placeholder="密码" class="text"/>
+			<input type="password" name="Lpassword" id="Lpassword" placeholder="密码" class="text" maxlength="16"/>
 			<input type="submit" value="登录" class="submitBtn"/>
 			<a href="/findpassword.jhtml" style="margin-right: 30px;color: #999;text-decoration: underline;">忘记密码？</a>
 		 </form>
@@ -187,13 +199,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>密码：</td>
-					<td><input type="password" placeholder="密码" name="password" id="password" class="login_text" style="font-size: 13px;"></td>
+					<td><input type="password" placeholder="密码" name="password" id="password" class="login_text" style="font-size: 13px;" maxlength="16"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>确认密码：</td>
 					<td colspan="2">
-					<input type="password" placeholder="确认密码" name="enpassword" class="login_text" style="font-size: 13px;"></td>
+					<input type="password" placeholder="确认密码" name="enpassword" class="login_text" style="font-size: 13px;" maxlength="16"></td>
 					<td></td>
 				</tr>
 				<tr>

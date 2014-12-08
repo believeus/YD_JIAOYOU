@@ -64,12 +64,12 @@ public class ControllerIndex {
 		Map<String, Object> message=new HashMap<String, Object>();
 		Tmember member = (Tmember)baseService.findObject(Tmember.class, "phoneNum", phoneNum);
 		if (member==null) {
-			message.put("message","用户名不存在!");
+			message.put("message","0");// 用户名不存在
 			JsonOutToBrower.out(message, response);
 			return;
 		}
 		if (!password.equals(member.getPassword())) {
-			message.put("message","密码错误!");
+			message.put("message","1");//密码错误！
 			JsonOutToBrower.out(message, response);
 			return;
 		}
