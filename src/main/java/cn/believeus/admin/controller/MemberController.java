@@ -72,6 +72,8 @@ public class MemberController {
 	 * */
 	@RequestMapping(value="/admin/member/update")
 	public String update(Tmember member,HttpServletRequest request){
+		Tmember tm=(Tmember)baseService.findObject(Tmember.class, member.getId());
+		member.setPassword(tm.getPassword());
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
 		Map<String, MultipartFile> files = multipartRequest.getFileMap();
@@ -100,11 +102,13 @@ public class MemberController {
 				e.printStackTrace();
 			}
 		}
-		baseService.saveOrUpdata(member);
+		baseService.merge(member);
 		return "redirect:/admin/member/list.jhtml";
 	}
 	@RequestMapping(value="/admin/member/save")
 	public String save(Tmember member,HttpServletRequest request){
+		// 修改默认密码
+		member.setPassword("1234");  
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";
 		Map<String, MultipartFile> files = multipartRequest.getFileMap();

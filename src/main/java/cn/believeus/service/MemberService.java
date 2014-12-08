@@ -75,6 +75,7 @@ public class MemberService extends BaseService{
 		if(!StringUtils.isEmpty(member.getHouseCase())){
 			hql+=" and t_member.houseCase='"+member.getHouseCase()+"' ";
 		}
+		hql+="  order by t_member.editTime desc";
 		Pageable pageable=new Pageable(Integer.valueOf(pageNumber),20);
 		@SuppressWarnings("unchecked")
 		Page<Tmember> page = (Page<Tmember>) findObjectList(hql, pageable);

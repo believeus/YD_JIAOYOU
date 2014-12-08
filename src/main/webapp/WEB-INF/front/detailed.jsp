@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="center" style="width: 100%; height: auto;margin: 0 auto;background-image: url(/static/public/images/bg2-1.jpg);">
 		<div class="" style="width: 900px; height: 40px;margin: 0 auto;">
 			<p class="list-position" style="margin:0;height:40px;line-height:40px;">
-				<a href="#">主页</a>&gt;&gt;<a href="/memberList.jhtml">挑选</a>&gt;&gt;<a href="/memberList.jhtml?id=${member.id }">当前页</a>
+				<a href="#">主页</a>&gt;&gt;<a href="/memberList.jhtml">挑选</a>&gt;&gt;<a href="/memberInfo.jhtml?id=${member.id }">当前页</a>
 			</p>
 		</div>
 		<div class="" style="width: 900px; height: auto;margin: 0 auto;border: 6px solid #E0D7DA;">

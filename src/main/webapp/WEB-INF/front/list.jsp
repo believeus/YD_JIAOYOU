@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(size ==0){
 				$(".horse img").css({"position":"fixed","bottom":"90px"});
 				$(".footer").css({"position":"fixed","bottom":"0"});
-			}else if(window.screen.width == 1920 && size < 3){
+			}else if(window.screen.width == 1920 && size < 5){
 				$(".horse img").css({"position":"fixed","bottom":"90px"});
 				$(".footer").css({"position":"fixed","bottom":"0"});
 			}
@@ -118,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</p>
 				<div class="select-conditions">
 				<form action="/baseSearch.jhtml" method="post">
-					<input type="hidden" name="id" value="${sessionUser.id}"/>
+					<input type="hidden" name="id" value="${member.id}"/>
 					<input type="hidden" name="cond_list_status" id="cond_list_status" value="none"/>
 					<span>
 						性别:
@@ -325,7 +325,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="list-content-name">
 								<a href="/memberInfo.jhtml?id=${list.id }">
-									昵称:<span>
+									昵称:<span title="${list.nickName }">
 											${fn:substring(list.nickName, 0, 4)}
 											<c:if test="${fn:length(list.nickName) > 4 }">
 							   				...

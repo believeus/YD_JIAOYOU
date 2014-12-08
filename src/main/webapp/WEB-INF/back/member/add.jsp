@@ -46,7 +46,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$inputForm.validate({
 			rules: {
 				nickName: "required"
-				,age:"required"
+				,age:{
+					required:true,
+					minlength:2,
+					maxlength:2
+				}
 				,unitNature:"required"
 				,houseCase:"required"
 				,email:{
@@ -226,7 +230,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					年龄:
 				</th>
 				<td>
-					<input name="age"/>
+					<input name="age" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="2" minlegnth="2"/>
 				</td>
 			</tr>
 			<tr>

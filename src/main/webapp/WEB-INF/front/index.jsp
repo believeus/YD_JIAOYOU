@@ -135,9 +135,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							// 如果注册成功，则进行跳转
 							if(data.message=="success"){
 								window.location.href="/perfectInfo.jhtml";
-							}else if(data.message="0"){
+							}else if(data.message=="0"){
 								alert("用户名不存在!");
-							}else if(data.message="1"){
+							}else if(data.message=="1"){
 								alert("密码错误!");
 							}
 						}
