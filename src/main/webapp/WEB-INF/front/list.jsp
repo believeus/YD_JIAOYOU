@@ -43,19 +43,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				if($("#cond_list").css("display") == "block"){
 					$("#cond_list").css("display","none");
 					$("#show_cond").text("更多条件>>");
-					$("#cond_list_status").val("none");
+					//$("#cond_list_status").val("none");
 				}else{
 					$("#cond_list").css("display","block");
 					$("#show_cond").text("收起");
-					$("#cond_list_status").val("block");
+					//$("#cond_list_status").val("block");
 				}
 			});
-			$("#cond_list").css("display","${cond_list_status}");
+			/* $("#cond_list").css("display","${cond_list_status}");
 			$("#cond_list_status").val("${cond_list_status}");
 			if("${cond_list_status}"=="block"){
 				$("#show_cond").text("收起");
 			}else{
 				$("#show_cond").text("更多条件>>");
+			} */
+			var href = window.location.pathname;
+			//alert(href);
+			if(href == "/baseSearch.jhtml"){
+				$("#cond_list").css("display","block");
+				$("#show_cond").text("收起");
 			}
 			var size = ${size};
 			if(size ==0){
@@ -319,7 +325,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="list-content-name">
 								<a href="/memberInfo.jhtml?id=${list.id }">
-									<span>昵称:${list.username }</span>&nbsp;&nbsp;<span>年龄:${list.age }</span>
+									昵称:<span>
+											${fn:substring(list.nickName, 0, 4)}
+											<c:if test="${fn:length(list.nickName) > 4 }">
+							   				...
+						   					</c:if>
+										</span>
+								</a>
+								&nbsp;&nbsp;
+								<a href="/memberInfo.jhtml?id=${list.id }">
+									年龄:<span>${list.age }</span>
 								</a>
 							</div>
 						</div>
