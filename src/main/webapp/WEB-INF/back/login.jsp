@@ -46,10 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- End Name:wuqiwei 此处必须加：不加验证之后就不能表单提交了,所以如果已经验证直接跳转到/admin/manager.jhtml页面 -->
 	
 	<div class="center" style="width: 100%; height: 1000px;margin: 0 auto;">
-		<div style="width: 689px; height: auto; position: absolute; left: 50%; top: 50%; margin-left: -344px; margin-top: -91px;">
-			<img src="/static/public/images/loginbg.png" />
-		</div>
-		<div style="background-color: #d9e1f4;height: 39px;left: 50%;margin-left: -300px;margin-top: 30px;position: absolute;top: 50%;width: 600px;">
+		<div style="background-color: #d9e1f4;height: 39px;left: 50%;margin-left: -300px;margin-top: -100px;position: absolute;top: 50%;width: 600px;">
 			<form action="/admin/login.jhtml" method="post">
 				<div style="float: left;border: 1px solid #A8AFB7;width: 35px;height: 37px;">
 					<img src="/static/public/images/user.png" style="width: 20px;height: 20px;margin: 8px 0px 0px 7px;" />
@@ -63,8 +60,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="float: left;">
 					<input type="password" name="password" id="password" placeholder="密码" style="width: 130px;height: 38px;border: none;text-indent: 10px;" />
 				</div>
-				<div style="float: left;margin-left: 141px;">
-					<input type="image" src="/static/public/images/login1.png" style="float: left;width: 125px;height: 39px;" />
+				<div style="margin-left: 141px;">
+					<input type="submit"  value="登陆" style="float: left;width: 125px;height: 39px;" />
 				</div>
 			</form>
 		</div>
