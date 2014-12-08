@@ -76,6 +76,7 @@ a{
     text-align: center;
     top: 50%;
     width: 485px;
+    border-radius:4px;
 }
 #inputForm td {
     color: #000;
@@ -228,4 +229,13 @@ a{
 }
 .select_Img input {
 	opacity: 0; position: relative; width: 100px; height: 100px; top: -112px;cursor:pointer;
+}
+.login_text:hover{
+	border:1px solid #74b9ef;
+	box-shadow:0 1px 2px rgba(0,0,0,0.1) inset, 0 0 8px rgba(82,168,236,0.6);
+	transition:box-shadow 0.2s linear 0s;
+}
+.freeReg:hover{
+	background: purple;
+	font-size:15px;
 }

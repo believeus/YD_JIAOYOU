@@ -56,6 +56,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				});
 			});
+			if(window.screen.width == 1920){
+				$(".horse img").css({"position":"fixed","bottom":"90px"});
+				$(".footer").css({"position":"fixed","bottom":"0"});
+				$(".list-main").css({"padding-top":"200px"});
+			}
 		});
 	</script>
 	<body style="background: url(/static/public/images/bg2-1.jpg);overflow-x:hidden;">

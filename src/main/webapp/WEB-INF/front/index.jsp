@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style type="text/css">
 	body{
 		font-size:12px;
-		background: url(/static/public/images/bg.jpg) no-repeat scroll center top / 100% auto #D3E9F6;
+		background: url(/static/public/images/bg.jpg) no-repeat scroll center top / 100% auto #790284;
 	    height: 100%;
 	    position: relative;
 	}
@@ -28,9 +28,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 <script type="text/javascript">
 	$().ready(function() {
-		
-		if(window.screen.width > 1440){
+		//alert(window.screen.width);
+		if(window.screen.width > 1440 || window.screen.width == 1920){
 			$(".footer").css("position","fixed");
+			$(".regForm").css({"margin":"-58px 0 0 134px"});
 		}else if(window.screen.width == 1366){
 			$(".center").css({"height":"565px"});
 		}else if(window.screen.width == 1280){

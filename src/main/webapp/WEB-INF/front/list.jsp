@@ -61,6 +61,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(size ==0){
 				$(".horse img").css({"position":"fixed","bottom":"90px"});
 				$(".footer").css({"position":"fixed","bottom":"0"});
+			}else if(window.screen.width == 1920 && size < 3){
+				$(".horse img").css({"position":"fixed","bottom":"90px"});
+				$(".footer").css({"position":"fixed","bottom":"0"});
 			}
 		});
 	</script>
