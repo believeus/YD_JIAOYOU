@@ -70,14 +70,14 @@ var ProvinceCase = function(provinceID,cityID,defaultProvince,defaultCity) {
 			$('#'+cityID).append($("<option selected='selected' value=''>-请选择市-</option>"));
 		}
 		
-		$('#'+cityID).attr("disabled","disabled");
+		//$('#'+cityID).attr("disabled","disabled");
 		// 从数组中提取省份信息
 		for ( var p in provinces) {
 			if(p==defaultProvince)continue;
 			$('#'+provinceID).append($("<option value='" + p + "'>" + p + "</option>"));
 		}
 		$("#"+provinceID).change(function(){
-			$('#'+cityID).removeAttr("disabled");
+			//$('#'+cityID).removeAttr("disabled");
 			provinceCase.loadCity();
 		});
 	};

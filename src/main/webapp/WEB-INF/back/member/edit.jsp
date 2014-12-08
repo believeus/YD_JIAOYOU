@@ -119,7 +119,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$("#carCase").val("${member.carCase}");
 		$("#houseCase").val("${member.houseCase}");
 		$("#unitNature").val("${member.unitNature}");
-		
 		var provinceCase=new ProvinceCase("province","city","${member.province}","${member.city}"); 
 		provinceCase.init(provinceCase);
 	});
