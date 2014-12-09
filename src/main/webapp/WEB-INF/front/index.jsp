@@ -20,13 +20,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style type="text/css">
 	body{
 		font-size:12px;
-		background: url(/static/public/images/bg.jpg) no-repeat scroll center top / 100% auto #790284;
+		background: url(/static/public/images/bg.jpg) no-repeat scroll #790284;
+/* 		background: url(/static/public/images/bg.jpg) no-repeat scroll center top / 100% auto #790284; */
 	    height: 100%;
 	    position: relative;
 	}
 	a:hover{text-decoration:underline;color: #C20C0C;}
+	.yzmBtn{
+		background:#790284;
+		border:1px solid #790284;
+		color:#fff;
+		border-radius:4px;
+		padding: 2px 6px;
+		cursor:pointer;
+		font-size:12px;
+	}
 </style>
 <script type="text/javascript">
+function timeCountDown(obj,wait){
+	if(wait == 0){
+		$(obj).removeAttr("disabled");
+		$(obj).val("免费获取验证码");
+		$(obj).css({"background":"#790284","border":"1px solid #790284"});
+		wait=60;
+		}else{
+		$(obj).attr("disabled","false");
+		$(obj).val("("+wait+"秒后重新获取)");
+		$(obj).css({"background":"#42B1DC","color":"#D6E9EF","border":"1px solid #42B1DC"});
+		wait--;
+		setTimeout(function(){
+		timeCountDown(obj,wait);
+		},1000)
+	}
+}
 	$().ready(function() {
 		//alert(window.screen.width);
 		if(window.screen.width > 1440 || window.screen.width == 1920){
@@ -39,6 +65,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}else if(window.screen.width == 1280 && window.screen.height == 800){
 			$(".center").css({"height":"575px"});
 		}
+		
+		//短信验证
+		$(".yzmBtn").click(function(){
+			if($("#inputForm").validate().element($("#phoneNum"))){
+				timeCountDown(this,60);
+				var phoneNumber=$("#phoneNum").val();
+				$("#numberCode").next().text("");
+				$(".yzmBtn").attr('disabled',"false");
+				//将手机号码发送给webserivce,获取手机验证码
+				$.get("/generateValidCode.jhtml", {phoneNum: phoneNumber},function(data){
+					if(/[0-9]{4}/.test(data.returnCode)){
+						$(".yzmBtn").attr('disabled',"true");
+					}else{
+						$(".yzmBtn").attr('disabled',"false");
+						$("#numberCode").next().text("获取验证码失败,请重新获取").css("color","red");
+					}
+				},"json");
+			}
+		});
 		
 		var $inputForm = $("#inputForm");
 		// 表单验证
@@ -70,20 +115,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    	minlength:3,
 					maxlength:16
 				   }
-				/* ,vCode:{
+				,vCode:{
 					required:true,
 			        remote:{
-			               type:"POST",
-			               url:"valCodeAction",            
+			               url: "/validateNumberCode.jhtml",            
+			               type: "get",
+			               dataType: "json", 
 			               data:{
 			            	  vCode:function(){return $("#vCode").val();}
 			               } 
-			              } 
-			     } */
+		              } 
+			     }
 			},
 			messages: {
 				phoneNum:{remote:jQuery.format("已注册")}
-			    /*  ,veryCode:  {required:"请输入验证码",remote:jQuery.format("验证码错误")} */
+			    ,veryCode:  {required:"请输入验证码",remote:jQuery.format("验证码错误")}
 			 }
 			,submitHandler:function(form){
 	    		$.ajax({
@@ -144,6 +190,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					});
 			}
 		});
+		$("#codeImg").click(function(){
+			
+			$("#codeImg").attr("src","/jpgCode.do?f="+new Date().getTime());
+			
+		});
 		
 	});
 	
@@ -177,7 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!--<img src="images/chun.png" style="position: absolute;left: 15%;top: 50%;"/>-->
 		<div class="regForm">
 		<form id="inputForm" action="/register.jhtml" method="post" enctype="multipart/form-data">
-			<table style="height: 100%; width: 80%; margin: 0px auto;">
+			<table style="height: 100%; width: 90%; margin: 0px auto;">
 				<tr>
 					<td colspan="3" style="text-align: center; font-weight: bold; font-size: 20px;line-height:30px;">
 						59秒完成注册，下1秒享受幸福！
@@ -190,22 +241,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td>手机号码：</td>
-					<td><input type="text" placeholder="请填写" name="phoneNum" id="phoneNum" class="login_text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11"></td>
+					<td><input type="text" placeholder="请填写" name="phoneNum" id="phoneNum" class="login_text" onkeyup="value=this.value.replace(/\D+/g,'')" maxlength="11" minlegnth="11" /></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>验证码：</td>
-					<td><input type="text" name="vCode" class="login_text"><a href="#" style="font-size:12px;">获取验证码</a></td>
+					<td>
+						<input id="vCode" type="text" name="vCode" placeholder="验证码" class="login_text" />
+					</td>
+					<td>
+						<!-- <input type="button" class="yzmBtn" value="获取验证码" /> -->
+						<img src="/jpgCode.do" id="codeImg" />
+					</td>
 				</tr>
 				<tr>
 					<td>密码：</td>
-					<td><input type="password" placeholder="密码" name="password" id="password" class="login_text" style="font-size: 13px;" maxlength="16"></td>
+					<td><input type="password" placeholder="密码" name="password" id="password" class="login_text" style="font-size: 13px;" maxlength="16" /></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>确认密码：</td>
 					<td colspan="2">
-					<input type="password" placeholder="确认密码" name="enpassword" class="login_text" style="font-size: 13px;" maxlength="16"></td>
+					<input type="password" placeholder="确认密码" name="enpassword" class="login_text" style="font-size: 13px;" maxlength="16" /></td>
 					<td></td>
 				</tr>
 				<tr>
