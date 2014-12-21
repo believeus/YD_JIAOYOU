@@ -311,7 +311,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</span>
 					</div>
 					<div style="text-align:center; margin-top: 10px;">
-						<input type="submit" value="搜索" class="submitBtn">
+						<input type="submit" title="点击搜索" value="" class="submitBtn" style="background:url(/static/public/images/heart.png);border:0; width: 80px; height: 76px;">
 					</div>
 					</form>
 				</div>
