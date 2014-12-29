@@ -43,16 +43,7 @@ public class ControllerPerfectInfo {
 		return "true";
 	}
 	
-	@RequestMapping(value="/perfectInfo")
-	public String perfectInfo(HttpSession session){
-		Tmember member = (Tmember)session.getAttribute("member");
-		if (member.getNickName()!=null) {
-			return "redirect:/memberList.jhtml";
-		}
-		return "/WEB-INF/front/perfectInfo.jsp";
-	}
-
-	@RequestMapping(value="/savePerfectInfo")
+	//@RequestMapping(value="/savePerfectInfo")
 	public String savePerfectInfo(Tmember member,HttpServletRequest request,HttpSession session){
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String storepath = "";

@@ -26,7 +26,7 @@ public class ControllerList {
 	@Resource
 	private MemberService memberService;
 
-	@RequestMapping(value="/memberList")
+	//@RequestMapping(value="/memberList")
 	public String list(HttpServletRequest request){
 		Tmember member = (Tmember)request.getSession().getAttribute("member");
 		int id=member.getId();

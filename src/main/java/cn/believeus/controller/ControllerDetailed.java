@@ -20,7 +20,7 @@ public class ControllerDetailed {
 	@Resource
 	private MemberService memberService;
 
-	@RequestMapping(value="/memberInfo")
+	//@RequestMapping(value="/memberInfo")
 	public String memberInfo(HttpServletRequest request,Integer id){
 		Tmember member = (Tmember) baseService.findObject(Tmember.class, id);
 		request.setAttribute("member", member);

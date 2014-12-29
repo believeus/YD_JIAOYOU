@@ -30,22 +30,18 @@ public class ControllerIndex {
 	@Resource
 	private BaseService baseService;
 
-	@RequestMapping(value = "/index")
+	/*@RequestMapping(value = "/index")
 	public String index(HttpServletRequest request) {
 		return "/WEB-INF/front/index.jsp";
-	}
+		return "/WEB-INF/app/reg.jsp";
+	}*/
 
 	@RequestMapping(value = "/register")
-	public void register(Tmember member, HttpSession session,
+	public String register(Tmember member, HttpSession session,
 			HttpServletResponse response) {
 		Tmember tmember = (Tmember) baseService.findObject(Tmember.class,
 				"phoneNum", member.getPhoneNum());
 		Map<String, Object> message = new HashMap<String, Object>();
-		if (tmember != null) {
-			message.put("message", "手机号码已经注册！");
-			JsonOutToBrower.out(message, response);
-			return;
-		}
 		/*
 		 * String password = DigestUtils.md5Hex(member.getPassword());
 		 * member.setPassword(password);
@@ -53,7 +49,8 @@ public class ControllerIndex {
 		baseService.saveOrUpdata(member);
 		session.setAttribute("member", member);
 		message.put("message", "success");
-		JsonOutToBrower.out(message, response);
+		//JsonOutToBrower.out(message, response);
+		return "redirect:/perfectInfo.jhtml";
 	}
 
 	@RequestMapping(value = "/ajaxComValidReg")
@@ -67,7 +64,7 @@ public class ControllerIndex {
 		return "true";
 	}
 
-	@RequestMapping(value = "/login")
+	//@RequestMapping(value = "/login")
 	public void login(HttpServletRequest request, HttpSession session,
 			HttpServletResponse response) {
 		String phoneNum = request.getParameter("phoneNum");
